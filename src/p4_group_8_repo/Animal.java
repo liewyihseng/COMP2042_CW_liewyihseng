@@ -25,6 +25,7 @@ public class Animal extends Actor {
 	double movement = 13.3333333*2;
 	double movementX = 10.666666*2;
 	int imgSize = 40;
+	int imgSizeWater = 70;
 	boolean carDeath = false;
 	boolean waterDeath = false;
 	boolean stop = false;
@@ -185,17 +186,17 @@ public class Animal extends Actor {
 			if ((now)% 11 ==0) {
 				carD++;
 			}
-			if (carD==1) {
-				setImage(new Image("file:src/p4_group_8_repo/waterdeath1.png", imgSize,imgSize , true, true));
+			if (carD == 1) {
+				setImage(new Image("file:images/waterdeath1test.png", imgSizeWater, imgSizeWater, true, true));
 			}
-			if (carD==2) {
-				setImage(new Image("file:src/p4_group_8_repo/waterdeath2.png", imgSize,imgSize , true, true));
+			if (carD == 2) {
+				setImage(new Image("file:images/waterdeath2test.png", imgSizeWater, imgSizeWater, true, true));
 			}
-			if (carD==3) {
-				setImage(new Image("file:src/p4_group_8_repo/waterdeath3.png", imgSize,imgSize , true, true));
+			if (carD == 3) {
+				setImage(new Image("file:images/waterdeath3test.png", imgSizeWater, imgSizeWater, true, true));
 			}
 			if (carD == 4) {
-				setImage(new Image("file:src/p4_group_8_repo/waterdeath4.png", imgSize,imgSize , true, true));
+				setImage(new Image("file:images/waterdeath4test.png", imgSizeWater, imgSizeWater, true, true));
 			}
 			if (carD == 5) {
 				setX(300);
@@ -251,7 +252,7 @@ public class Animal extends Actor {
 			setX(300);
 			setY(679.8+movement);
 		}
-		else if (getY()<413){
+		else if (getY()<360){
 			waterDeath = true;
 			//setX(300);
 			//setY(679.8+movement);
