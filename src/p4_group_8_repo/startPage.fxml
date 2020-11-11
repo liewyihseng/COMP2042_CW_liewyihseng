@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="startPage" prefHeight="800.0" prefWidth="800.0" xmls="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="////////////">
-
+<AnchorPane fx:id="start" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p4_group_8_repo.startController">
+	<children>
+		<ImageView fitHeight="800.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<image>
+				<Image url="@../../images/startpagefinal.png" />
+			</image>
+		</ImageView>
+		<ImageView fx:id="frame" fitHeight="300.0" fitWidth="300.0" layoutX="148.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         	<image>
+            	<Image url="@../../images/frame.png" />
+         	</image>
+      	</ImageView>
+		<ImageView fx:id="startgame" fitHeight="80.0" fitWidth="80.0" layoutX="257.0" layoutY="500.0" onMouseClicked="#startGame" pickOnBounds="true" preserveRatio="true">
+         	<image>
+            	<Image url="@../../images/startButton.png" />
+         	</image>
+      	</ImageView>
+	</children>
 </AnchorPane>

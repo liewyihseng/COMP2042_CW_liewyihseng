@@ -5,9 +5,13 @@ import java.util.List;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
@@ -25,16 +29,20 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	    background = new MyStage();
-
+/*
 	    //primaryStage is the window itself
 	    //So its like showing scene in the stage (Scene in primaryStage)
 	    //Show something inside Stage (Setting the scene on the stage)
 	    Scene scene  = new Scene(background,610,829);
-	    
+	*/    
 		//Obstacle obstacle = new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 25, 25, 3);
 		//Obstacle obstacle1 = new Obstacle("file:src/p4_group_8_repo/truck2Right.png", 100, 100,2 );
 		//Obstacle obstacle2 = new Obstacle("file:src/p4_group_8_repo/truck1Right.png",0,  150, 1);
-
+	    
+	    Parent startPage=FXMLLoader.load(getClass().getResource("/p4_group_8_repo/startPage.fxml"));
+	    Scene scene = new Scene(startPage,610,829);
+	    
+	    
 	    
 		BackgroundImage froggerback = new BackgroundImage("file:images/mapfinal1.png");
 	    

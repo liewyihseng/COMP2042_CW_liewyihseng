@@ -135,6 +135,7 @@ public class Animal extends Actor {
 	@Override
 	public void act(long now) {
 		int bounds = 0;
+		
 		if (getY()<0 || getY()>734) {
 			setX(300);
 			setY(679.8+movement);
@@ -168,7 +169,9 @@ public class Animal extends Actor {
 			// attribute
 			// <a href="https://www.freepik.com/vectors/cartoon">Cartoon vector created by freepik - www.freepik.com</a>
 			if (carD == 7) {
-				setX(300);
+				
+				//Set Respawn
+				setX(275); //Center
 				setY(679.8+movement);
 				carDeath = false;
 				carD = 0;
@@ -199,7 +202,9 @@ public class Animal extends Actor {
 				setImage(new Image("file:images/waterdeath4test.png", imgSizeWater, imgSizeWater, true, true));
 			}
 			if (carD == 5) {
-				setX(300);
+				
+				//Set Respawn
+				setX(275); //Center
 				setY(679.8+movement);
 				waterDeath = false;
 				carD = 0;
