@@ -11,11 +11,10 @@ public class Digit extends Actor{
 		
 	}
 	
-	public Digit(int n, int dim, int x, int y) {
-		im1 = new Image("file:src/p4_group_8_repo/"+n+".png", dim, dim, true, true);
+	public Digit(int n, int size, int x, int y) {
+		im1 = new Image("file:src/p4_group_8_repo/"+n+".png", size, size, true, true);
 		setImage(im1);
-		setX(x);
-		setY(y);
+		setCoordinate(x,y);
 	}
 	
 }

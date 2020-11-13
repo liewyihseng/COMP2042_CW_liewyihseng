@@ -30,13 +30,12 @@ public class Animal extends Actor {
 	boolean waterDeath = false;
 	boolean stop = false;
 	boolean changeScore = false;
-	int carD = 0;
+	int death = 0;
 	double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
 	public Animal(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
-		setX(300);
-		setY(679.8+movement);
+		setCoordinate(275, (int) (679.8+movement));
 		imgW1 = new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true);
 		imgA1 = new Image("file:src/p4_group_8_repo/froggerLeft.png", imgSize, imgSize, true, true);
 		imgS1 = new Image("file:src/p4_group_8_repo/froggerDown.png", imgSize, imgSize, true, true);
@@ -99,7 +98,9 @@ public class Animal extends Actor {
 		});	
 		setOnKeyReleased(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
-				if (noMove) {}
+				if (noMove) {
+					
+				}
 				else {
 				if (event.getCode() == KeyCode.W) {	  
 					if (getY() < w) {
@@ -137,85 +138,20 @@ public class Animal extends Actor {
 		int bounds = 0;
 		
 		if (getY()<0 || getY()>734) {
-			setX(300);
-			setY(679.8+movement);
+			setCoordinate(275, (int) (679.8+movement));
 		}
 		if (getX()<0) {
 			move(movement*2, 0);
 		}
+		
 		if (carDeath) {
-			noMove = true;
-			if ((now)% 11 ==0) {
-				carD++;
-			}
-			if (carD==1) {
-				setImage(new Image("file:images/cardeath1test.png", imgSize, imgSize, true, true));
-			}
-			if (carD==2) {
-				setImage(new Image("file:images/cardeath2test.png", imgSize, imgSize, true, true));
-			}
-			if (carD==3) {
-				setImage(new Image("file:images/cardeath3test.png", imgSize, imgSize, true, true));
-			}
-			if (carD==4) {
-				setImage(new Image("file:images/cardeath4test.png", imgSize, imgSize, true, true));
-			}
-			if (carD==5) {
-				setImage(new Image("file:images/cardeath5test.png", imgSize, imgSize, true, true));
-			}
-			if (carD==6) {
-				setImage(new Image("file:images/cardeath6test.png", imgSize, imgSize, true, true));
-			}
-			// attribute
-			// <a href="https://www.freepik.com/vectors/cartoon">Cartoon vector created by freepik - www.freepik.com</a>
-			if (carD == 7) {
-				
-				//Set Respawn
-				setX(275); //Center
-				setY(679.8+movement);
-				carDeath = false;
-				carD = 0;
-				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
-				noMove = false;
-				if (points>50) {
-					points-=50;
-					changeScore = true;
-				}
-			}
-			
+			deathLoopAnimation(now);
+			carDeathAnimation();
 		}
+		
 		if (waterDeath) {
-			noMove = true;
-			if ((now)% 11 ==0) {
-				carD++;
-			}
-			if (carD == 1) {
-				setImage(new Image("file:images/waterdeath1test.png", imgSizeWater, imgSizeWater, true, true));
-			}
-			if (carD == 2) {
-				setImage(new Image("file:images/waterdeath2test.png", imgSizeWater, imgSizeWater, true, true));
-			}
-			if (carD == 3) {
-				setImage(new Image("file:images/waterdeath3test.png", imgSizeWater, imgSizeWater, true, true));
-			}
-			if (carD == 4) {
-				setImage(new Image("file:images/waterdeath4test.png", imgSizeWater, imgSizeWater, true, true));
-			}
-			if (carD == 5) {
-				
-				//Set Respawn
-				setX(275); //Center
-				setY(679.8+movement);
-				waterDeath = false;
-				carD = 0;
-				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
-				noMove = false;
-				if (points>50) {
-					points-=50;
-					changeScore = true;
-				}
-			}
-			
+			deathLoopAnimation(now);
+			waterDeathAnimation();
 		}
 		
 		if (getX()>600) {
@@ -254,8 +190,7 @@ public class Animal extends Actor {
 			w=800;
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
-			setX(300);
-			setY(679.8+movement);
+			setCoordinate(275, (int) (679.8+movement));
 		}
 		else if (getY()<360){
 			waterDeath = true;
@@ -280,5 +215,82 @@ public class Animal extends Actor {
 		
 	}
 	
-
+	public void carDeathAnimation(){
+		int deathType = 1;
+		if (death == 1) {
+			setImage(new Image("file:images/cardeath1test.png", imgSize, imgSize, true, true));
+		}
+		if (death ==2) {
+			setImage(new Image("file:images/cardeath2test.png", imgSize, imgSize, true, true));
+		}
+		if (death ==3) {
+			setImage(new Image("file:images/cardeath3test.png", imgSize, imgSize, true, true));
+		}
+		if (death ==4) {
+			setImage(new Image("file:images/cardeath4test.png", imgSize, imgSize, true, true));
+		}
+		if (death ==5) {
+			setImage(new Image("file:images/cardeath5test.png", imgSize, imgSize, true, true));
+		}
+		if (death ==6) {
+			setImage(new Image("file:images/cardeath6test.png", imgSize, imgSize, true, true));
+		}
+		// attribute
+		// <a href="https://www.freepik.com/vectors/cartoon">Cartoon vector created by freepik - www.freepik.com</a>
+		if (death == 7) {
+			respawn(deathType);
+			deathScoreDecrement(points, changeScore);
+		}
+	}
+	
+	public void waterDeathAnimation() {
+		int deathType = 2;
+		if (death == 1) {
+			setImage(new Image("file:images/waterdeath1test.png", imgSizeWater, imgSizeWater, true, true));
+		}
+		if (death == 2) {
+			setImage(new Image("file:images/waterdeath2test.png", imgSizeWater, imgSizeWater, true, true));
+		}
+		if (death == 3) {
+			setImage(new Image("file:images/waterdeath3test.png", imgSizeWater, imgSizeWater, true, true));
+		}
+		if (death == 4) {
+			setImage(new Image("file:images/waterdeath4test.png", imgSizeWater, imgSizeWater, true, true));
+		}
+		if (death == 5) {
+			respawn(deathType);
+			deathScoreDecrement(points, changeScore);
+		}
+	}
+	
+	public void deathScoreDecrement(int points, Boolean changeScore) {
+		if(points > 50) {
+			points -= 50;
+			changeScore = true;
+		}
+	}
+	
+	public void respawn(int deathType) {
+		//Set Respawn
+		setCoordinate(275, (int)(679.8 + movement));
+		death = 0;
+		switch(deathType) {
+		case 1 :
+			carDeath = false;
+			break;
+			
+		case 2 :
+			waterDeath = false;
+			break;
+		}
+		setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
+		noMove = false;
+	}
+	
+	public void deathLoopAnimation(long now) {
+		noMove = true;
+		if ((now)% 11 ==0) {
+			death++;
+		}
+	}
 }

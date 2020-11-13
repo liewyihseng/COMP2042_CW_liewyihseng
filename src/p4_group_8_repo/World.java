@@ -26,6 +26,8 @@ public abstract class World extends Pane {
 			@Override
 			public void changed(ObservableValue<? extends Scene> observable, Scene oldValue, Scene newValue) {
 				if (newValue != null) {
+					
+					
 					newValue.setOnKeyReleased(new EventHandler<KeyEvent>() {
 
 						@Override
@@ -42,8 +44,8 @@ public abstract class World extends Pane {
 						
 					});
 					
+					
 					newValue.setOnKeyPressed(new EventHandler<KeyEvent>() {
-
 						@Override
 						public void handle(KeyEvent event) {
 							if(getOnKeyPressed() != null) 
@@ -55,14 +57,17 @@ public abstract class World extends Pane {
 								}
 							}
 						}
-						
 					});
+					
+					
+					
 				}
 				
 			}
     		
 		});
     }
+	
 
     public void createTimer() {
         timer = new AnimationTimer() {

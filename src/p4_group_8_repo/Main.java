@@ -29,18 +29,18 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	    background = new MyStage();
-/*
+
 	    //primaryStage is the window itself
 	    //So its like showing scene in the stage (Scene in primaryStage)
 	    //Show something inside Stage (Setting the scene on the stage)
 	    Scene scene  = new Scene(background,610,829);
-	*/    
+	    
 		//Obstacle obstacle = new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 25, 25, 3);
 		//Obstacle obstacle1 = new Obstacle("file:src/p4_group_8_repo/truck2Right.png", 100, 100,2 );
 		//Obstacle obstacle2 = new Obstacle("file:src/p4_group_8_repo/truck1Right.png",0,  150, 1);
 	    
-	    Parent startPage=FXMLLoader.load(getClass().getResource("/p4_group_8_repo/startPage.fxml"));
-	    Scene scene = new Scene(startPage,610,829);
+	    //Parent startPage=FXMLLoader.load(getClass().getResource("/p4_group_8_repo/startPage.fxml"));
+	    //Scene scene = new Scene(startPage,610,829);
 	    
 	    
 	    
@@ -121,7 +121,7 @@ public class Main extends Application {
 		
 		//Lane4
 		background.add(new Obstacle("file:images/car2Lefttest.png", 500, 500,-5, 50, 50));
-		background.add(new Digit(0, 30, 360, 5));
+		background.add(new Digit(0, 30, 400, 5));
 		//background.add(obstacle);
 		//background.add(obstacle1);
 		//background.add(obstacle2);

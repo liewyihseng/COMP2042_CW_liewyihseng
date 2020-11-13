@@ -6,8 +6,7 @@ public class Frame extends Actor {
 	
 	public Frame(String imageLink, int size, int xpos, int ypos) {
 		setImage(new Image(imageLink, size, size, true, true));
-		setX(xpos);
-		setY(ypos);
+		setCoordinate(xpos, ypos);
 	}
 	
 	public void act(long now) {

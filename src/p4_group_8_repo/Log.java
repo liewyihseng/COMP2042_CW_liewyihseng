@@ -8,16 +8,13 @@ public class Log extends Actor {
 	@Override
 	public void act(long now) {
 		move(speed , 0);
-		if (getX()>600 && speed>0)
-			setX(-180);
-		if (getX()<-300 && speed<0)
-			setX(700);
+		
+		loopEnterScreen(-180, 700, 600, -300, speed);
 	}
 	
 	public Log(String imageLink, int size, int xpos, int ypos, double s) {
 		setImage(new Image(imageLink, size,size, true, true));
-		setX(xpos);
-		setY(ypos);
+		setCoordinate(xpos, ypos);
 		speed = s;
 		
 	}
