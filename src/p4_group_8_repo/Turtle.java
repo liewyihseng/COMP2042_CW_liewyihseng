@@ -13,7 +13,7 @@ public class Turtle extends Actor{
 	@Override
 	public void act(long now) {
 
-				if (now/counter  % 3 ==0) {
+				if (now/counter % 3 ==0) {
 					setImage(turtle2);
 					
 				}

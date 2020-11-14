@@ -57,7 +57,7 @@ public abstract class Actor extends ImageView{
     
     public void loopEnterScreen(int xEnteringLeft, int xEnteringRight, int xCompLeft, int xCompRight, double speed) { //Making Images to enter the screen after exiting the screen
     	if (getX() > xCompLeft && speed > 0)
-    		setX(xEnteringLeft);	//Enter from left
+    		setX(xEnteringLeft); //Enter from left
     	if(getX() < xCompRight && speed <0)
     		setX(xEnteringRight); //Enter from right
     }
