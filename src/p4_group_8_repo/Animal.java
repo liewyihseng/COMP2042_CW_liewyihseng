@@ -33,7 +33,9 @@ public class Animal extends Actor {
 	int death = 0;
 	double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
-	public Animal(String imageLink) {
+	User user;
+	
+	public Animal(String imageLink, User user) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setCoordinate(275, (int) (679.8+movement));
 		imgW1 = new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true);
@@ -131,6 +133,16 @@ public class Animal extends Actor {
 			}
 			
 		});
+		
+		setUser(user);
+	}
+	
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	@Override
