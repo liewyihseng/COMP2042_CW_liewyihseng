@@ -102,32 +102,32 @@ public class Animal extends Actor {
 					
 				}
 				else {
-				if (event.getCode() == KeyCode.W) {	  
-					if (getY() < w) {
-						changeScore = true;
-						w = getY();
-						points+=10;
-					}
-	                move(0, -movement);
-	                setImage(imgW1);
-	                second = false;
-	            }
-	            else if (event.getCode() == KeyCode.A) {	            	
-	            	 move(-movementX, 0);
-	            	 setImage(imgA1);
-	            	 second = false;
-	            }
-	            else if (event.getCode() == KeyCode.S) {	            	
-	            	 move(0, movement);
-	            	 setImage(imgS1);
-	            	 second = false;
-	            }
-	            else if (event.getCode() == KeyCode.D) {	            	
-	            	 move(movementX, 0);
-	            	 setImage(imgD1);
-	            	 second = false;
-	            }
-	        }
+					if (event.getCode() == KeyCode.W) {	  
+						if (getY() < w) {
+							changeScore = true;
+							w = getY();
+							points += 10;
+						}
+		                move(0, -movement);
+		                setImage(imgW1);
+		                second = false;
+		            }
+		            else if (event.getCode() == KeyCode.A) {	            	
+		            	 move(-movementX, 0);
+		            	 setImage(imgA1);
+		            	 second = false;
+		            }
+		            else if (event.getCode() == KeyCode.S) {	            	
+		            	 move(0, movement);
+		            	 setImage(imgS1);
+		            	 second = false;
+		            }
+		            else if (event.getCode() == KeyCode.D) {	            	
+		            	 move(movementX, 0);
+		            	 setImage(imgD1);
+		            	 second = false;
+		            }
+				}
 			}
 			
 		});
@@ -137,11 +137,17 @@ public class Animal extends Actor {
 	public void act(long now) {
 		int bounds = 0;
 		
-		if (getY()<0 || getY()>734) {
+		//Setting the bound for land (Frog will always be within the screen on land)
+		if (getY() < 0 || getY() > 734) {
 			setCoordinate(275, (int) (679.8+movement));
 		}
-		if (getX()<0) {
+		
+		if (getX() < 0 && getY() > 360) {
 			move(movement*2, 0);
+		}
+		
+		if (getX() > 600 && getY() > 360) {
+			move(-movement*2, 0);
 		}
 		
 		if (carDeath) {
@@ -154,61 +160,83 @@ public class Animal extends Actor {
 			waterDeathAnimation();
 		}
 		
-		if (getX()>600) {
-			move(-movement*2, 0);
-		}
+
+		
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
 		}
+		
 		if (getX() == 240 && getY() == 82) {
 			stop = true;
 		}
+		
+		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
-				move(-2,0);
+				move(-2, 0); 
 			else
-				move (.75,0);
+				move (.75, 0); //move right with the speed of 0.75
 		}
 		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
-			move(-1,0);
+			move(-1, 0); // move left with the speed of 1
 		}
 		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
 			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
-				waterDeath = true;
+				waterDeath = true; //When water death is true, frog step on will cause death
 			} else {
-				move(-1,0);
+				move(-1, 0); // move left with the speed of 1
 			}
 		}
 		else if (getIntersectingObjects(End.class).size() >= 1) {
 			inter = (ArrayList<End>) getIntersectingObjects(End.class);
 			if (getIntersectingObjects(End.class).get(0).isActivated()) {
 				end--;
-				points-=50;
+				points -= 50;
+				setPoints(points);
 			}
 			points+=50;
 			changeScore = true;
-			w=800;
+			w = 800;
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
 			setCoordinate(275, (int) (679.8+movement));
 		}
-		else if (getY()<360){
+		else if (getY() < 360){
 			waterDeath = true;
 			//setX(300);
 			//setY(679.8+movement);
+			
+			
+			/* This needs to be revised
+			if (getX() >600 || getX() <=0 ) {
+				waterDeath = true;
+			}
+			*/
 		}
 	}
 	public boolean getStop() {
-		return end==5;
+		return end == 5;
 	}
 	
 	public int getPoints() {
 		return points;
 	}
 	
+	public void setPoints(int points) {
+		this.points = points;
+	}
+	
+	public boolean getChangeScore() {
+		return changeScore;
+	}
+	
+	public void setChangeScore(boolean changeScore) {
+		this.changeScore = changeScore;
+	}
+	
 	public boolean changeScore() {
-		if (changeScore) {
-			changeScore = false;
+		if (getChangeScore()) {
+			setChangeScore(false);
 			return true;
 		}
 		return false;
@@ -220,19 +248,19 @@ public class Animal extends Actor {
 		if (death == 1) {
 			setImage(new Image("file:images/cardeath1test.png", imgSize, imgSize, true, true));
 		}
-		if (death ==2) {
+		if (death == 2) {
 			setImage(new Image("file:images/cardeath2test.png", imgSize, imgSize, true, true));
 		}
-		if (death ==3) {
+		if (death == 3) {
 			setImage(new Image("file:images/cardeath3test.png", imgSize, imgSize, true, true));
 		}
-		if (death ==4) {
+		if (death == 4) {
 			setImage(new Image("file:images/cardeath4test.png", imgSize, imgSize, true, true));
 		}
-		if (death ==5) {
+		if (death == 5) {
 			setImage(new Image("file:images/cardeath5test.png", imgSize, imgSize, true, true));
 		}
-		if (death ==6) {
+		if (death == 6) {
 			setImage(new Image("file:images/cardeath6test.png", imgSize, imgSize, true, true));
 		}
 		// attribute
@@ -264,8 +292,9 @@ public class Animal extends Actor {
 	}
 	
 	public void deathScoreDecrement(int points, Boolean changeScore) {
-		if(points > 50) {
+		if(getPoints() > 50) {
 			points -= 50;
+			setPoints(points);
 			changeScore = true;
 		}
 	}

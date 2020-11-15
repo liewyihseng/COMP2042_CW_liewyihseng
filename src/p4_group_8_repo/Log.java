@@ -8,7 +8,6 @@ public class Log extends Actor {
 	@Override
 	public void act(long now) {
 		move(speed , 0);
-		
 		loopEnterScreen(-180, 700, 600, -300, speed);
 	}
 	
