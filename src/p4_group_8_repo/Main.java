@@ -5,14 +5,9 @@ import java.util.List;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -46,7 +41,7 @@ public class Main extends Application {
 		Scene scene = new Scene(startpage, 600, 800);
 		
 		//Setting the background image for Start Page screen
-		startpage.addBackgroundImage("file:images/startpagefinal1.png", startpage);
+		startpage.addBackgroundImage("file:images/StartPage.png", startpage);
 
 		//Displaying the background for Game Play screen
 		Scene scene1 = new Scene(gameplay, 600, 800);
@@ -54,16 +49,16 @@ public class Main extends Application {
 		
 		
 		//Setting the background image for gameplay screen
-		gameplay.addBackgroundImage("file:images/mapfinal1.png", gameplay);
+		gameplay.addBackgroundImage("file:images/Map.png", gameplay);
 		
 		//Displaying the element of start page scene
-		Buttons button = new Buttons("file:images/startButton.png", 240, 485, 66, 105, primaryStage, scene1, startpage);
+		Buttons button = new Buttons("file:images/StartButton.png", 240, 485, 66, 105, primaryStage, scene1, startpage);
 		//<a href='https://www.freepik.com/vectors/frame'>Frame vector created by vectorpouch - www.freepik.com</a>
 	
 		
 		//Displaying the element of Game Play scene
 		//Pay more attention here
-		Buttons button2 = new Buttons("file:images/menu.png", 4, 3, 32, 38, primaryStage, scene, gameplay);
+		Buttons button2 = new Buttons("file:images/MenuButton.png", 4, 3, 32, 38, primaryStage, scene, gameplay);
 		
 		
 		//End
@@ -77,9 +72,9 @@ public class Main extends Application {
 		//Water
 		//Lane counting from top to bottom
 		//Lane 1
-		gameplay.add(new Log("file:images/log3test.png", 150, 0, 120, 0.75));
-		gameplay.add(new Log("file:images/log3test.png", 150, 220, 120, 0.75));
-		gameplay.add(new Log("file:images/log3test.png", 150, 440, 120, 0.75));
+		gameplay.add(new Log("file:images/LogShort.png", 150, 0, 120, 0.75));
+		gameplay.add(new Log("file:images/LogShort.png", 150, 220, 120, 0.75));
+		gameplay.add(new Log("file:images/LogShort.png", 150, 440, 120, 0.75));
 
 		//Lane 2
 		gameplay.add(new WetTurtle(600, 168, -1, 140, 140));
@@ -87,13 +82,13 @@ public class Main extends Application {
 		gameplay.add(new WetTurtle(200, 168, -1, 140, 140));
 				
 		//Lane 3
-		gameplay.add(new Log("file:images/logtest.png", 300, 0, 224, -2));
-		gameplay.add(new Log("file:images/logtest.png", 300, 400, 224, -2));
+		gameplay.add(new Log("file:images/LogLong.png", 300, 0, 224, -2));
+		gameplay.add(new Log("file:images/LogLong.png", 300, 400, 224, -2));
 				
 		//Lane 4
-		gameplay.add(new Log("file:images/log3test.png", 150, 50, 279, 0.75));
-		gameplay.add(new Log("file:images/log3test.png", 150, 270, 279, 0.75));
-		gameplay.add(new Log("file:images/log3test.png", 150, 490, 279, 0.75));
+		gameplay.add(new Log("file:images/LogShort.png", 150, 50, 279, 0.75));
+		gameplay.add(new Log("file:images/LogShort.png", 150, 270, 279, 0.75));
+		gameplay.add(new Log("file:images/LogShort.png", 150, 490, 279, 0.75));
 				
 		//Lane 5
 		gameplay.add(new Turtle(500, 327, -1, 140, 140));
@@ -102,24 +97,24 @@ public class Main extends Application {
 
 		//Land
 		//Lane1
-		gameplay.add(new Obstacle("file:images/car2Lefttest.png", 500, 500,-5, 50, 50));
+		gameplay.add(new Obstacle("file:images/Taxi.png", 500, 500,-5, 50, 50));
 				
 		//Lane 2
-		gameplay.add(new Obstacle("file:images/trucklongRighttest.png", 0, 540, 1, 200, 200));
-		gameplay.add(new Obstacle("file:images/trucklongRighttest.png", 500, 540, 1, 200, 200));
+		gameplay.add(new Obstacle("file:images/TruckLong.png", 0, 540, 1, 200, 200));
+		gameplay.add(new Obstacle("file:images/TruckLong.png", 500, 540, 1, 200, 200));
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
 				
 		//Lane 3
-		gameplay.add(new Obstacle("file:images/car1Lefttest.png", 100, 604, -1, 50, 50));
-		gameplay.add(new Obstacle("file:images/car1Lefttest.png", 250, 604, -1, 50, 50));
-		gameplay.add(new Obstacle("file:images/car1Lefttest.png", 400, 604, -1, 50, 50));
-		gameplay.add(new Obstacle("file:images/car1Lefttest.png", 550, 604, -1, 50, 50));
+		gameplay.add(new Obstacle("file:images/CarRed.png", 100, 604, -1, 50, 50));
+		gameplay.add(new Obstacle("file:images/CarRed.png", 250, 604, -1, 50, 50));
+		gameplay.add(new Obstacle("file:images/CarRed.png", 400, 604, -1, 50, 50));
+		gameplay.add(new Obstacle("file:images/CarRed.png", 550, 604, -1, 50, 50));
 				
 		//Lane 4
-		gameplay.add(new Obstacle("file:images/truck2Righttest.png", 0, 645, 1, 120, 120));
-		gameplay.add(new Obstacle("file:images/truck1Righttest.png", 300, 647, 1, 120, 120));
-		gameplay.add(new Obstacle("file:images/truck1Righttest.png", 600, 647, 1, 120, 120));
+		gameplay.add(new Obstacle("file:images/TruckRed.png", 0, 645, 1, 120, 120));
+		gameplay.add(new Obstacle("file:images/TruckYellow.png", 300, 647, 1, 120, 120));
+		gameplay.add(new Obstacle("file:images/TruckYellow.png", 600, 647, 1, 120, 120));
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
 

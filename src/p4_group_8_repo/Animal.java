@@ -160,8 +160,6 @@ public class Animal extends Actor {
 			waterDeathAnimation();
 		}
 		
-
-		
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
 		}
@@ -169,7 +167,6 @@ public class Animal extends Actor {
 		if (getX() == 240 && getY() == 82) {
 			stop = true;
 		}
-		
 		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
@@ -194,7 +191,7 @@ public class Animal extends Actor {
 				points -= 50;
 				setPoints(points);
 			}
-			points+=50;
+			points += 50;
 			changeScore = true;
 			w = 800;
 			getIntersectingObjects(End.class).get(0).setEnd();
@@ -240,28 +237,27 @@ public class Animal extends Actor {
 			return true;
 		}
 		return false;
-		
 	}
 	
 	public void carDeathAnimation(){
 		int deathType = 1;
 		if (death == 1) {
-			setImage(new Image("file:images/cardeath1test.png", imgSize, imgSize, true, true));
+			setImage(new Image("file:images/CarDeath1.png", imgSize, imgSize, true, true));
 		}
 		if (death == 2) {
-			setImage(new Image("file:images/cardeath2test.png", imgSize, imgSize, true, true));
+			setImage(new Image("file:images/CarDeath2.png", imgSize, imgSize, true, true));
 		}
 		if (death == 3) {
-			setImage(new Image("file:images/cardeath3test.png", imgSize, imgSize, true, true));
+			setImage(new Image("file:images/CarDeath3.png", imgSize, imgSize, true, true));
 		}
 		if (death == 4) {
-			setImage(new Image("file:images/cardeath4test.png", imgSize, imgSize, true, true));
+			setImage(new Image("file:images/CarDeath4.png", imgSize, imgSize, true, true));
 		}
 		if (death == 5) {
-			setImage(new Image("file:images/cardeath5test.png", imgSize, imgSize, true, true));
+			setImage(new Image("file:images/CarDeath5.png", imgSize, imgSize, true, true));
 		}
 		if (death == 6) {
-			setImage(new Image("file:images/cardeath6test.png", imgSize, imgSize, true, true));
+			setImage(new Image("file:images/CarDeath6.png", imgSize, imgSize, true, true));
 		}
 		// attribute
 		// <a href="https://www.freepik.com/vectors/cartoon">Cartoon vector created by freepik - www.freepik.com</a>

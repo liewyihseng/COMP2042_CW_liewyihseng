@@ -11,7 +11,7 @@ public class End extends Actor{
 	
 	public End(int x, int y) {
 		setCoordinate(x, y);
-		setImage(new Image("file:images/lilypad.png", 70, 70, true, true));
+		setImage(new Image("file:images/Lilypad.png", 70, 70, true, true));
 	}
 	
 	public void setEnd() {
