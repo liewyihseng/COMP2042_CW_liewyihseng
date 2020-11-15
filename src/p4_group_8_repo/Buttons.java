@@ -15,7 +15,7 @@ public class Buttons extends Actor{
 		
 	}
 	
-	public Buttons(String imageLink, int xpos, int ypos, int xsize, int ysize,Stage stage, Scene resultScene, MyStage dispAtPage) {
+	public Buttons(String imageLink, int xpos, int ypos, int xsize, int ysize, Stage stage, Scene resultScene, MyStage dispAtPage) {
 		Button button = new Button();
 		ImageView buttonImage = new ImageView(imageLink);
 		buttonImage.setFitHeight(xsize);

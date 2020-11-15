@@ -2,11 +2,15 @@ package p4_group_8_repo;
 
 import java.io.File;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class MyStage extends World{
+	
+	Scene scene;
 	MediaPlayer mediaPlayer;
 	@Override
 	public void act(long now) {
@@ -14,7 +18,6 @@ public class MyStage extends World{
 	}
 	
 	public MyStage() {
-		
 //		mediaPlayer.play();
 //		mediaPlayer.setOnEndOfMedia(new Runnable() {
 //
@@ -39,5 +42,11 @@ public class MyStage extends World{
 	public void stopMusic() {
 		mediaPlayer.stop();
 	}
+	
+	public void addBackgroundImage(String imageLink, MyStage stage) {
+		BackgroundImage backgroundIMG = new BackgroundImage(imageLink);
+		stage.add(backgroundIMG);
+	}
+
 
 }

@@ -35,38 +35,39 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception{
+		
+	    //primaryStage is the window itself
+	    //So its like showing scene in the stage (Scene in primaryStage)
+	    //Show something inside Stage (Setting the scene on the stage)
 		startpage = new MyStage();
 		gameplay = new MyStage();
 		
 		//Displaying the background for Start Page screen
 		Scene scene = new Scene(startpage, 600, 800);
-		BackgroundImage startback = new BackgroundImage("file:images/startpagefinal1.png");
-		startpage.add(startback);
 		
-		
+		//Setting the background image for Start Page screen
+		startpage.addBackgroundImage("file:images/startpagefinal1.png", startpage);
+
 		//Displaying the background for Game Play screen
 		Scene scene1 = new Scene(gameplay, 600, 800);
-		BackgroundImage froggerback = new BackgroundImage("file:images/mapfinal1.png");
-		gameplay.add(froggerback);
-		//End
-		//The ending point
+		//Pay more attention here
 		
 		
+		//Setting the background image for gameplay screen
+		gameplay.addBackgroundImage("file:images/mapfinal1.png", gameplay);
+		
+		//Displaying the element of start page scene
 		Buttons button = new Buttons("file:images/startButton.png", 240, 485, 66, 105, primaryStage, scene1, startpage);
 		//<a href='https://www.freepik.com/vectors/frame'>Frame vector created by vectorpouch - www.freepik.com</a>
-		
-		/*
-		//Displaying the element of start page scene
 	
-		Button button = new Button();
-		button.setGraphic(new ImageView("file:images/startButton.png"));
-		//Linking from scene start page to game play scene
-		//Will make gameplay into a class
-		button.setOnAction(e -> primaryStage.setScene(scene1));
-		*/
 		
 		//Displaying the element of Game Play scene
+		//Pay more attention here
 		Buttons button2 = new Buttons("file:images/menu.png", 4, 3, 32, 38, primaryStage, scene, gameplay);
+		
+		
+		//End
+		//The ending point
 		gameplay.add(new End(13,45));
 		gameplay.add(new End(141,45));
 		gameplay.add(new End(141 + 141-13,45));
@@ -128,29 +129,31 @@ public class Main extends Application {
 		gameplay.add(animal);
 		gameplay.start();
 				
-
-
-		
 		//TextField text = new TextField();
 		//text.setMaxWidth(100);
 		
-		startpage.getChildren().addAll(button);
-		gameplay.getChildren().addAll(button2);
 		
-		primaryStage.setTitle("Frogger Game");
+		primaryStage.setTitle("Frogger Arcade");
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
+		start();
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	//V1
 	/*
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	    background = new MyStage();
 
-	    //primaryStage is the window itself
-	    //So its like showing scene in the stage (Scene in primaryStage)
-	    //Show something inside Stage (Setting the scene on the stage)
+
 	    Scene scene  = new Scene(background,610,829);
 	    
 		//Obstacle obstacle = new Obstacle("file:src/p4_group_8_repo/truck1Right.png", 25, 25, 3);
@@ -269,11 +272,8 @@ public class Main extends Application {
             }
         };
     }
+	
 	public void start() {
-		//
-		// Remember to delete comment
-		//
-		// 
 		gameplay.playMusic();
     	createTimer();
         timer.start();
@@ -289,19 +289,8 @@ public class Main extends Application {
     		  int d = n / 10;
     		  int k = n - d * 10;
     		  n = d;
-    		  gameplay.add(new Digit(k, 30, 360 - shift, 25));
+    		  gameplay.add(new Digit(k, 30, 360 - shift, 5));
     		  shift+=30;
     		}
     }
-    /*
-    public Button createButton(String imageLink, Stage stage,Scene resultScene) {
-    	Button button = new Button();
-		button.setGraphic(new ImageView("file:images/startButton.png"));
-		//Linking from scene start page to game play scene
-		//Will make gameplay into a class
-		button.setOnAction(e -> stage.setScene(resultScene));
-		
-		return button;
-    }
-    */
 }
