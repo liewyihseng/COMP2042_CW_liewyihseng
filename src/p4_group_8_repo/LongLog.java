@@ -9,5 +9,4 @@ public class LongLog extends Log{
 		super(xpos, ypos, s);
 		setImage(new Image("file:images/LogLong.png", SIZE, SIZE, true, true));
 	}
-
 }

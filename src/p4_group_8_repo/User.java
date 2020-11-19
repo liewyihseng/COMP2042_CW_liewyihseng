@@ -5,15 +5,37 @@ import java.util.Random;
 public class User {
 	public String userName;
 	public int points;
+	Animal animal;
+	int level;
 	
 	public User() {
 		setUsername(randomUsername());
-		setCurrentPoints(0);
+		setFinalPoints(0);
+		setLevel(1); //Every User starts with level 1
+		//testing
+		animal = new Animal();
+		setAnimal(animal);
 	}
 	
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 	public User(String name) {
 		setUsername(name);
-		setCurrentPoints(0);
+		setFinalPoints(0);
+	}
+	
+	public Animal getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
 	}
 	
 	public String randomUsername() {
@@ -38,12 +60,13 @@ public class User {
 		this.userName = userName;
 	}
 	
-	public void setCurrentPoints(int points) {
+	public void setFinalPoints(int points) {
 		this.points = points;
 	}
 	
-	public int getCurrentPoints() {
+	public int getFinalPoints() {
 		return points;
+		//Used to upload points
 	}
 	
 }

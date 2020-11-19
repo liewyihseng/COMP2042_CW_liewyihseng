@@ -32,12 +32,14 @@ public class GameScene extends Scene{
 		this.backgroundImage = backgroundImage;
 	}
 	
-	public GameScene(MyStage background, BackgroundImage backgroundImage) {
-		
+	public GameScene(MyStage background) {
 		super(background, 600, 800);
-		background.add(backgroundImage);
+		BackgroundImage gameBack = new BackgroundImage("file:images/Map.png");
+		background.add(gameBack);
 		
-		//Add user as param later
+		//Testing
+		user = new User();
+		displayLevel(background);
 		Button menuButton = new Button();
 		ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
 		menuButtonImage.setFitHeight(32);
@@ -68,9 +70,9 @@ public class GameScene extends Scene{
 		background.add(new ShortLog(440, 120, 0.75));
 
 		//Lane 2
-		background.add(new WetTurtle(600, 168, -1, 140, 140));
-		background.add(new WetTurtle(400, 168, -1, 140, 140));
-		background.add(new WetTurtle(200, 168, -1, 140, 140));
+		background.add(new WetTurtle(600, 168, -1));
+		background.add(new WetTurtle(400, 168, -1));
+		background.add(new WetTurtle(200, 168, -1));
 						
 		//Lane 3
 		background.add(new LongLog(0, 224, -2));
@@ -82,9 +84,9 @@ public class GameScene extends Scene{
 		background.add(new ShortLog(490, 279, 0.75));
 						
 		//Lane 5
-		background.add(new Turtle(500, 327, -1, 140, 140));
-		background.add(new Turtle(300, 327, -1, 140, 140));
-		background.add(new WetTurtle(700, 330, -1, 140, 140));
+		background.add(new Turtle(500, 327, -1));
+		background.add(new Turtle(300, 327, -1));
+		background.add(new WetTurtle(700, 330, -1));
 
 		//Land
 		//Lane1
@@ -109,41 +111,41 @@ public class GameScene extends Scene{
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
 		
-		animal = new Animal("file:src/p4_group_8_repo/froggerUp.png", user);
-		background.add(animal);
+		
+		background.add(user.animal);
 		background.start();
 	}
 	
-	public void createTimer(MyStage background, Animal animal) {
+	public void createTimer(MyStage background, User user) {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-            	if (animal.changeScore()) {
-            		setNumber(animal.getPoints(), background);
+            	if (user.animal.changeScore()) {
+            		setNumber(user.animal.getPoints(), background);
             		
             	}
-            	if (animal.getStop()) {
+            	if (user.animal.getStop()) {
             		System.out.print("STOPP:");
             		background.stopMusic();
             		stop();
             		background.stop();
             		Alert alert = new Alert(AlertType.INFORMATION);
             		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Hey "+ animal.user.getUsername() +", Your High Score: "+animal.user.getCurrentPoints()+"!");
+            		alert.setHeaderText("Hey "+ user.getUsername() +", Your High Score: "+ user.animal.getPoints()+"!");
             		alert.setContentText("Highest Possible Score: 850");
             		alert.show();
             	}
-            	//setNumber(animal.getPoints(), background);
-            	//animal.user.setCurrentPoints(animal.getPoints());
-            	//System.out.println(animal.user.getUsername());
-        		//System.out.println(animal.user.getCurrentPoints());
+            	//setNumber(user.animal.getPoints(), background);
+            	//user.setFinalPoints(user.animal.getPoints());
+            	//System.out.println(user.getUsername());
+        		//System.out.println(user.getFinalPoints());
             }
         };
     }
 	
-	public void start(MyStage background, Animal animal) {
+	public void start(MyStage background, User user) {
 		background.playMusic();
-    	createTimer(background, animal);
+    	createTimer(background, user);
         timer.start();
     }
    
@@ -161,9 +163,15 @@ public class GameScene extends Scene{
     		int d = n / 10;
     		int k = n - d * 10;
     		n = d;
-    		background.add(new Digit(k, 30, 360 - shift, 5));
+    		background.add(new Digit(k, 360 - shift, 5));
     		shift += 30;
     	}
+    }
+    
+    public void displayLevel(MyStage background) {
+    	int level;
+    	level = user.getLevel();
+    	background.add(new Digit(level, 500, 5));
     }
     
     

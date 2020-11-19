@@ -27,11 +27,8 @@ import javafx.util.Duration;
 
 
 public class Main extends Application {
-	AnimationTimer timer;
-	MyStage gameplay;
-	MyStage startpage;
 	Animal animal;
-	//MyStage background;
+
 	
 	static MyStage background = new MyStage();
 	
@@ -56,13 +53,13 @@ public class Main extends Application {
 		//Setting the background image for Start Page screen
 		//startpage.addBackgroundImage("file:images/StartPage.png", startpage);
 
-		//BackgroundImage startBack = new BackgroundImage("file:images/StartPage.png");
-		User user = new User();
-		//StartScene startScene  = new StartScene(background, startBack, user);
 		
 		
-		BackgroundImage gameBack = new BackgroundImage("file:images/Map.png");
-		GameScene gameScene = new GameScene(background, gameBack);
+		//StartScene startScene  = new StartScene(background);
+		
+		
+		
+		GameScene gameScene = new GameScene(background);
 		
 		
 		primaryStage.setTitle("Frogger Arcade");
@@ -70,7 +67,7 @@ public class Main extends Application {
 		primaryStage.setScene(gameScene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		gameScene.start(background, gameScene.getAnimal());
+		gameScene.start(background, gameScene.user);
 		
 		
 		
@@ -82,6 +79,5 @@ public class Main extends Application {
 	//Try creating a public method here to link to gamescene from startscene
 	//but will move to controller class
 	//Call it statechange class
-	
-   
+
 }

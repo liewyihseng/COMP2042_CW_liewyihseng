@@ -10,6 +10,8 @@ public class WetTurtle extends Actor{
 	final long counter = 900000000;
 	private int speed;
 	int i = 1;
+	final int WIDTH = 140;
+	final int HEIGHT = 140;
 	boolean bool = true;
 	boolean sunk = false;
 	@Override
@@ -36,11 +38,11 @@ public class WetTurtle extends Actor{
 
 		loopEnterScreen(-200, 600, 600, -75 ,speed);
 	}
-	public WetTurtle(int xpos, int ypos, int s, int w, int h) {
-		turtle1 = new Image("file:images/WetTurtleAnimation2.png", w, h, true, true);
-		turtle2 = new Image("file:images/WetTurtleAnimation1.png", w, h, true, true);
-		turtle3 = new Image("file:images/WetTurtleAnimation3.png", w, h, true, true);
-		turtle4 = new Image("file:images/WetTurtleAnimation4.png", w, h, true, true);
+	public WetTurtle(int xpos, int ypos, int s) {
+		turtle1 = new Image("file:images/WetTurtleAnimation2.png", WIDTH, HEIGHT, true, true);
+		turtle2 = new Image("file:images/WetTurtleAnimation1.png", WIDTH, HEIGHT, true, true);
+		turtle3 = new Image("file:images/WetTurtleAnimation3.png", WIDTH, HEIGHT, true, true);
+		turtle4 = new Image("file:images/WetTurtleAnimation4.png", WIDTH, HEIGHT, true, true);
 		setCoordinate(xpos, ypos);
 		speed = s;
 		setImage(turtle2);

@@ -33,11 +33,10 @@ public class Animal extends Actor {
 	int death = 0;
 	double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
-	User user;
 	
 	
-	public Animal(String imageLink, User user) {
-		setImage(new Image(imageLink, imgSize, imgSize, true, true));
+	public Animal() {
+		setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
 		setCoordinate(275, (int) (679.8+movement));
 		imgW1 = frogMovementImg("file:src/p4_group_8_repo/froggerUp.png");
 		imgA1 = frogMovementImg("file:src/p4_group_8_repo/froggerLeft.png");
@@ -102,7 +101,7 @@ public class Animal extends Actor {
 					if (event.getCode() == KeyCode.W) {	  
 						if (getY() < w) {
 							changeScore = true;
-							w = getY(); // Keep track of which coordinate y u die at
+							w = getY(); // Keep track of which coordinate-y you die at
 							points += 10; // Add 10points to every step forward you have made
 						}
 						moveLocationDisplay(0, -movement, imgW1);
@@ -127,31 +126,26 @@ public class Animal extends Actor {
 		//setUser(user);
 	}
 	
-	public User getUser() {
-		return user;
-	}
-	
-	public void setUser(User user) {
-		this.user = user;
-	}
 	
 	@Override
 	public void act(long now) {
 		int bounds = 0;
 		
-		//Setting the bound for land (Frog will always be within the screen on land)
+		//Setting the bound for gameplay(height) (Frog will always be within the screen on land)
 		if (getY() < 0 || getY() > 734) {
 			setCoordinate(275, (int) (679.8+movement));
 		}
 		
-		if (getX() < 0 && getY() > 360) {
+		//Bound for Screen(left)
+		if (getX() < 0) {
 			move(movement*2, 0);
 		}
 		
-		if (getX() > 600 && getY() > 360) {
+		//Bound for Screen(right)
+		if (getX() > 600) {
 			move(-movement*2, 0);
 		}
-		
+
 		if (carDeath) {
 			deathLoopAnimation(now);
 			carDeathAnimation();
@@ -171,10 +165,14 @@ public class Animal extends Actor {
 		}
 		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
-			if(getIntersectingObjects(Log.class).get(0).getLeft())
-				move(-2, 0); //move left with he speed of 2
-			else
-				move (.75, 0); //move right with the speed of 0.75
+			if(getIntersectingObjects(Log.class).get(0).getLeft()) {
+				move(-2, 0); //move left with speed of 2
+			//Controlling logs moving left
+			}
+			else {
+				move (.75, 0); //move right with speed of 0.75
+			//Controlling logs moving right
+			}
 		}
 		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
 			move(-1, 0); // move left with the speed of 1
@@ -191,7 +189,7 @@ public class Animal extends Actor {
 			if (getIntersectingObjects(End.class).get(0).isActivated()) {
 				end--;
 				points -= 50;
-				//setPoints(points);
+				setPoints(points);
 			}
 			points += 50;
 			changeScore = true;
@@ -200,19 +198,16 @@ public class Animal extends Actor {
 			end++;
 			setCoordinate(275, (int) (679.8+movement));
 		}
-		else if (getY() < 360){
+		else if (getY() < 360 ){
 			waterDeath = true;
 			//setX(300);
 			//setY(679.8+movement);
-			
-			
-			/* This needs to be revised
-			if (getX() >600 || getX() <=0 ) {
+		}
+		else if (getY() < 360)
+			if(getX() >600 || getX() < 0 ) {
 				waterDeath = true;
 			}
-			*/
 		}
-	}
 	public boolean getStop() {
 		return end == 5;
 	}

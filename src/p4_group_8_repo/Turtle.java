@@ -6,6 +6,8 @@ public class Turtle extends Actor{
 	Image turtle1;
 	Image turtle2;
 	Image turtle3;
+	final int WIDTH = 140;
+	final int HEIGHT = 140;
 	private int speed;
 	int i = 1;
 	boolean bool = true;
@@ -28,10 +30,10 @@ public class Turtle extends Actor{
 		move(speed , 0);
 		loopEnterScreen(-200, 600, 600, -75, speed);
 	}
-	public Turtle(int xpos, int ypos, int s, int w, int h) {
-		turtle1 = new Image("file:images/TurtleAnimation1.png", w, h, true, true);
-		turtle2 = new Image("file:images/TurtleAnimation2.png", w, h, true, true);
-		turtle3 = new Image("file:images/TurtleAnimation3.png", w, h, true, true);
+	public Turtle(int xpos, int ypos, int s) {
+		turtle1 = new Image("file:images/TurtleAnimation1.png", WIDTH, HEIGHT, true, true);
+		turtle2 = new Image("file:images/TurtleAnimation2.png", WIDTH, HEIGHT, true, true);
+		turtle3 = new Image("file:images/TurtleAnimation3.png", WIDTH, HEIGHT, true, true);
 		setCoordinate(xpos, ypos);
 		speed = s;
 		setImage(turtle2);

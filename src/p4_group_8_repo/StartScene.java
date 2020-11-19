@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
+import javafx.stage.Popup;
 
 public class StartScene extends Scene{
 
@@ -20,10 +21,11 @@ public class StartScene extends Scene{
 		this.backgroundImage = backgroundImage;
 	}
 
-	public StartScene(MyStage background,BackgroundImage backgroundImage, User user) {
+	public StartScene(MyStage background) {
 		super(background, 600, 800);
-
-		background.add(backgroundImage);
+		BackgroundImage startBack = new BackgroundImage("file:images/StartPage.png");
+		User user = new User();
+		background.add(startBack);
 		
 		Button menuButton = new Button();
 		ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
@@ -66,6 +68,8 @@ public class StartScene extends Scene{
 				user.setUsername(text.getText());
 			}
 			System.out.println("After setting username: "+ user.getUsername());
+			//GameScene gameScene = new GameScene(background);
+			//
 			//launch gamescene
 			//shud pass user into gamescene
 		});
