@@ -20,7 +20,7 @@ public class StartScene extends Scene{
 		this.backgroundImage = backgroundImage;
 	}
 
-	public StartScene(MyStage background,BackgroundImage backgroundImage) {
+	public StartScene(MyStage background,BackgroundImage backgroundImage, User user) {
 		super(background, 600, 800);
 
 		background.add(backgroundImage);
@@ -44,7 +44,8 @@ public class StartScene extends Scene{
 		text.setFocusTraversable(false);
 		text.setAlignment(Pos.CENTER);
 		text.setLayoutX(188);
-		text.setLayoutY(420);
+		text.setLayoutY(430);
+		text.setText(null);
 		Font font = Font.font(18);
 		text.setFont(font);
 		
@@ -60,10 +61,13 @@ public class StartScene extends Scene{
 		background.getChildren().addAll(menuButton, text, startButton);
 		
 		startButton.setOnAction(e ->{
-			User user = new User();
-			user.setUsername(text.getText());
-			System.out.println(user.getUsername());
-			System.out.println("Start Testing successful");
+			System.out.println("Default Username: "+ user.getUsername());
+			if(text.getText()!=null) {
+				user.setUsername(text.getText());
+			}
+			System.out.println("After setting username: "+ user.getUsername());
+			//launch gamescene
+			//shud pass user into gamescene
 		});
 		
 	}

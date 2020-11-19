@@ -35,17 +35,18 @@ public class Animal extends Actor {
 	ArrayList<End> inter = new ArrayList<End>();
 	User user;
 	
+	
 	public Animal(String imageLink, User user) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setCoordinate(275, (int) (679.8+movement));
-		imgW1 = new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true);
-		imgA1 = new Image("file:src/p4_group_8_repo/froggerLeft.png", imgSize, imgSize, true, true);
-		imgS1 = new Image("file:src/p4_group_8_repo/froggerDown.png", imgSize, imgSize, true, true);
-		imgD1 = new Image("file:src/p4_group_8_repo/froggerRight.png", imgSize, imgSize, true, true);
-		imgW2 = new Image("file:src/p4_group_8_repo/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgA2 = new Image("file:src/p4_group_8_repo/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgS2 = new Image("file:src/p4_group_8_repo/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgD2 = new Image("file:src/p4_group_8_repo/froggerRightJump.png", imgSize, imgSize, true, true);
+		imgW1 = frogMovementImg("file:src/p4_group_8_repo/froggerUp.png");
+		imgA1 = frogMovementImg("file:src/p4_group_8_repo/froggerLeft.png");
+		imgS1 = frogMovementImg("file:src/p4_group_8_repo/froggerDown.png");
+		imgD1 = frogMovementImg("file:src/p4_group_8_repo/froggerRight.png");
+		imgW2 = frogMovementImg("file:src/p4_group_8_repo/froggerUpJump.png");
+		imgA2 = frogMovementImg("file:src/p4_group_8_repo/froggerLeftJump.png");
+		imgS2 = frogMovementImg("file:src/p4_group_8_repo/froggerDownJump.png");
+		imgD2 = frogMovementImg("file:src/p4_group_8_repo/froggerRightJump.png");
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
 				if (noMove) {
@@ -53,47 +54,41 @@ public class Animal extends Actor {
 				}
 				else {
 				if (second) {
-					if (event.getCode() == KeyCode.W) {	  
+					if (testKeyW(event)) {	 
+						moveLocationDisplay(0, -movement, imgW1);
 		                move(0, -movement);
 		                changeScore = false;
 		                setImage(imgW1);
 		                second = false;
 		            }
-		            else if (event.getCode() == KeyCode.A) {	            	
-		            	 move(-movementX, 0);
-		            	 setImage(imgA1);
-		            	 second = false;
+		            else if (testKeyA(event)) {
+		            	moveLocationDisplay(-movementX, 0, imgA1);
+		            	second = false;
 		            }
-		            else if (event.getCode() == KeyCode.S) {	            	
-		            	 move(0, movement);
-		            	 setImage(imgS1);
-		            	 second = false;
+		            else if (testKeyA(event)) {
+		            	moveLocationDisplay(0, movement, imgS1);
+		            	second = false;
 		            }
-		            else if (event.getCode() == KeyCode.D) {	            	
-		            	 move(movementX, 0);
-		            	 setImage(imgD1);
-		            	 second = false;
+		            else if (testKeyD(event)) {
+		            	moveLocationDisplay(movementX, 0, imgD1);
+		            	second = false;
 		            }
 				}
-				else if (event.getCode() == KeyCode.W) {	            	
-	                move(0, -movement);
-	                setImage(imgW2);
+				else if (testKeyW(event)) {
+					moveLocationDisplay(0, -movement, imgW2);
 	                second = true;
 	            }
-	            else if (event.getCode() == KeyCode.A) {	            	
-	            	 move(-movementX, 0);
-	            	 setImage(imgA2);
-	            	 second = true;
+	            else if (testKeyA(event)) {	
+	            	moveLocationDisplay(-movementX, 0, imgA2);
+	            	second = true;
 	            }
-	            else if (event.getCode() == KeyCode.S) {	            	
-	            	 move(0, movement);
-	            	 setImage(imgS2);
-	            	 second = true;
+	            else if (testKeyS(event)) {	
+	            	moveLocationDisplay(0, movement, imgS2);
+	            	second = true;
 	            }
-	            else if (event.getCode() == KeyCode.D) {	            	
-	            	 move(movementX, 0);
-	            	 setImage(imgD2);
-	            	 second = true;
+	            else if (testKeyD(event)) {
+	            	moveLocationDisplay(movementX, 0, imgD2);
+	            	second = true;
 	            }
 	        }
 			}
@@ -101,40 +96,35 @@ public class Animal extends Actor {
 		setOnKeyReleased(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
 				if (noMove) {
-					
+
 				}
 				else {
 					if (event.getCode() == KeyCode.W) {	  
 						if (getY() < w) {
 							changeScore = true;
-							w = getY();
-							points += 10;
+							w = getY(); // Keep track of which coordinate y u die at
+							points += 10; // Add 10points to every step forward you have made
 						}
-		                move(0, -movement);
-		                setImage(imgW1);
+						moveLocationDisplay(0, -movement, imgW1);
 		                second = false;
 		            }
-		            else if (event.getCode() == KeyCode.A) {	            	
-		            	 move(-movementX, 0);
-		            	 setImage(imgA1);
-		            	 second = false;
+		            else if (event.getCode() == KeyCode.A) {	
+		            	moveLocationDisplay(-movementX, 0, imgA1);
+		            	second = false;
 		            }
-		            else if (event.getCode() == KeyCode.S) {	            	
-		            	 move(0, movement);
-		            	 setImage(imgS1);
-		            	 second = false;
+		            else if (event.getCode() == KeyCode.S) {
+		            	moveLocationDisplay(0, movement, imgS1);
+		            	second = false;
 		            }
-		            else if (event.getCode() == KeyCode.D) {	            	
-		            	 move(movementX, 0);
-		            	 setImage(imgD1);
-		            	 second = false;
+		            else if (event.getCode() == KeyCode.D) {	       
+		            	moveLocationDisplay(movementX, 0, imgD1);
+		            	second = false;
 		            }
 				}
 			}
 			
 		});
-		
-		setUser(user);
+		//setUser(user);
 	}
 	
 	public User getUser() {
@@ -182,7 +172,7 @@ public class Animal extends Actor {
 		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
-				move(-2, 0); 
+				move(-2, 0); //move left with he speed of 2
 			else
 				move (.75, 0); //move right with the speed of 0.75
 		}
@@ -201,7 +191,7 @@ public class Animal extends Actor {
 			if (getIntersectingObjects(End.class).get(0).isActivated()) {
 				end--;
 				points -= 50;
-				setPoints(points);
+				//setPoints(points);
 			}
 			points += 50;
 			changeScore = true;
@@ -330,4 +320,28 @@ public class Animal extends Actor {
 			death++;
 		}
 	}
+	
+	public Image frogMovementImg(String imageLink) {
+		return new Image(imageLink, imgSize, imgSize, true, true);
+	}
+	
+	public void moveLocationDisplay(double xpos, double ypos,Image img) {
+		move(xpos, ypos);
+		setImage(img);
+	}
+	
+	public boolean testKeyW(KeyEvent event) {
+		return event.getCode() == KeyCode.W;
+	}
+	
+	public boolean testKeyA(KeyEvent event) {
+		return event.getCode() == KeyCode.A;
+	}
+	public boolean testKeyS(KeyEvent event) {
+		return event.getCode() == KeyCode.S;
+	}
+	public boolean testKeyD(KeyEvent event) {
+		return event.getCode() == KeyCode.D;
+	}
+	
 }

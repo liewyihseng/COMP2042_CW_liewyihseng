@@ -14,6 +14,7 @@ public class GameScene extends Scene{
 	User user;
 	MyStage background;
 	AnimationTimer timer;
+
 	
 	public Animal getAnimal() {
 		return animal;
@@ -36,7 +37,7 @@ public class GameScene extends Scene{
 		super(background, 600, 800);
 		background.add(backgroundImage);
 		
-		user = new User("Testing Only");
+		//Add user as param later
 		Button menuButton = new Button();
 		ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
 		menuButtonImage.setFitHeight(32);
@@ -62,9 +63,9 @@ public class GameScene extends Scene{
 		//Water
 		//Lane counting from top to bottom
 		//Lane 1
-		background.add(new Log("file:images/LogShort.png", 150, 0, 120, 0.75));
-		background.add(new Log("file:images/LogShort.png", 150, 220, 120, 0.75));
-		background.add(new Log("file:images/LogShort.png", 150, 440, 120, 0.75));
+		background.add(new ShortLog(0, 120, 0.75));
+		background.add(new ShortLog(220, 120, 0.75));
+		background.add(new ShortLog(440, 120, 0.75));
 
 		//Lane 2
 		background.add(new WetTurtle(600, 168, -1, 140, 140));
@@ -72,13 +73,13 @@ public class GameScene extends Scene{
 		background.add(new WetTurtle(200, 168, -1, 140, 140));
 						
 		//Lane 3
-		background.add(new Log("file:images/LogLong.png", 300, 0, 224, -2));
-		background.add(new Log("file:images/LogLong.png", 300, 400, 224, -2));
+		background.add(new LongLog(0, 224, -2));
+		background.add(new LongLog(400, 224, -2));
 						
 		//Lane 4
-		background.add(new Log("file:images/LogShort.png", 150, 50, 279, 0.75));
-		background.add(new Log("file:images/LogShort.png", 150, 270, 279, 0.75));
-		background.add(new Log("file:images/LogShort.png", 150, 490, 279, 0.75));
+		background.add(new ShortLog(50, 279, 0.75));
+		background.add(new ShortLog(270, 279, 0.75));
+		background.add(new ShortLog(490, 279, 0.75));
 						
 		//Lane 5
 		background.add(new Turtle(500, 327, -1, 140, 140));
@@ -87,24 +88,24 @@ public class GameScene extends Scene{
 
 		//Land
 		//Lane1
-		background.add(new Obstacle("file:images/Taxi.png", 500, 500,-5, 50, 50));
+		background.add(new TaxiCar(500, 500,-5));
 						
 		//Lane 2
-		background.add(new Obstacle("file:images/TruckLong.png", 0, 540, 1, 200, 200));
-		background.add(new Obstacle("file:images/TruckLong.png", 500, 540, 1, 200, 200));
+		background.add(new LongTruck(0, 540, 1));
+		background.add(new LongTruck(500, 540, 1));
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
 						
 		//Lane 3
-		background.add(new Obstacle("file:images/CarRed.png", 100, 604, -1, 50, 50));
-		background.add(new Obstacle("file:images/CarRed.png", 250, 604, -1, 50, 50));
-		background.add(new Obstacle("file:images/CarRed.png", 400, 604, -1, 50, 50));
-		background.add(new Obstacle("file:images/CarRed.png", 550, 604, -1, 50, 50));
+		background.add(new RedCar(100, 604, -1));
+		background.add(new RedCar(250, 604, -1));
+		background.add(new RedCar(400, 604, -1));
+		background.add(new RedCar(550, 604, -1));
 				
 		//Lane 4
-		background.add(new Obstacle("file:images/TruckRed.png", 0, 645, 1, 120, 120));
-		background.add(new Obstacle("file:images/TruckYellow.png", 300, 647, 1, 120, 120));
-		background.add(new Obstacle("file:images/TruckYellow.png", 600, 647, 1, 120, 120));
+		background.add(new RedTruck(0, 645, 1));
+		background.add(new YellowTruck(300, 647, 1));
+		background.add(new YellowTruck(600, 647, 1));
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
 		

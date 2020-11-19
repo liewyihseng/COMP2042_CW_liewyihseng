@@ -2,6 +2,7 @@ package p4_group_8_repo;
 
 import java.io.File;
 import java.util.List;
+import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -24,13 +25,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
 public class Main extends Application {
 	AnimationTimer timer;
 	MyStage gameplay;
 	MyStage startpage;
 	Animal animal;
-	User user;
-	
 	//MyStage background;
 	
 	static MyStage background = new MyStage();
@@ -39,6 +39,7 @@ public class Main extends Application {
 		launch(args);
 
 	}
+
 	
 	
 	@Override
@@ -56,7 +57,8 @@ public class Main extends Application {
 		//startpage.addBackgroundImage("file:images/StartPage.png", startpage);
 
 		//BackgroundImage startBack = new BackgroundImage("file:images/StartPage.png");
-		//StartScene startScene  = new StartScene(background, startBack);
+		User user = new User();
+		//StartScene startScene  = new StartScene(background, startBack, user);
 		
 		
 		BackgroundImage gameBack = new BackgroundImage("file:images/Map.png");

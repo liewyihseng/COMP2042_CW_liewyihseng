@@ -33,10 +33,8 @@ public class WetTurtle extends Actor{
 				}
 			
 		move(speed , 0);
-		if (getX() > 600 && speed>0)
-			setX(-200);
-		if (getX() < -75 && speed<0)
-			setX(600);
+
+		loopEnterScreen(-200, 600, 600, -75 ,speed);
 	}
 	public WetTurtle(int xpos, int ypos, int s, int w, int h) {
 		turtle1 = new Image("file:images/WetTurtleAnimation2.png", w, h, true, true);
