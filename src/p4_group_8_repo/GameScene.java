@@ -132,10 +132,10 @@ public class GameScene extends Scene{
             		alert.setContentText("Highest Possible Score: 850");
             		alert.show();
             	}
-            	setNumber(animal.getPoints(), background);
-            	animal.user.setCurrentPoints(animal.getPoints());
-            	System.out.println(animal.user.getUsername());
-        		System.out.println(animal.user.getCurrentPoints());
+            	//setNumber(animal.getPoints(), background);
+            	//animal.user.setCurrentPoints(animal.getPoints());
+            	//System.out.println(animal.user.getUsername());
+        		//System.out.println(animal.user.getCurrentPoints());
             }
         };
     }
