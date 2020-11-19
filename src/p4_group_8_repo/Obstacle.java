@@ -7,7 +7,10 @@ public class Obstacle extends Actor {
 	@Override
 	public void act(long now) {
 		move(speed , 0);
-		loopEnterScreen(-200, 600, 600, -50, speed);
+		if (getX() > 600 && speed>0)
+			setX(-200);
+		if (getX() < -50 && speed<0)
+			setX(600);
 	}
 	
 	public Obstacle(String imageLink, int xpos, int ypos, double s, int w, int h) {

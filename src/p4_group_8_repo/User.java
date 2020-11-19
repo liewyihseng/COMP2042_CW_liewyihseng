@@ -6,6 +6,7 @@ public class User {
 	
 	public User() {
 		setUsername("null");
+		//Add random generator here
 		setCurrentPoints(0);
 	}
 	

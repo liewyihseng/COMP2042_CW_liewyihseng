@@ -52,10 +52,7 @@ public class Buttons extends Actor{
 	
 	public void setButtonStyle(Button button, int xpos, int ypos){
 		
-		button.setLayoutX(xpos);
-		button.setLayoutY(ypos);
-		button.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
-		button.setCursor(Cursor.HAND);
+
 	}
 	
 }
