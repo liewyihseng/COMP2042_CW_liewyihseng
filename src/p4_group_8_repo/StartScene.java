@@ -41,7 +41,7 @@ public class StartScene extends Scene{
 			System.out.println("Menu Testing successful");
 		});
 		
-		TextField text = new TextField();
+		LimitedTextField text = new LimitedTextField();
 		text.setPromptText("Username");
 		text.setFocusTraversable(false);
 		text.setAlignment(Pos.CENTER);
@@ -61,7 +61,6 @@ public class StartScene extends Scene{
 		startButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
 		startButton.setCursor(Cursor.HAND);
 		background.getChildren().addAll(menuButton, text, startButton);
-		
 		startButton.setOnAction(e ->{
 			System.out.println("Default Username: "+ user.getUsername());
 			if(text.getText()!=null) {

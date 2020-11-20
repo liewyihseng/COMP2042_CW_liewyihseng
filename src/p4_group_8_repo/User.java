@@ -41,7 +41,7 @@ public class User {
 	public String randomUsername() {
 	    int leftLimit = 97; // letter 'a'
 	    int rightLimit = 122; // letter 'z'
-	    int targetStringLength = 10;
+	    int targetStringLength = 13; //Random at 13 character
 	    Random random = new Random();
 	 
 	    String generatedString = random.ints(leftLimit, rightLimit + 1)

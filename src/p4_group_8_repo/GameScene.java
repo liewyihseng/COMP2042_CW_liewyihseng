@@ -39,20 +39,27 @@ public class GameScene extends Scene{
 		
 		//Testing
 		user = new User();
+		displayUsername(background);
+		
+		Frame scoreFrame = new Frame("file:images/ScoreFrame.png", 160, 100, 330, 0);
+		background.add(scoreFrame);
 		displayLevel(background);
+		
 		Button menuButton = new Button();
 		ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
 		menuButtonImage.setFitHeight(32);
 		menuButtonImage.setFitWidth(38);
 		menuButton.setGraphic(menuButtonImage);
 		menuButton.setLayoutX(4);
-		menuButton.setLayoutY(3);
+		menuButton.setLayoutY(1);
 		menuButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
 		menuButton.setCursor(Cursor.HAND);
+		background.getChildren().add(menuButton);
 		menuButton.setOnAction(e ->{
 			//create menuScene here;
 			System.out.println("Menu Testing successful");
 		});
+		
 		
 		//End
 		//The ending point
@@ -163,17 +170,34 @@ public class GameScene extends Scene{
     		int d = n / 10;
     		int k = n - d * 10;
     		n = d;
-    		background.add(new Digit(k, 360 - shift, 5));
-    		shift += 30;
+    		Character character = new Character(k, 450 - shift, 10);
+    		background.add(character);
+    		shift += character.getWidth();
     	}
     }
     
     public void displayLevel(MyStage background) {
     	int level;
     	level = user.getLevel();
-    	background.add(new Digit(level, 500, 5));
+    	Frame levelFrame = new Frame("file:images/LevelFrame.png", 110, 100, 490, 0);
+		background.add(levelFrame);
+    	background.add(new Character(level, 570, 10));
     }
     
+    public void displayUsername(MyStage background) {
+    	int shift = 0;
+    	String username;
+    	char c;
+    	username = user.getUsername();
+    	Frame idFrame = new Frame("file:images/IdFrameLatest.png", 270, 400, 60, 0);
+    	background.add(idFrame);
+    	for(int i=0;i<username.length();i++) {
+    		c = username.toUpperCase().charAt(i);
+    		Character character = new Character(c,115 + shift, 10);
+    		background.add(character);
+    		shift += character.getWidth();
+    	}
+    }
     
     
 
