@@ -80,9 +80,9 @@ public class GameScene extends Scene{
 
 		//Lane 2
 		//With speed
-		background.add(new WetTurtle(600, 168, -1));
-		background.add(new WetTurtle(400, 168, -1));
-		background.add(new WetTurtle(200, 168, -1));
+		background.add(new SinkingTurtle(600, 168, -1));
+		background.add(new SinkingTurtle(400, 168, -1));
+		background.add(new SinkingTurtle(200, 168, -1));
 						
 		//Lane 3
 		//With speed
@@ -97,9 +97,9 @@ public class GameScene extends Scene{
 						
 		//Lane 5
 		//With speed
-		background.add(new Turtle(500, 327, -1));
-		background.add(new Turtle(300, 327, -1));
-		background.add(new WetTurtle(700, 330, -1));
+		background.add(new NonSinkingTurtle(500, 327, -1));
+		background.add(new NonSinkingTurtle(300, 327, -1));
+		background.add(new SinkingTurtle(700, 330, -1));
 
 		//Land
 		//Lane1

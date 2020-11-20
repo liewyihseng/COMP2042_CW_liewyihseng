@@ -178,12 +178,12 @@ public class Animal extends Actor {
 			//Controlling logs moving right
 			}
 		}
-		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
+		else if (getIntersectingObjects(NonSinkingTurtle.class).size() >= 1 && !noMove) {
 			move(-1, 0); // move left with the speed of 1
 			//move(-1 - getIncrementDifficulty(), 0);
 		}
-		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
-			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
+		else if (getIntersectingObjects(SinkingTurtle.class).size() >= 1) {
+			if (getIntersectingObjects(SinkingTurtle.class).get(0).isSunk()) {
 				setWaterDeath(true); //When water death is true, frog step on will cause death
 			} else {
 				move(-1, 0); // move left with the speed of 1
