@@ -25,69 +25,71 @@ public class Animal extends Actor {
 	double movement = 13.3333333*2;
 	double movementX = 10.666666*2;
 	int imgSize = 40;
-	int imgSizeWater = 70;
 	boolean carDeath = false;
 	boolean waterDeath = false;
 	boolean stop = false;
 	boolean changeScore = false;
 	int death = 0;
 	double w = 800;
+	
 	ArrayList<End> inter = new ArrayList<End>();
 	
 	
 	public Animal() {
-		setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
+	//public Animal(User user) {
+		//change to this when solid
+		imgW1 = frogMovementImg("froggerUp.png");
+		imgA1 = frogMovementImg("froggerLeft.png");
+		imgS1 = frogMovementImg("froggerDown.png");
+		imgD1 = frogMovementImg("froggerRight.png");
+		imgW2 = frogMovementImg("froggerUpJump.png");
+		imgA2 = frogMovementImg("froggerLeftJump.png");
+		imgS2 = frogMovementImg("froggerDownJump.png");
+		imgD2 = frogMovementImg("froggerRightJump.png");
+		setImage(imgW1);
 		setCoordinate(275, (int) (679.8+movement));
-		imgW1 = frogMovementImg("file:src/p4_group_8_repo/froggerUp.png");
-		imgA1 = frogMovementImg("file:src/p4_group_8_repo/froggerLeft.png");
-		imgS1 = frogMovementImg("file:src/p4_group_8_repo/froggerDown.png");
-		imgD1 = frogMovementImg("file:src/p4_group_8_repo/froggerRight.png");
-		imgW2 = frogMovementImg("file:src/p4_group_8_repo/froggerUpJump.png");
-		imgA2 = frogMovementImg("file:src/p4_group_8_repo/froggerLeftJump.png");
-		imgS2 = frogMovementImg("file:src/p4_group_8_repo/froggerDownJump.png");
-		imgD2 = frogMovementImg("file:src/p4_group_8_repo/froggerRightJump.png");
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
 				if (noMove) {
 					
 				}
 				else {
-				if (second) {
+				if (isSecond()) {
 					if (testKeyW(event)) {	 
 						moveLocationDisplay(0, -movement, imgW1);
 		                move(0, -movement);
 		                changeScore = false;
 		                setImage(imgW1);
-		                second = false;
+		                setSecond(false);
 		            }
 		            else if (testKeyA(event)) {
 		            	moveLocationDisplay(-movementX, 0, imgA1);
-		            	second = false;
+		            	setSecond(false);
 		            }
 		            else if (testKeyA(event)) {
 		            	moveLocationDisplay(0, movement, imgS1);
-		            	second = false;
+		            	setSecond(false);
 		            }
 		            else if (testKeyD(event)) {
 		            	moveLocationDisplay(movementX, 0, imgD1);
-		            	second = false;
+		            	setSecond(false);
 		            }
 				}
 				else if (testKeyW(event)) {
 					moveLocationDisplay(0, -movement, imgW2);
-	                second = true;
+					setSecond(false);
 	            }
 	            else if (testKeyA(event)) {	
 	            	moveLocationDisplay(-movementX, 0, imgA2);
-	            	second = true;
+	            	setSecond(false);
 	            }
 	            else if (testKeyS(event)) {	
 	            	moveLocationDisplay(0, movement, imgS2);
-	            	second = true;
+	            	setSecond(false);
 	            }
 	            else if (testKeyD(event)) {
 	            	moveLocationDisplay(movementX, 0, imgD2);
-	            	second = true;
+	            	setSecond(false);
 	            }
 	        }
 			}
@@ -105,19 +107,19 @@ public class Animal extends Actor {
 							points += 10; // Add 10points to every step forward you have made
 						}
 						moveLocationDisplay(0, -movement, imgW1);
-		                second = false;
+		                setSecond(false);
 		            }
 		            else if (event.getCode() == KeyCode.A) {	
 		            	moveLocationDisplay(-movementX, 0, imgA1);
-		            	second = false;
+		            	setSecond(false);
 		            }
 		            else if (event.getCode() == KeyCode.S) {
 		            	moveLocationDisplay(0, movement, imgS1);
-		            	second = false;
+		            	setSecond(false);
 		            }
 		            else if (event.getCode() == KeyCode.D) {	       
 		            	moveLocationDisplay(movementX, 0, imgD1);
-		            	second = false;
+		            	setSecond(false);
 		            }
 				}
 			}
@@ -146,18 +148,18 @@ public class Animal extends Actor {
 			move(-movement*2, 0);
 		}
 
-		if (carDeath) {
+		if (isCarDeath()) {
 			deathLoopAnimation(now);
 			carDeathAnimation();
 		}
 		
-		if (waterDeath) {
+		if (isWaterDeath()) {
 			deathLoopAnimation(now);
 			waterDeathAnimation();
 		}
 		
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
-			carDeath = true;
+			setCarDeath(true);
 		}
 		
 		if (getX() == 240 && getY() == 82) {
@@ -167,21 +169,25 @@ public class Animal extends Actor {
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft()) {
 				move(-2, 0); //move left with speed of 2
+				//move(-2 - getIncrementDifficulty(), 0);
 			//Controlling logs moving left
 			}
 			else {
 				move (.75, 0); //move right with speed of 0.75
+				//move(.75 + getIncrementDifficulty(), 0);
 			//Controlling logs moving right
 			}
 		}
 		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
 			move(-1, 0); // move left with the speed of 1
+			//move(-1 - getIncrementDifficulty(), 0);
 		}
 		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
 			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
-				waterDeath = true; //When water death is true, frog step on will cause death
+				setWaterDeath(true); //When water death is true, frog step on will cause death
 			} else {
 				move(-1, 0); // move left with the speed of 1
+				//move(-2 - getIncrementDifficulty(), 0);
 			}
 		}
 		else if (getIntersectingObjects(End.class).size() >= 1) {
@@ -199,13 +205,13 @@ public class Animal extends Actor {
 			setCoordinate(275, (int) (679.8+movement));
 		}
 		else if (getY() < 360 ){
-			waterDeath = true;
+			setWaterDeath(true);
 			//setX(300);
 			//setY(679.8+movement);
 		}
 		else if (getY() < 360)
 			if(getX() >600 || getX() < 0 ) {
-				waterDeath = true;
+				setWaterDeath(true);
 			}
 		}
 	public boolean getStop() {
@@ -220,6 +226,31 @@ public class Animal extends Actor {
 		this.points = points;
 	}
 	
+	public boolean isSecond() {
+		return second;
+	}
+
+	public void setSecond(boolean second) {
+		this.second = second;
+	}
+	
+	public boolean isCarDeath() {
+		return carDeath;
+	}
+
+	public void setCarDeath(boolean carDeath) {
+		this.carDeath = carDeath;
+	}
+
+	
+	public boolean isWaterDeath() {
+		return waterDeath;
+	}
+
+	public void setWaterDeath(boolean waterDeath) {
+		this.waterDeath = waterDeath;
+	}
+
 	public boolean getChangeScore() {
 		return changeScore;
 	}
@@ -239,22 +270,22 @@ public class Animal extends Actor {
 	public void carDeathAnimation(){
 		int deathType = 1;
 		if (death == 1) {
-			setImage(new Image("file:images/CarDeath1.png", imgSize, imgSize, true, true));
+			setDeathAniImg("CarDeath1");
 		}
 		if (death == 2) {
-			setImage(new Image("file:images/CarDeath2.png", imgSize, imgSize, true, true));
+			setDeathAniImg("CarDeath2");
 		}
 		if (death == 3) {
-			setImage(new Image("file:images/CarDeath3.png", imgSize, imgSize, true, true));
+			setDeathAniImg("CarDeath3");
 		}
 		if (death == 4) {
-			setImage(new Image("file:images/CarDeath4.png", imgSize, imgSize, true, true));
+			setDeathAniImg("CarDeath4");
 		}
 		if (death == 5) {
-			setImage(new Image("file:images/CarDeath5.png", imgSize, imgSize, true, true));
+			setDeathAniImg("CarDeath5");
 		}
 		if (death == 6) {
-			setImage(new Image("file:images/CarDeath6.png", imgSize, imgSize, true, true));
+			setDeathAniImg("CarDeath6");
 		}
 		// attribute
 		// <a href="https://www.freepik.com/vectors/cartoon">Cartoon vector created by freepik - www.freepik.com</a>
@@ -267,16 +298,16 @@ public class Animal extends Actor {
 	public void waterDeathAnimation() {
 		int deathType = 2;
 		if (death == 1) {
-			setImage(new Image("file:images/waterdeath1test.png", imgSizeWater, imgSizeWater, true, true));
+			setDeathAniImg("WaterDeath1");
 		}
 		if (death == 2) {
-			setImage(new Image("file:images/waterdeath2test.png", imgSizeWater, imgSizeWater, true, true));
+			setDeathAniImg("WaterDeath2");
 		}
 		if (death == 3) {
-			setImage(new Image("file:images/waterdeath3test.png", imgSizeWater, imgSizeWater, true, true));
+			setDeathAniImg("WaterDeath3");
 		}
 		if (death == 4) {
-			setImage(new Image("file:images/waterdeath4test.png", imgSizeWater, imgSizeWater, true, true));
+			setDeathAniImg("WaterDeath4");
 		}
 		if (death == 5) {
 			respawn(deathType);
@@ -305,7 +336,7 @@ public class Animal extends Actor {
 			waterDeath = false;
 			break;
 		}
-		setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
+		setImage(frogMovementImg("froggerUp.png"));
 		noMove = false;
 	}
 	
@@ -316,8 +347,8 @@ public class Animal extends Actor {
 		}
 	}
 	
-	public Image frogMovementImg(String imageLink) {
-		return new Image(imageLink, imgSize, imgSize, true, true);
+	public Image frogMovementImg(String imageName) {	
+		return new Image("file:src/p4_group_8_repo/"+ imageName, imgSize, imgSize, true, true);
 	}
 	
 	public void moveLocationDisplay(double xpos, double ypos,Image img) {
@@ -332,11 +363,21 @@ public class Animal extends Actor {
 	public boolean testKeyA(KeyEvent event) {
 		return event.getCode() == KeyCode.A;
 	}
+	
 	public boolean testKeyS(KeyEvent event) {
 		return event.getCode() == KeyCode.S;
 	}
+	
 	public boolean testKeyD(KeyEvent event) {
 		return event.getCode() == KeyCode.D;
+	}
+	
+	public void setDeathAniImg(String imageName) {
+		setImage(DeathAnimationImg(imageName));
+	}
+	
+	public Image DeathAnimationImg(String imageName) {
+		return new Image("file:images/"+ imageName +".png", imgSize, imgSize, true, true);
 	}
 	
 }

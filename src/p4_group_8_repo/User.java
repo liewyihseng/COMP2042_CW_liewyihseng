@@ -17,6 +17,11 @@ public class User {
 		setAnimal(animal);
 	}
 	
+	public User(String name) {
+		setUsername(name);
+		setFinalPoints(0);
+	}
+	
 	public int getLevel() {
 		return level;
 	}
@@ -25,10 +30,7 @@ public class User {
 		this.level = level;
 	}
 
-	public User(String name) {
-		setUsername(name);
-		setFinalPoints(0);
-	}
+
 	
 	public Animal getAnimal() {
 		return animal;
@@ -68,5 +70,11 @@ public class User {
 		return points;
 		//Used to upload points
 	}
+	
+    public double getIncrementDifficulty() {
+    	double speedIncrement;
+    	speedIncrement = getLevel() * 0.25;
+    	return speedIncrement;
+    }
 	
 }

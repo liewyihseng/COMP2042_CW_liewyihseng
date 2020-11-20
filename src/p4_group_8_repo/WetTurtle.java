@@ -7,8 +7,8 @@ public class WetTurtle extends Actor{
 	Image turtle2;
 	Image turtle3;
 	Image turtle4;
-	final long counter = 900000000;
-	private int speed;
+	static final int TICK = 900000000;
+	private double speed;
 	int i = 1;
 	final int WIDTH = 140;
 	final int HEIGHT = 140;
@@ -17,15 +17,15 @@ public class WetTurtle extends Actor{
 	@Override
 	public void act(long now) {
 
-				if (now/900000000  % 4 ==0) {
+				if (now/TICK  % 4 ==0) {
 					setImage(turtle2);
 					sunk = false;
 				}
-				else if (now/900000000 % 4 == 1) {
+				else if (now/TICK % 4 == 1) {
 					setImage(turtle1);
 					sunk = false;
 				}
-				else if (now/900000000 %4 == 2) {
+				else if (now/TICK %4 == 2) {
 					setImage(turtle3);
 					sunk = false;
 				}
@@ -38,7 +38,7 @@ public class WetTurtle extends Actor{
 
 		loopEnterScreen(-200, 600, 600, -75 ,speed);
 	}
-	public WetTurtle(int xpos, int ypos, int s) {
+	public WetTurtle(int xpos, int ypos, double s) {
 		turtle1 = new Image("file:images/WetTurtleAnimation2.png", WIDTH, HEIGHT, true, true);
 		turtle2 = new Image("file:images/WetTurtleAnimation1.png", WIDTH, HEIGHT, true, true);
 		turtle3 = new Image("file:images/WetTurtleAnimation3.png", WIDTH, HEIGHT, true, true);

@@ -56,7 +56,6 @@ public class Main extends Application {
 		
 		
 		//StartScene startScene  = new StartScene(background);
-		
 		GameScene gameScene = new GameScene(background);
 		
 		

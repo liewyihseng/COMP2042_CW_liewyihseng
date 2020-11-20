@@ -6,7 +6,7 @@ public class Character extends Actor{
 	int dim;
 	Image im1;
 	int width;
-	final int SIZE= 21;
+	final int SIZE = 20;
 	@Override
 	public void act(long now) {
 		// TODO Auto-generated method stub
