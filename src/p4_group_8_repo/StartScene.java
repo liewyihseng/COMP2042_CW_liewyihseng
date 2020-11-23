@@ -10,7 +10,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Popup;
 
 public class StartScene extends Scene{
-
+	
+	public boolean flag = false;
 	private BackgroundImage backgroundImage;
 	
 	public BackgroundImage getBackgroundImage() {
@@ -75,8 +76,5 @@ public class StartScene extends Scene{
 	}
 	
 	//Try make a controller to handle linking to gamescene
-
-	
-	
 
 }

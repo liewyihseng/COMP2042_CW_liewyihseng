@@ -64,15 +64,21 @@ public class Main extends Application {
 		//screenController.activate("StartScene");
 		//screenController.activate("GameScene");
 		
-		StartScene startScene  = new StartScene(background);
-		//GameScene gameScene = new GameScene(background);
+		
+		
+		
+		
+		
+		
+		//StartScene startScene  = new StartScene(background);
+		GameScene gameScene = new GameScene(background);
 	
 		primaryStage.setTitle("Frogger Arcade");
-		primaryStage.setScene(startScene);
-		//primaryStage.setScene(gameScene);
+		//primaryStage.setScene(startScene);
+		primaryStage.setScene(gameScene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		//gameScene.start(background, gameScene.user);
+		gameScene.start(gameScene.user);
 		//Keep
 		//It is working
 		

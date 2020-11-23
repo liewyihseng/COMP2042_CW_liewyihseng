@@ -15,6 +15,13 @@ public class GameScene extends Scene{
 	MyStage background;
 	AnimationTimer timer;
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
 	public Animal getAnimal() {
 		return animal;
@@ -35,32 +42,13 @@ public class GameScene extends Scene{
 	public GameScene(MyStage background) {
 	//public GameScene(MyStage background, User user)
 		super(background, 600, 800);
+		this.background = background;
 		BackgroundImage gameBack = new BackgroundImage("file:images/Map.png");
 		background.add(gameBack);
 		
 		//Testing
 		user = new User();
-		displayUsername(background);
-		
-		Frame scoreFrame = new Frame("file:images/ScoreFrame.png", 160, 100, 330, 0);
-		background.add(scoreFrame);
-		displayLevel(background);
-		
-		Button menuButton = new Button();
-		ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
-		menuButtonImage.setFitHeight(32);
-		menuButtonImage.setFitWidth(38);
-		menuButton.setGraphic(menuButtonImage);
-		menuButton.setLayoutX(4);
-		menuButton.setLayoutY(1);
-		menuButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
-		menuButton.setCursor(Cursor.HAND);
-		background.getChildren().add(menuButton);
-		menuButton.setOnAction(e ->{
-			//create menuScene here;
-			System.out.println("Menu Testing successful");
-		});
-		
+		topBarDisplay();
 		
 		//End
 		//The ending point
@@ -100,7 +88,12 @@ public class GameScene extends Scene{
 		background.add(new NonSinkingTurtle(500, 327, -1));
 		background.add(new NonSinkingTurtle(300, 327, -1));
 		background.add(new SinkingTurtle(700, 330, -1));
-
+		
+		if(user.level > 5) {
+		//Grass Lane
+		//With Speed
+		background.add(new Snake(0, 392, 4));
+		}
 		//Land
 		//Lane1
 		//With speed
@@ -137,12 +130,18 @@ public class GameScene extends Scene{
 		background.start();
 	}
 	
-	public void createTimer(MyStage background, User user) {
+	public void start(User user) {
+		background.playMusic();
+    	createTimer( user);
+        timer.start();
+    }
+	
+	public void createTimer(User user) {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
             	if (user.animal.changeScore()) {
-            		setNumber(user.animal.getPoints(), background);
+            		setNumber(user.animal.getPoints());
             		System.out.println(user.animal.getPoints());
             	}
             	if (user.animal.getStop()) {
@@ -156,7 +155,7 @@ public class GameScene extends Scene{
             		alert.setContentText("Highest Possible Score: 850");
             		alert.show();
             	}
-            	//setNumber(user.animal.getPoints(), background);
+            	//setNumber(user.animal.getPoints());
             	//user.setFinalPoints(user.animal.getPoints());
             	//System.out.println(user.getUsername());
         		//System.out.println(user.getFinalPoints());
@@ -164,12 +163,6 @@ public class GameScene extends Scene{
         };
     }
 	
-	
-	public void start(MyStage background, User user) {
-		background.playMusic();
-    	createTimer(background, user);
-        timer.start();
-    }
     
    
 
@@ -180,25 +173,25 @@ public class GameScene extends Scene{
     
     //Altered from a while loop to a for loop
     //Solved problem displaying 0 in the hundreds if its a two digit number
-    public void setNumber(int n, MyStage background) {
+    public void setNumber(int n) {
     	int shift = 0;
     	for (int i = 0; i < 3; i++) {
     		int d = n / 10;
     		int k = n - d * 10;
     		n = d;
-    		Character character = new Character(k, 450 - shift, 11);
+    		Character character = new Character(k, 440 - shift, 10);
     		background.add(character);
     		shift += character.getWidth();
     	}
     }
     
-    public void displayLevel(MyStage background) {
+    public void displayLevel() {
     	Frame levelFrame = new Frame("file:images/LevelFrame.png", 110, 100, 490, 0);
 		background.add(levelFrame);
-    	background.add(new Character(user.getLevel(), 570, 11));
+    	background.add(new Character(user.getLevel(), 570, 10));
     }
     
-    public void displayUsername(MyStage background) {
+    public void displayUsername() {
     	int shift = 0;
     	String username;
     	char c;
@@ -213,9 +206,34 @@ public class GameScene extends Scene{
     	}
     }
     
-
+    public void displayScore() {
+    	Frame scoreFrame = new Frame("file:images/ScoreFrame.png", 160, 100, 330, 0);
+		background.add(scoreFrame);
+    }
     
+    public void topBarDisplay() {
+		displayUsername();
+		displayLevel();
+		displayScore();
+		displayMenuButton();
+    }
     
+    public void displayMenuButton() {
+    	Button menuButton = new Button();
+    	ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
+		menuButtonImage.setFitHeight(32);
+		menuButtonImage.setFitWidth(38);
+		menuButton.setGraphic(menuButtonImage);
+		menuButton.setLayoutX(4);
+		menuButton.setLayoutY(1);
+		menuButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
+		menuButton.setCursor(Cursor.HAND);
+		background.getChildren().add(menuButton);
+		menuButton.setOnAction(e ->{
+			//create menuScene here;
+			System.out.println("Menu Testing successful");
+		});
+    }
 
 }
 
