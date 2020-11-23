@@ -64,11 +64,11 @@ public class GameScene extends Scene{
 		
 		//End
 		//The ending point
-		background.add(new End(13,45));
-		background.add(new End(141,45));
-		background.add(new End(141 + 141-13,45));
-		background.add(new End(141 + 141-13+141-13+1,45));
-		background.add(new End(141 + 141-13+141-13+141-13+3,45));
+		background.add(new Lilypad(13,45));
+		background.add(new Lilypad(141,45));
+		background.add(new Lilypad(141 + 141-13,45));
+		background.add(new Lilypad(141 + 141-13+141-13+1,45));
+		background.add(new Lilypad(141 + 141-13+141-13+141-13+3,45));
 				
 		//Water
 		//Lane counting from top to bottom
@@ -164,11 +164,13 @@ public class GameScene extends Scene{
         };
     }
 	
+	
 	public void start(MyStage background, User user) {
 		background.playMusic();
     	createTimer(background, user);
         timer.start();
     }
+    
    
 
     public void stop() {

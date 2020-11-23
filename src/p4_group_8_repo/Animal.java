@@ -32,7 +32,8 @@ public class Animal extends Actor {
 	int death = 0;
 	double w = 800;
 	
-	ArrayList<End> inter = new ArrayList<End>();
+	ArrayList<Lilypad> interLily = new ArrayList<Lilypad>();
+	ArrayList<Crocodile> interCroc = new ArrayList<Crocodile>();
 	
 	
 	public Animal() {
@@ -190,9 +191,9 @@ public class Animal extends Actor {
 				//move(-2 - getIncrementDifficulty(), 0);
 			}
 		}
-		else if (getIntersectingObjects(End.class).size() >= 1) {
-			inter = (ArrayList<End>) getIntersectingObjects(End.class);
-			if (getIntersectingObjects(End.class).get(0).isActivated()) {
+		else if (getIntersectingObjects(Lilypad.class).size() >= 1) {
+			interLily = (ArrayList<Lilypad>) getIntersectingObjects(Lilypad.class);
+			if (getIntersectingObjects(Lilypad.class).get(0).isActivated()) {
 				end--;
 				points -= 50;
 				setPoints(points);
@@ -200,10 +201,11 @@ public class Animal extends Actor {
 			points += 50;
 			changeScore = true;
 			w = 800;
-			getIntersectingObjects(End.class).get(0).setEnd();
+			getIntersectingObjects(Lilypad.class).get(0).setEnd();
 			end++;
 			setCoordinate(275, (int) (679.8+movement));
 		}
+
 		else if (getY() < 360 ){
 			setWaterDeath(true);
 			//setX(300);

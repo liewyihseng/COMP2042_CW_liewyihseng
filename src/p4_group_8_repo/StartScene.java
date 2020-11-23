@@ -68,7 +68,6 @@ public class StartScene extends Scene{
 			}
 			System.out.println("After setting username: "+ user.getUsername());
 			//GameScene gameScene = new GameScene(background);
-			//
 			//launch gamescene
 			//shud pass user into gamescene
 		});
@@ -76,8 +75,7 @@ public class StartScene extends Scene{
 	}
 	
 	//Try make a controller to handle linking to gamescene
-	
-	
+
 	
 	
 

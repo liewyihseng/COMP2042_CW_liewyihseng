@@ -6,8 +6,10 @@ import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -28,7 +30,9 @@ import javafx.util.Duration;
 
 public class Main extends Application {
 	Animal animal;
-
+	MyStage scene1;
+	MyStage scene2;
+	MyStage tempScene;
 	
 	static MyStage background = new MyStage();
 	
@@ -52,22 +56,23 @@ public class Main extends Application {
 		
 		//Setting the background image for Start Page screen
 		//startpage.addBackgroundImage("file:images/StartPage.png", startpage);
-
 		
 		
-		//StartScene startScene  = new StartScene(background);
-		GameScene gameScene = new GameScene(background);
+		//ScreenController screenController = new ScreenController(primaryStage);
+		//screenController.addScreen("StartScene", new StartScene(background));
+		//screenController.addScreen("GameScene", new GameScene(background));
+		//screenController.activate("StartScene");
+		//screenController.activate("GameScene");
 		
-		
+		StartScene startScene  = new StartScene(background);
+		//GameScene gameScene = new GameScene(background);
+	
 		primaryStage.setTitle("Frogger Arcade");
-		//primaryStage.setScene(startScene);
-		primaryStage.setScene(gameScene);
+		primaryStage.setScene(startScene);
+		//primaryStage.setScene(gameScene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		gameScene.start(background, gameScene.user);
-		
-		
-		
+		//gameScene.start(background, gameScene.user);
 		//Keep
 		//It is working
 		

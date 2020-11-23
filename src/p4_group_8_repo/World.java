@@ -58,13 +58,8 @@ public abstract class World extends Pane {
 							}
 						}
 					});
-					
-					
-					
 				}
-				
 			}
-    		
 		});
     }
 	

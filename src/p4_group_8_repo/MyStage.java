@@ -9,8 +9,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class MyStage extends World{
-	
-	Scene scene;
+
 	MediaPlayer mediaPlayer;
 	@Override
 	public void act(long now) {
@@ -47,6 +46,5 @@ public class MyStage extends World{
 		BackgroundImage backgroundIMG = new BackgroundImage(imageLink);
 		stage.add(backgroundIMG);
 	}
-
-
+	
 }
