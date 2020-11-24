@@ -1,11 +1,14 @@
 package p4_group_8_repo;
 
+import java.util.Optional;
+
 import javafx.animation.AnimationTimer;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 
 public class GameScene extends Scene{
@@ -94,6 +97,7 @@ public class GameScene extends Scene{
 		//With Speed
 		background.add(new Snake(0, 392, 4));
 		}
+		
 		//Land
 		//Lane1
 		//With speed
@@ -149,11 +153,14 @@ public class GameScene extends Scene{
             		background.stopMusic();
             		stop();
             		background.stop();
-            		Alert alert = new Alert(AlertType.INFORMATION);
+            		//showConfirmation();
+            		
+            		Alert alert = new Alert(AlertType.CONFIRMATION);
             		alert.setTitle("You Have Won The Game!");
             		alert.setHeaderText("Hey "+ user.getUsername() +", Your High Score: "+ user.animal.getPoints()+"!");
             		alert.setContentText("Highest Possible Score: 850");
             		alert.show();
+            		
             	}
             	//setNumber(user.animal.getPoints());
             	//user.setFinalPoints(user.animal.getPoints());
@@ -233,6 +240,29 @@ public class GameScene extends Scene{
 			//create menuScene here;
 			System.out.println("Menu Testing successful");
 		});
+    }
+    
+    private void showConfirmation() {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("You Have Completed This Level!");
+		alert.setHeaderText("Hey "+ user.getUsername()+", You Current Score is "+ user.animal.getPoints()+"!");
+		alert.setResizable(false);
+		ButtonType Continue = new ButtonType("Continue");
+		ButtonType ViewHighScore = new ButtonType("High Score");
+		ButtonType MainMenu = new ButtonType("Main Menu");
+		alert.setContentText("Select\n-Continue to continue game.\n-High Score to view current high score.\n-Main Menu to return to main menu.");
+		alert.getButtonTypes().clear(); //Removing default ButtonTypes
+		alert.getButtonTypes().addAll(Continue, MainMenu);
+		Optional<ButtonType> option = alert.showAndWait();
+		
+		if(option.get() == Continue) {
+			System.out.println("Continue button is selected");
+		}else if(option.get() == ViewHighScore) {
+			System.out.println("High Score button is selected");
+		}else if(option.get() == MainMenu) {
+			System.out.println("Main menu button is selected");
+		}
+		
     }
 
 }

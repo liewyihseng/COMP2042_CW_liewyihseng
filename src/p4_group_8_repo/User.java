@@ -8,6 +8,10 @@ public class User {
 	Animal animal;
 	int level;
 	
+	
+	/**
+	 * construct an instance of user
+	 */
 	public User() {
 		setUsername(randomUsername());
 		setFinalPoints(0);
@@ -17,11 +21,19 @@ public class User {
 		setAnimal(animal);
 	}
 	
+	/**
+	 * construct an instance of user
+	 * @param name to give the instance
+	 */
 	public User(String name) {
 		setUsername(name);
 		setFinalPoints(0);
 	}
 	
+	/**
+	 * Accesses the user's level 
+	 * @return the user's level value
+	 */
 	public int getLevel() {
 		return level;
 	}
@@ -31,7 +43,10 @@ public class User {
 	}
 
 
-	
+	/**
+	 * Accessing the user's animal
+	 * @return the user's animal
+	 */
 	public Animal getAnimal() {
 		return animal;
 	}
@@ -40,6 +55,10 @@ public class User {
 		this.animal = animal;
 	}
 	
+	/**
+	 * Assigning a random user name if user name is not entered
+	 * @return the randomly generated string to be the user name
+	 */
 	public String randomUsername() {
 	    int leftLimit = 97; // letter 'a'
 	    int rightLimit = 122; // letter 'z'
@@ -54,6 +73,10 @@ public class User {
 	    return generatedString;
 	}
 	
+	/**
+	 * Accessing the user's user name
+	 * @return the user's user name
+	 */
 	public String getUsername() {
 		return userName;
 	}
@@ -62,13 +85,17 @@ public class User {
 		this.userName = userName;
 	}
 	
-	public void setFinalPoints(int points) {
-		this.points = points;
-	}
-	
+	/**
+	 * Accessing the user's final point
+	 * @return the user's final point
+	 */
 	public int getFinalPoints() {
 		return points;
 		//Used to upload points
+	}
+	
+	public void setFinalPoints(int points) {
+		this.points = points;
 	}
 	
     public double getIncrementDifficulty() {
