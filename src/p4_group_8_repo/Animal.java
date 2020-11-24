@@ -8,7 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-
+/**
+ * Represents the main character in the gameplay
+ * @author Liew Yih Seng
+ *
+ */
 public class Animal extends Actor {
 	Image imgW1;
 	Image imgA1;
@@ -35,7 +39,9 @@ public class Animal extends Actor {
 	ArrayList<Lilypad> interLily = new ArrayList<Lilypad>();
 	ArrayList<Crocodile> interCroc = new ArrayList<Crocodile>();
 	
-	
+	/**
+	 * Construct an instance of animal that act as the main character in the gameplay
+	 */
 	public Animal() {
 	//public Animal(User user) {
 		//change to this when solid
@@ -150,11 +156,13 @@ public class Animal extends Actor {
 		}
 
 		if (isCarDeath()) {
+			changeScore = true;
 			deathLoopAnimation(now);
 			carDeathAnimation();
 		}
 		
 		if (isWaterDeath()) {
+			changeScore = true;
 			deathLoopAnimation(now);
 			waterDeathAnimation();
 		}
@@ -216,14 +224,26 @@ public class Animal extends Actor {
 				setWaterDeath(true);
 			}
 		}
+	/** 
+	 * Test if the game ends or not
+	 * @return a boolean if the end of game has been reached
+	 */
 	public boolean getStop() {
 		return end == 5;
 	}
 	
+	/**
+	 * Gets the number of points in the current game
+	 * @return the points that represent the score
+	 */
 	public int getPoints() {
 		return points;
 	}
 	
+	/**
+	 * Sets the number of points in the current game
+	 * @param points to update the current points
+	 */
 	public void setPoints(int points) {
 		this.points = points;
 	}

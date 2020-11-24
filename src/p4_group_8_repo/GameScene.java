@@ -14,7 +14,8 @@ public class GameScene extends Scene{
 	User user;
 	MyStage background;
 	AnimationTimer timer;
-
+	private Character[] score = new Character[4];
+	
 	public User getUser() {
 		return user;
 	}
@@ -48,7 +49,20 @@ public class GameScene extends Scene{
 		
 		//Testing
 		user = new User();
-		topBarDisplay();
+		
+		score[0] = new Character(0, 460, 10);
+		score[1] = new Character(0, 445, 10);
+		score[2] = new Character(0, 430, 10);
+		score[3] = new Character(0, 415, 10);
+
+		displayUsername();
+		displayLevel();
+		displayScore();
+		background.add(score[0]);
+		background.add(score[1]);
+		background.add(score[2]);
+		background.add(score[3]);
+		displayMenuButton();
 		
 		//End
 		//The ending point
@@ -169,21 +183,6 @@ public class GameScene extends Scene{
     public void stop() {
         timer.stop();
     }
-   
-    
-    //Altered from a while loop to a for loop
-    //Solved problem displaying 0 in the hundreds if its a two digit number
-    public void setNumber(int n) {
-    	int shift = 0;
-    	for (int i = 0; i < 3; i++) {
-    		int d = n / 10;
-    		int k = n - d * 10;
-    		n = d;
-    		Character character = new Character(k, 440 - shift, 10);
-    		background.add(character);
-    		shift += character.getWidth();
-    	}
-    }
     
     public void displayLevel() {
     	Frame levelFrame = new Frame("file:images/LevelFrame.png", 110, 100, 490, 0);
@@ -211,13 +210,6 @@ public class GameScene extends Scene{
 		background.add(scoreFrame);
     }
     
-    public void topBarDisplay() {
-		displayUsername();
-		displayLevel();
-		displayScore();
-		displayMenuButton();
-    }
-    
     public void displayMenuButton() {
     	Button menuButton = new Button();
     	ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
@@ -233,6 +225,17 @@ public class GameScene extends Scene{
 			//create menuScene here;
 			System.out.println("Menu Testing successful");
 		});
+    }
+    
+    //Altered from a while loop to a for loop
+    //Solved problem displaying 0 in the hundreds if its a two digit number
+    public void setNumber(int n) {
+    	for (int i = 0; i < 3; i++) {
+    		int d = n / 10;
+    		int k = n - d * 10;
+    		score[i].setCharacter(k);
+    		n = d;
+    	}
     }
 
 }
