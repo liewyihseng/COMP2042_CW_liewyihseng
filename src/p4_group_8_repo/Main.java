@@ -26,11 +26,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/**
- * 
- * @author Liew Yih Seng
- *
- */
 
 public class Main extends Application {
 	Animal animal;
