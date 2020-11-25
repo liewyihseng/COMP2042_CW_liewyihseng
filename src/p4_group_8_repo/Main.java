@@ -6,7 +6,6 @@ import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -29,7 +28,6 @@ import javafx.util.Duration;
 
 
 public class Main extends Application {
-	Animal animal;
 	public Stage primaryStage;
 	public static ScreenController screen;
 	public static void main(String[] args) {
@@ -55,6 +53,7 @@ public class Main extends Application {
 		//GameScene gameScene = new GameScene(background);
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Frogger Arcade");
+		this.primaryStage.getIcons().add(new Image("file:images/FrogIcon.png"));
 		//primaryStage.setScene(screen);
 		//primaryStage.setScene(gameScene);
 		this.primaryStage.setResizable(false);

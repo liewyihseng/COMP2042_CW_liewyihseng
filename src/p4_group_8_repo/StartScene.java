@@ -29,22 +29,21 @@ public class StartScene{
 	public StartScene() {
 		AnchorPane pane = new AnchorPane();
 		pane.setMinSize(800.00, 600.00);
-		//BackgroundImage startBack = new BackgroundImage("file:images/StartPage.png");
-		user = new User();
+		
 		pane.setStyle("-fx-background-image: url('file:images/StartPage.png');" + "-fx-background-size: 600 800;");
-		//screen.add(startBack);
 		
 		Button menuButton = new Button();
 		ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
 		menuButtonImage.setFitHeight(32);
 		menuButtonImage.setFitWidth(38);
 		menuButton.setGraphic(menuButtonImage);
-		menuButton.setLayoutX(4);
-		menuButton.setLayoutY(3);
+		menuButton.setLayoutX(5);
+		menuButton.setLayoutY(5);
 		menuButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
 		menuButton.setCursor(Cursor.HAND);
 		menuButton.setOnAction(e ->{
 			//create menuScene here;
+			Main.setScene("MenuScene");
 			System.out.println("Menu Testing successful");
 		});
 		
@@ -72,6 +71,7 @@ public class StartScene{
 		StartScene = new Scene(pane, 600, 800);
 		
 		startButton.setOnAction(e ->{
+			user = new User();
 			System.out.println("Default Username: "+ user.getUsername());
 			//if(text.getText()!=null) {
 			//	user.setUsername(text.getText());
