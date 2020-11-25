@@ -35,7 +35,6 @@ public class Animal extends Actor {
 	boolean changeScore = false;
 	int death = 0;
 	double w = 800;
-	
 	ArrayList<Lilypad> interLily = new ArrayList<Lilypad>();
 	ArrayList<Crocodile> interCroc = new ArrayList<Crocodile>();
 	
@@ -43,8 +42,6 @@ public class Animal extends Actor {
 	 * Construct an instance of animal that act as the main character in the gameplay
 	 */
 	public Animal() {
-	//public Animal(User user) {
-		//change to this when solid
 		imgW1 = frogMovementImg("froggerUp.png");
 		imgA1 = frogMovementImg("froggerLeft.png");
 		imgS1 = frogMovementImg("froggerDown.png");

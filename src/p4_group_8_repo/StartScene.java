@@ -6,13 +6,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Popup;
 
-public class StartScene extends Scene{
+public class StartScene{
 	
-	public boolean flag = false;
+	private Scene StartScene;
 	private BackgroundImage backgroundImage;
+	public User user;
 	
 	public BackgroundImage getBackgroundImage() {
 		return backgroundImage;
@@ -22,11 +26,13 @@ public class StartScene extends Scene{
 		this.backgroundImage = backgroundImage;
 	}
 
-	public StartScene(MyStage background) {
-		super(background, 600, 800);
-		BackgroundImage startBack = new BackgroundImage("file:images/StartPage.png");
-		User user = new User();
-		background.add(startBack);
+	public StartScene() {
+		AnchorPane pane = new AnchorPane();
+		pane.setMinSize(800.00, 600.00);
+		//BackgroundImage startBack = new BackgroundImage("file:images/StartPage.png");
+		user = new User();
+		pane.setStyle("-fx-background-image: url('file:images/StartPage.png');" + "-fx-background-size: 600 800;");
+		//screen.add(startBack);
 		
 		Button menuButton = new Button();
 		ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
@@ -61,20 +67,30 @@ public class StartScene extends Scene{
 		startButton.setLayoutY(485);
 		startButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
 		startButton.setCursor(Cursor.HAND);
-		background.getChildren().addAll(menuButton, text, startButton);
+		pane.getChildren().addAll(menuButton, text, startButton);
+		
+		StartScene = new Scene(pane, 600, 800);
+		
 		startButton.setOnAction(e ->{
 			System.out.println("Default Username: "+ user.getUsername());
-			if(text.getText()!=null) {
-				user.setUsername(text.getText());
-			}
-			System.out.println("After setting username: "+ user.getUsername());
+			//if(text.getText()!=null) {
+			//	user.setUsername(text.getText());
+			//}
+			//System.out.println("StartScreen username: "+ user.getUsername());
 			//GameScene gameScene = new GameScene(background);
 			//launch gamescene
 			//shud pass user into gamescene
+			Main.setScene("GameScene");
 		});
 		
 	}
 	
 	//Try make a controller to handle linking to gamescene
-
+	public Scene getScene() {
+		return StartScene;
+	}
+	
+	public User getUser() {
+		return user;
+	}
 }

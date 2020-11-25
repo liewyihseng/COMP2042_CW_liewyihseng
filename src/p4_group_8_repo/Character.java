@@ -14,8 +14,7 @@ public class Character extends Actor{
 	}
 	
 	public Character(int n, int x, int y) {
-		im1 = new Image("file:images/"+n+".png", SIZE, SIZE, true, true);
-		setImage(im1);
+		setCharacter(n);
 		setCoordinate(x,y);
 	}
 	

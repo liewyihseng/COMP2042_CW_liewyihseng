@@ -5,11 +5,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ScreenController {
-	private HashMap<String, Scene> screenMap = new HashMap<>();
+	private HashMap<String, Scene> screenMap = new HashMap<String, Scene>();
 	private Stage primaryStage;
+	StartScene startScene = new StartScene();
+	GameScene gameScene = new GameScene();
 	
 	public ScreenController(Stage primaryStage) {
 		this.primaryStage = primaryStage;
+		
+		addScreen("StartScene", startScene.getScene());
+		addScreen("GameScene", gameScene.getScene());
+
+		activate("StartScene");
+		this.primaryStage.show();
 	}
 	
 	protected void addScreen(String name, Scene scene) {
@@ -21,8 +29,9 @@ public class ScreenController {
 	}
 	
 	protected void activate(String name) {
-		primaryStage.setScene(screenMap.get(name));
+		this.primaryStage.setScene(screenMap.get(name));
 	}
+
 	
 	
 }

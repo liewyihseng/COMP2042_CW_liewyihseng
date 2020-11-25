@@ -7,62 +7,31 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
-public class GameScene extends Scene{
+public class GameScene{
 	private BackgroundImage backgroundImage;
 	Animal animal;
 	User user;
 	MyStage background;
 	AnimationTimer timer;
 	private Character[] score = new Character[4];
+	private Scene GameScene;
 	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	public Animal getAnimal() {
-		return animal;
-	}
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
-	}
-
-	public BackgroundImage getBackgroundImage() {
-		return backgroundImage;
-	}
-
-	public void setBackgroundImage(BackgroundImage backgroundImage) {
-		this.backgroundImage = backgroundImage;
-	}
-	
-	public GameScene(MyStage background) {
-	//public GameScene(MyStage background, User user)
-		super(background, 600, 800);
-		this.background = background;
+	public GameScene() {
+	//public GameScene(User user) {
+		background = new MyStage();
 		BackgroundImage gameBack = new BackgroundImage("file:images/Map.png");
 		background.add(gameBack);
-		
-		//Testing
+	
 		user = new User();
 		
-		score[0] = new Character(0, 460, 10);
-		score[1] = new Character(0, 445, 10);
-		score[2] = new Character(0, 430, 10);
-		score[3] = new Character(0, 415, 10);
-
-		displayUsername();
-		displayLevel();
-		displayScore();
-		background.add(score[0]);
-		background.add(score[1]);
-		background.add(score[2]);
-		background.add(score[3]);
 		displayMenuButton();
+		displayUsername();
+		displayScore();
+		displayLevel();
+		
+		
 		
 		//End
 		//The ending point
@@ -71,7 +40,7 @@ public class GameScene extends Scene{
 		background.add(new Lilypad(141 + 141-13,45));
 		background.add(new Lilypad(141 + 141-13+141-13+1,45));
 		background.add(new Lilypad(141 + 141-13+141-13+141-13+3,45));
-				
+
 		//Water
 		//Lane counting from top to bottom
 		//Lane 1
@@ -96,7 +65,7 @@ public class GameScene extends Scene{
 		background.add(new ShortLog(50, 279, 0.75));
 		background.add(new ShortLog(270, 279, 0.75));
 		background.add(new ShortLog(490, 279, 0.75));
-						
+			
 		//Lane 5
 		//With speed
 		background.add(new NonSinkingTurtle(500, 327, -1));
@@ -112,7 +81,7 @@ public class GameScene extends Scene{
 		//Lane1
 		//With speed
 		background.add(new TaxiCar(500, 500,-5));
-						
+		
 		//Lane 2
 		//With speed
 		background.add(new LongTruck(0, 540, 1));
@@ -139,14 +108,18 @@ public class GameScene extends Scene{
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
 		
-		
 		background.add(user.animal);
+		GameScene = new Scene(background, 600, 800);
 		background.start();
+	
+		System.out.println("Test");
+		start(user);
+		
 	}
 	
 	public void start(User user) {
 		background.playMusic();
-    	createTimer( user);
+    	createTimer(user);
         timer.start();
     }
 	
@@ -169,19 +142,26 @@ public class GameScene extends Scene{
             		alert.setContentText("Highest Possible Score: 850");
             		alert.show();
             	}
-            	//setNumber(user.animal.getPoints());
-            	//user.setFinalPoints(user.animal.getPoints());
-            	//System.out.println(user.getUsername());
-        		//System.out.println(user.getFinalPoints());
             }
         };
     }
 	
     
-   
-
     public void stop() {
         timer.stop();
+    }
+    
+    public void displayScore() {
+    	Frame scoreFrame = new Frame("file:images/ScoreFrame.png", 160, 100, 330, 0);
+		background.add(scoreFrame);
+		score[0] = new Character(0, 460, 10);
+		score[1] = new Character(0, 445, 10);
+		score[2] = new Character(0, 430, 10);
+		score[3] = new Character(0, 415, 10);
+		background.add(score[0]);
+		background.add(score[1]);
+		background.add(score[2]);
+		background.add(score[3]);
     }
     
     public void displayLevel() {
@@ -189,7 +169,7 @@ public class GameScene extends Scene{
 		background.add(levelFrame);
     	background.add(new Character(user.getLevel(), 570, 10));
     }
-    
+   
     public void displayUsername() {
     	int shift = 0;
     	String username;
@@ -204,12 +184,8 @@ public class GameScene extends Scene{
     		shift += character.getWidth();
     	}
     }
-    
-    public void displayScore() {
-    	Frame scoreFrame = new Frame("file:images/ScoreFrame.png", 160, 100, 330, 0);
-		background.add(scoreFrame);
-    }
-    
+  
+ 
     public void displayMenuButton() {
     	Button menuButton = new Button();
     	ImageView menuButtonImage = new ImageView("file:images/MenuButton.png");
@@ -226,7 +202,7 @@ public class GameScene extends Scene{
 			System.out.println("Menu Testing successful");
 		});
     }
-    
+      
     //Altered from a while loop to a for loop
     //Solved problem displaying 0 in the hundreds if its a two digit number
     public void setNumber(int n) {
@@ -237,6 +213,37 @@ public class GameScene extends Scene{
     		n = d;
     	}
     }
+      
+    public Scene getScene() {
+    	return GameScene;
+    }
+    
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public Animal getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
+
+	public BackgroundImage getBackgroundImage() {
+		return backgroundImage;
+	}
+
+	public void setBackgroundImage(BackgroundImage backgroundImage) {
+		this.backgroundImage = backgroundImage;
+	}
+	
+	
 
 }
 

@@ -14,12 +14,14 @@ public class User {
 		setLevel(1); //Every User starts with level 1
 		//testing
 		animal = new Animal();
-		setAnimal(animal);
+		
 	}
 	
 	public User(String name) {
 		setUsername(name);
 		setFinalPoints(0);
+		setLevel(1); //Every User starts with level 1
+		animal = new Animal();
 	}
 	
 	public int getLevel() {

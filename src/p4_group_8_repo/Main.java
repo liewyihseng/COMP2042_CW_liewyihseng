@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -29,19 +30,12 @@ import javafx.util.Duration;
 
 public class Main extends Application {
 	Animal animal;
-	MyStage scene1;
-	MyStage scene2;
-	MyStage tempScene;
-	
-	static MyStage background = new MyStage();
-	
+	public Stage primaryStage;
+	public static ScreenController screen;
 	public static void main(String[] args) {
 		launch(args);
-
 	}
 
-	
-	
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 		
@@ -56,35 +50,26 @@ public class Main extends Application {
 		//Setting the background image for Start Page screen
 		//startpage.addBackgroundImage("file:images/StartPage.png", startpage);
 		
-		
-		//ScreenController screenController = new ScreenController(primaryStage);
-		//screenController.addScreen("StartScene", new StartScene(background));
-		//screenController.addScreen("GameScene", new GameScene(background));
-		//screenController.activate("StartScene");
-		//screenController.activate("GameScene");
-		
-		
-		
-		
-		
-		
-		
-		//StartScene startScene  = new StartScene(background);
-		GameScene gameScene = new GameScene(background);
-	
-		primaryStage.setTitle("Frogger Arcade");
-		//primaryStage.setScene(startScene);
-		primaryStage.setScene(gameScene);
-		primaryStage.setResizable(false);
-		primaryStage.show();
-		gameScene.start(gameScene.user);
+		screen = new ScreenController(primaryStage);
+		//StartScene startScene  = new StartScene();
+		//GameScene gameScene = new GameScene(background);
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle("Frogger Arcade");
+		//primaryStage.setScene(screen);
+		//primaryStage.setScene(gameScene);
+		this.primaryStage.setResizable(false);
+		this.primaryStage.show();
+		//gameScene.start(gameScene.user);
 		//Keep
 		//It is working
-		
 	}
 	
 	//Try creating a public method here to link to gamescene from startscene
 	//but will move to controller class
 	//Call it statechange class
 
+	public static void setScene(String sceneName) {
+		screen.activate(sceneName);
+	}
+	
 }
