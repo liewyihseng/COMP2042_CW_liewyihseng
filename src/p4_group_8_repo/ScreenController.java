@@ -10,13 +10,14 @@ public class ScreenController {
 	StartScene startScene = new StartScene();
 	GameScene gameScene = new GameScene();
 	MenuScene menuScene = new MenuScene();
+	//User user = Main.getUser();
 	
 	public ScreenController(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		
 		addScreen("StartScene", startScene.getScene());
-		addScreen("GameScene", gameScene.getScene());
 		addScreen("MenuScene", menuScene.getScene());
+		addScreen("GameScene", gameScene.getScene());
 		
 		activate("StartScene");
 		this.primaryStage.show();

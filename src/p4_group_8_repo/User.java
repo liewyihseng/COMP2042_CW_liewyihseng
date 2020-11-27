@@ -32,8 +32,6 @@ public class User {
 		this.level = level;
 	}
 
-
-	
 	public Animal getAnimal() {
 		return animal;
 	}
@@ -75,7 +73,7 @@ public class User {
 	
     public double getIncrementDifficulty() {
     	double speedIncrement;
-    	speedIncrement = getLevel() * 0.25;
+    	speedIncrement = getLevel() * 0.15;
     	return speedIncrement;
     }
 	

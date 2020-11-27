@@ -30,6 +30,7 @@ import javafx.util.Duration;
 public class Main extends Application {
 	public Stage primaryStage;
 	public static ScreenController screen;
+	public static User user = new User();
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -47,8 +48,10 @@ public class Main extends Application {
 		
 		//Setting the background image for Start Page screen
 		//startpage.addBackgroundImage("file:images/StartPage.png", startpage);
-		
+		//user = new User();
 		screen = new ScreenController(primaryStage);
+		
+		
 		//StartScene startScene  = new StartScene();
 		//GameScene gameScene = new GameScene(background);
 		this.primaryStage = primaryStage;
@@ -62,13 +65,17 @@ public class Main extends Application {
 		//Keep
 		//It is working
 	}
-	
-	//Try creating a public method here to link to gamescene from startscene
-	//but will move to controller class
-	//Call it statechange class
 
 	public static void setScene(String sceneName) {
 		screen.activate(sceneName);
+	}
+	
+	public static void setUser(User user) {
+		Main.user = user;
+	}
+	
+	public static User getUser() {
+		return Main.user;
 	}
 	
 }

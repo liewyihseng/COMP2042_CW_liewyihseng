@@ -16,7 +16,7 @@ public class StartScene{
 	
 	private Scene StartScene;
 	private BackgroundImage backgroundImage;
-	public User user;
+	public User user = Main.getUser();
 	
 	public BackgroundImage getBackgroundImage() {
 		return backgroundImage;
@@ -71,16 +71,21 @@ public class StartScene{
 		StartScene = new Scene(pane, 600, 800);
 		
 		startButton.setOnAction(e ->{
-			user = new User();
-			System.out.println("Default Username: "+ user.getUsername());
-			//if(text.getText()!=null) {
-			//	user.setUsername(text.getText());
-			//}
+			//user = new User();
+			//System.out.println("Default Username: "+ user.getUsername());
+			if(text.getText()!=null) {
+				Main.setUser(new User(text.getText()));
+			}else {
+				Main.setUser(user);
+			}
 			//System.out.println("StartScreen username: "+ user.getUsername());
 			//GameScene gameScene = new GameScene(background);
 			//launch gamescene
 			//shud pass user into gamescene
+			
 			Main.setScene("GameScene");
+			Main.screen.gameScene.displayUsername(Main.getUser().getUsername());
+			System.out.println("Printing username in StartScene: "+ Main.getUser().getUsername());
 		});
 		
 	}
@@ -88,9 +93,5 @@ public class StartScene{
 	//Try make a controller to handle linking to gamescene
 	public Scene getScene() {
 		return StartScene;
-	}
-	
-	public User getUser() {
-		return user;
 	}
 }

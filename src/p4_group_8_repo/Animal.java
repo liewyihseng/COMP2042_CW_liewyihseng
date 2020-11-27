@@ -129,7 +129,6 @@ public class Animal extends Actor {
 			}
 			
 		});
-		//setUser(user);
 	}
 	
 	
@@ -174,25 +173,25 @@ public class Animal extends Actor {
 		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft()) {
-				move(-2, 0); //move left with speed of 2
+				move(-2 - Main.getUser().getIncrementDifficulty(), 0); //move left with speed of 2
 				//move(-2 - getIncrementDifficulty(), 0);
 			//Controlling logs moving left
 			}
 			else {
-				move (.75, 0); //move right with speed of 0.75
+				move (.75 + Main.getUser().getIncrementDifficulty(), 0); //move right with speed of 0.75
 				//move(.75 + getIncrementDifficulty(), 0);
-			//Controlling logs moving right
+				//Controlling logs moving right
 			}
 		}
 		else if (getIntersectingObjects(NonSinkingTurtle.class).size() >= 1 && !noMove) {
-			move(-1, 0); // move left with the speed of 1
+			move(-1 - Main.getUser().getIncrementDifficulty(), 0); // move left with the speed of 1
 			//move(-1 - getIncrementDifficulty(), 0);
 		}
 		else if (getIntersectingObjects(SinkingTurtle.class).size() >= 1) {
 			if (getIntersectingObjects(SinkingTurtle.class).get(0).isSunk()) {
 				setWaterDeath(true); //When water death is true, frog step on will cause death
 			} else {
-				move(-1, 0); // move left with the speed of 1
+				move(-1 - Main.getUser().getIncrementDifficulty(), 0); // move left with the speed of 1
 				//move(-2 - getIncrementDifficulty(), 0);
 			}
 		}
@@ -200,16 +199,17 @@ public class Animal extends Actor {
 			interLily = (ArrayList<Lilypad>) getIntersectingObjects(Lilypad.class);
 			if (getIntersectingObjects(Lilypad.class).get(0).isActivated()) {
 				end--;
-				points -= 50;
-				setPoints(points);
+				points -= 60;
+				System.out.println("final w = "+ w);
+				//setPoints(points);
 			}
-			points += 50;
-			changeScore = true;
-			w = 800;
-			getIntersectingObjects(Lilypad.class).get(0).setEnd();
-			end++;
-			setCoordinate(275, (int) (679.8+movement));
-		}
+				points += 50;
+				changeScore = true;
+				w = 800;
+				getIntersectingObjects(Lilypad.class).get(0).setEnd();
+				end++;
+				setCoordinate(275, (int) (679.8+movement));
+			}
 
 		else if (getY() < 360 ){
 			setWaterDeath(true);
@@ -221,11 +221,28 @@ public class Animal extends Actor {
 				setWaterDeath(true);
 			}
 		}
+	
 	/** 
 	 * Test if the game ends or not
+	 * @param level of the current game 
 	 * @return a boolean if the end of game has been reached
 	 */
-	public boolean getStop() {
+	public boolean getStop(int level) {
+		switch (level){
+			case 1:
+			case 4:
+			case 7: 
+			case 10:
+				return end == 5;
+			case 2:
+			case 5:
+			case 8:
+				return end == 3;
+			case 3:
+			case 6:
+			case 9:
+				return end == 2;
+		}
 		return end == 5;
 	}
 	
