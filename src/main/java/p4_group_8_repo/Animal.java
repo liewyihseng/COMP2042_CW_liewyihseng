@@ -391,7 +391,7 @@ public class Animal extends Actor {
 	}
 	
 	public Image frogMovementImg(String imageName) {	
-		return new Image("file:src/main/resources/"+ imageName, imgSize, imgSize, true, true);
+		return new Image("file:src/main/resources/images/"+ imageName, imgSize, imgSize, true, true);
 	}
 	
 	public void moveLocationDisplay(double xpos, double ypos,Image img) {
@@ -420,7 +420,7 @@ public class Animal extends Actor {
 	}
 	
 	public Image DeathAnimationImg(String imageName) {
-		return new Image("file:src/main/resources/"+ imageName +".png", imgSize, imgSize, true, true);
+		return new Image("file:src/main/resources/images/"+ imageName +".png", imgSize, imgSize, true, true);
 	}
 	
 }

@@ -23,10 +23,10 @@ public class BetweenLevelScene {
 		
 		AnchorPane pane = new AnchorPane();
 		pane.setMinSize(800.00, 600.00);
-		pane.setStyle("-fx-background-image: url('file:src/main/resources/PausePage.png');" + "-fx-background-size: 600 800");
+		pane.setStyle("-fx-background-image: url('file:src/main/resources/images/PausePage.png');" + "-fx-background-size: 600 800");
 		
 		Button nextLevelButton= new Button();
-		ImageView nextLevelButtonImage = new ImageView("file:src/main/resources/NextLevelButton.png");
+		ImageView nextLevelButtonImage = new ImageView("file:src/main/resources/images/NextLevelButton.png");
 		nextLevelButtonImage.setFitHeight(70);
 		nextLevelButtonImage.setFitWidth(140);
 		nextLevelButton.setGraphic(nextLevelButtonImage);
@@ -42,7 +42,7 @@ public class BetweenLevelScene {
 		});
 		
 		Button highScoreButton = new Button();
-		ImageView highScoreButtonImage = new ImageView("file:src/main/resources/HighScoreButton.png");
+		ImageView highScoreButtonImage = new ImageView("file:src/main/resources/images/HighScoreButton.png");
 		highScoreButtonImage.setFitHeight(70);
 		highScoreButtonImage.setFitWidth(140);
 		highScoreButton.setGraphic(highScoreButtonImage);
@@ -58,7 +58,7 @@ public class BetweenLevelScene {
 		
 		
 		Button returnHomeButton= new Button();
-		ImageView returnHomeButtonImage = new ImageView("file:src/main/resources/HomeButton.png");
+		ImageView returnHomeButtonImage = new ImageView("file:src/main/resources/images/HomeButton.png");
 		returnHomeButtonImage.setFitHeight(70);
 		returnHomeButtonImage.setFitWidth(140);
 		returnHomeButton.setGraphic(returnHomeButtonImage);

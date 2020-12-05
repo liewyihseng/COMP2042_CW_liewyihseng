@@ -14,10 +14,10 @@ public class MenuScene {
 	public MenuScene() {
 		AnchorPane pane = new AnchorPane();
 		pane.setMinSize(800.00, 600.00);
-		pane.setStyle("-fx-background-image: url('file:src/main/resources/Menu.png');" + "-fx-background-size: 600 800;");
+		pane.setStyle("-fx-background-image: url('file:src/main/resources/images/Menu.png');" + "-fx-background-size: 600 800;");
 		
 		Button homeButton = new Button();
-		ImageView homeButtonImage = new ImageView("file:src/main/resources/HomeButton.png");
+		ImageView homeButtonImage = new ImageView("file:src/main/resources/images/HomeButton.png");
 		homeButtonImage.setFitHeight(70);
 		homeButtonImage.setFitWidth(140);
 		homeButton.setGraphic(homeButtonImage);
@@ -31,7 +31,7 @@ public class MenuScene {
 		});
 		
 		Button highScoreButton = new Button();
-		ImageView highScoreButtonImage = new ImageView("file:src/main/resources/HighScoreButton.png");
+		ImageView highScoreButtonImage = new ImageView("file:src/main/resources/images/HighScoreButton.png");
 		highScoreButtonImage.setFitHeight(70);
 		highScoreButtonImage.setFitWidth(140);
 		highScoreButton.setGraphic(highScoreButtonImage);
@@ -44,7 +44,7 @@ public class MenuScene {
 		});
 		
 		Button instructionButton = new Button();
-		ImageView instructionButtonImage = new ImageView("file:src/main/resources/InstructionButton.png");
+		ImageView instructionButtonImage = new ImageView("file:src/main/resources/images/InstructionButton.png");
 		instructionButtonImage.setFitHeight(73);
 		instructionButtonImage.setFitWidth(140);
 		instructionButton.setGraphic(instructionButtonImage);
@@ -57,7 +57,7 @@ public class MenuScene {
 		});
 		
 		Button quitButton = new Button();
-		ImageView quitButtonImage = new ImageView("file:src/main/resources/QuitButton.png");
+		ImageView quitButtonImage = new ImageView("file:src/main/resources/images/QuitButton.png");
 		quitButtonImage.setFitHeight(70);
 		quitButtonImage.setFitWidth(140);
 		quitButton.setGraphic(quitButtonImage);

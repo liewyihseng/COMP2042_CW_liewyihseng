@@ -29,7 +29,7 @@ public class GameScene{
 	public GameScene() {
 		
 		background = new MyStage();
-		BackgroundImage gameBack = new BackgroundImage("file:src/main/resources//Map.png");
+		BackgroundImage gameBack = new BackgroundImage("file:src/main/resources/images/Map.png");
 		background.add(gameBack);
 		currentLevel = user.getLevel();
 		System.out.println("User detail:");
@@ -182,7 +182,7 @@ public class GameScene{
     }
     
     public void displayScore() {
-    	Frame scoreFrame = new Frame("file:src/main/resources/ScoreFrame.png", 160, 100, 330, 0);
+    	Frame scoreFrame = new Frame("file:src/main/resources/images/ScoreFrame.png", 160, 100, 330, 0);
 		background.add(scoreFrame);
 		score[0] = new Character(0, 460, 10);
 		score[1] = new Character(0, 445, 10);
@@ -195,7 +195,7 @@ public class GameScene{
     }
     
     public void displayLevel() {
-    	Frame levelFrame = new Frame("file:src/main/resources/LevelFrame.png", 110, 100, 490, 0);
+    	Frame levelFrame = new Frame("file:src/main/resources/images/LevelFrame.png", 110, 100, 490, 0);
 		background.add(levelFrame);
 		int shift = 0;
 		char c;
@@ -211,7 +211,7 @@ public class GameScene{
     public void displayUsername(String name) {
     	int shift = 0;
     	char c;
-    	Frame idFrame = new Frame("file:src/main/resources/IdFrame.png", 270, 400, 60, 0);
+    	Frame idFrame = new Frame("file:src/main/resources/images/IdFrame.png", 270, 400, 60, 0);
     	background.add(idFrame);
     	for(int i=0;i<name.length();i++) {
     		c = name.toUpperCase().charAt(i);
@@ -224,7 +224,7 @@ public class GameScene{
  
     public void displayMenuButton() {
     	Button menuButton = new Button();
-    	ImageView menuButtonImage = new ImageView("file:src/main/resources/MenuButton.png");
+    	ImageView menuButtonImage = new ImageView("file:src/main/resources/images/MenuButton.png");
 		menuButtonImage.setFitHeight(32);
 		menuButtonImage.setFitWidth(38);
 		menuButton.setGraphic(menuButtonImage);

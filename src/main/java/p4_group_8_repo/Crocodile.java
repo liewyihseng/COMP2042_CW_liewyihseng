@@ -3,7 +3,7 @@ package p4_group_8_repo;
 import javafx.scene.image.Image;
 
 public class Crocodile extends End{
-	Image crocodile = new Image("file:src/main/resources/Crocodile.png", CROCSIZE, CROCSIZE, true, true);
+	Image crocodile = new Image("file:src/main/resources/images/Crocodile.png", CROCSIZE, CROCSIZE, true, true);
 	
 	@Override
 	public void act(long now) {

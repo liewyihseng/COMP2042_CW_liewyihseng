@@ -44,7 +44,7 @@ public class Main extends Application {
 		Scene scene = new Scene(startPage, 600, 800);
 		primaryStage.setTitle("Frogger Arcade");
 		primaryStage.setScene(scene);
-		primaryStage.getIcons().add(new Image("file:src/main/resources/FrogIcon.png"));
+		primaryStage.getIcons().add(new Image("file:src/main/resources/images/FrogIcon.png"));
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		

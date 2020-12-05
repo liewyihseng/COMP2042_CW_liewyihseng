@@ -1,49 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.Cursor?>
 
-<AnchorPane fx:id="instructionRoot" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p4_group_8_repo.MenuSceneController">
+<AnchorPane fx:id="instructionRoot" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p4_group_8_repo.InstructionSceneController">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="600.0">
+      <ImageView fitHeight="845.0" fitWidth="641.0" layoutX="-20.0" layoutY="-22.0">
          <image>
-            <Image url="@../Menu.png" />
+            <Image url="@../images/HowToPlayPage.png" />
          </image>
         </ImageView>
-        <ImageView fx:id="homebutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="200.0" onMouseClicked="#backHome" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="control" fitHeight="53.0" fitWidth="192.0" layoutX="204.0" layoutY="97.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/Control.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="wasd" fitHeight="139.0" fitWidth="233.0" layoutX="101.0" layoutY="128.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/WASD.png" />
+        	</image>
+        </ImageView>
+         <ImageView fx:id="frogger" fitHeight="92.0" fitWidth="113.0" layoutX="328.0" layoutY="148.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/Frogger.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="obstacles" fitHeight="46.0" fitWidth="167.0" layoutX="217.0" layoutY="248.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/Obstacles.png" />
+        	</image>
+        </ImageView>
+        
+        <ImageView fx:id="avoid" fitHeight="93.0" fitWidth="429.0" layoutX="96.0" layoutY="282.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/Avoid.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="ridable" fitHeight="112.0" fitWidth="429.0" layoutX="97.0" layoutY="344.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/Ridable.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="logs" fitHeight="77.0" fitWidth="140.0" layoutX="77.0" layoutY="396.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/Logs.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="nonsubmerging" fitHeight="104.0" fitWidth="192.0" layoutX="207.0" layoutY="382.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/NonSubmerging.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="submerging" fitHeight="112.0" fitWidth="192.0" layoutX="342.0" layoutY="383.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/Submerging.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="scoring" fitHeight="131.0" fitWidth="458.0" layoutX="73.0" layoutY="473.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/Scoring.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="end" fitHeight="92.0" fitWidth="365.0" layoutX="134.0" layoutY="587.0" preserveRatio="true">
+        	<image>
+        		<Image url="@../images/End.png" />
+        	</image>
+        </ImageView>
+        <ImageView fx:id="homebutton" fitHeight="70.0" fitWidth="140.0" layoutX="231.0" layoutY="683.0" onMouseClicked="#backMenu" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../HomeButton.png" />
+            <Image url="@../images/BackButton.png" />
          </image>
          <cursor>
-         	<Cursor fx:constant="HAND"/>
+         	<Cursor fx:constant="HAND" />
          </cursor>
       	</ImageView>
-        <ImageView fx:id="highscorebutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="300.0" onMouseClicked="#highScore" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../HighScoreButton.png" />
-         </image>
-         <cursor>
-         	<Cursor fx:constant="HAND"/>
-         </cursor>
-      </ImageView>
-       <ImageView fx:id="instructionbutton" fitHeight="73.0" fitWidth="140.0" layoutX="222.0" layoutY="400.0" onMouseClicked="#instruction" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../InstructionButton.png" />
-         </image>
-         <cursor>
-         	<Cursor fx:constant="HAND"/>
-         </cursor>
-      </ImageView>
-       <ImageView fx:id="quitbutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="500.0" onMouseClicked="#quit" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../QuitButton.png" />
-         </image>
-         <cursor>
-         	<Cursor fx:constant="HAND"/>
-         </cursor>
-      </ImageView>
    </children>
 </AnchorPane>

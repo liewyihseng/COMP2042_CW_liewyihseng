@@ -4,8 +4,8 @@ import javafx.scene.image.Image;
 
 public class Lilypad extends End{
 
-	Image lilypad = new Image("file:src/main/resources/Lilypad.png", LILYPADSIZE, LILYPADSIZE, true, true);
-	Image FrogEnd = new Image("file:src/main/resources/FrogEndFinal.png", LILYPADSIZE, LILYPADSIZE, true, true);
+	Image lilypad = new Image("file:src/main/resources/images/Lilypad.png", LILYPADSIZE, LILYPADSIZE, true, true);
+	Image FrogEnd = new Image("file:src/main/resources/images/FrogEndFinal.png", LILYPADSIZE, LILYPADSIZE, true, true);
 	@Override
 	public void act(long now) {
 		// TODO Auto-generated method stud

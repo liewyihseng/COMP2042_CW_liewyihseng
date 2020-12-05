@@ -3,10 +3,10 @@ package p4_group_8_repo;
 import javafx.scene.image.Image;
 
 public class SinkingTurtle extends Actor implements Turtle{
-	Image turtle1 = new Image("file:src/main/resources/WetTurtleAnimation2.png", WIDTH, HEIGHT, true, true);
-	Image turtle2 = new Image("file:src/main/resources/WetTurtleAnimation1.png", WIDTH, HEIGHT, true, true);
-	Image turtle3 = new Image("file:src/main/resources/WetTurtleAnimation3.png", WIDTH, HEIGHT, true, true);
-	Image turtle4 = new Image("file:src/main/resources/WetTurtleAnimation4.png", WIDTH, HEIGHT, true, true);
+	Image turtle1 = new Image("file:src/main/resources/images/WetTurtleAnimation2.png", WIDTH, HEIGHT, true, true);
+	Image turtle2 = new Image("file:src/main/resources/images/WetTurtleAnimation1.png", WIDTH, HEIGHT, true, true);
+	Image turtle3 = new Image("file:src/main/resources/images/WetTurtleAnimation3.png", WIDTH, HEIGHT, true, true);
+	Image turtle4 = new Image("file:src/main/resources/images/WetTurtleAnimation4.png", WIDTH, HEIGHT, true, true);
 	private double speed;
 	boolean sunk = false;
 	@Override

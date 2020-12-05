@@ -10,12 +10,12 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="600.0">
          <image>
-            <Image url="@../PausePage.png" />
+            <Image url="@../images/PausePage.png" />
          </image>
         </ImageView>
         <ImageView fx:id="nextlevelbutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="325.0" onMouseClicked="#nextLevel" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../NextLevelButton.png" />
+            <Image url="@../images/NextLevelButton.png" />
          </image>
          <cursor>
          	<Cursor fx:constant="HAND"/>
@@ -23,7 +23,7 @@
       	</ImageView>
         <ImageView fx:id="highscorebutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="425.0" onMouseClicked="#highScore" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../HighScoreButton.png" />
+            <Image url="@../images/HighScoreButton.png" />
          </image>
          <cursor>
          	<Cursor fx:constant="HAND"/>
@@ -31,7 +31,7 @@
       </ImageView>
        <ImageView fx:id="homebutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="525.0" onMouseClicked="#backHome" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../HomeButton.png" />
+            <Image url="@../images/HomeButton.png" />
          </image>
          <cursor>
          	<Cursor fx:constant="HAND"/>

@@ -25,8 +25,8 @@ public class MenuSceneController {
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/StartScene.fxml"));
-		AnchorPane pane = fxmlLoader.load();
+		FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("/views/StartScene.fxml"));
+		AnchorPane pane = menuLoader.load();
 		menuRoot.getChildren().setAll(pane);
 	}
 	
@@ -37,7 +37,9 @@ public class MenuSceneController {
 	
 	@FXML
 	void instruction(MouseEvent event) throws Exception{
-		System.out.println("Instruction Scenebuilder working");
+		FXMLLoader instructionLoader = new FXMLLoader(getClass().getResource("/views/InstructionScene.fxml"));
+		AnchorPane pane = instructionLoader.load();
+		menuRoot.getChildren().setAll(pane);
 	}
 	
 	@FXML
