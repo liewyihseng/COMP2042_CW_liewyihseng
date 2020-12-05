@@ -3,30 +3,18 @@ package p4_group_8_repo;
 import java.util.Random;
 
 public class User {
-	public String userName;
-	public int score;
-	Animal animal;
-	int level;
-	public boolean continueGame;
-	
-	
+	private String username;
+	private int score;
+	private Animal animal;
+	private int level;
+
 	public User() {
 		setUsername(randomUsername());
 		setScore(0);
 		setLevel(1); //Every User starts with level 1
-		//testing
 		animal = new Animal();
-
 	}
-	/*
-	public User(String name) {
-		setUsername(name);
 
-		setLevel(1); 
-		animal = new Animal();
-
-	}
-	*/
 	public int getLevel() {
 		return level;
 	}
@@ -58,11 +46,11 @@ public class User {
 	}
 	
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 	
 	public void setUsername(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 	
 	public void setScore(int score) {

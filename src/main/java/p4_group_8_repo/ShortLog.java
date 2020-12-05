@@ -9,12 +9,4 @@ public class ShortLog extends Log{
 		super(xpos, ypos, s);
 		setImage(new Image("file:src/main/resources/LogShort.png", SIZE, SIZE, true, true));
 	}
-	/*
-	public ShortLog(int xpos, int ypos, double s) {
-		setCoordinate(xpos, ypos);
-		speed = s;
-		setImage(new Image("file:images/LogShort.png", SIZE, SIZE, true, true));
-		
-	}
-	*/
 }

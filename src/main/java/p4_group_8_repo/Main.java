@@ -30,7 +30,7 @@ import javafx.util.Duration;
 
 public class Main extends Application {
 	public Stage primaryStage;
-	public static ScreenController screen;
+	public static SceneController scene;
 	public static User user = new User();
 	public static void main(String[] args) {
 		launch(args);
@@ -38,28 +38,10 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-		
-	    //primaryStage is the window itself
-	    //So its like showing scene in the stage (Scene in primaryStage)
-	    //Show something inside Stage (Setting the scene on the stage)
-		/*
-		screen = new ScreenController(primaryStage);
-		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Frogger Arcade");
-		this.primaryStage.getIcons().add(new Image("file:src/main/resources/FrogIcon.png"));
-		this.primaryStage.setResizable(false);
-		this.primaryStage.show();
-		//Keep
-		//It is working
-		*/
-		
-		
-		//FXMLLoader startSceneLoader = new FXMLLoader(getClass().getResource("/views/StartScene.fxml"));
-		//Pane startScene = startSceneLoader.load();
-		screen = new ScreenController(primaryStage);
+
+		scene = new SceneController(primaryStage);
 		Parent startPage = FXMLLoader.load(getClass().getResource("/views/StartScene.fxml"));
 		Scene scene = new Scene(startPage, 600, 800);
-		//Scene scene = new Scene(startScene, 600, 800);
 		primaryStage.setTitle("Frogger Arcade");
 		primaryStage.setScene(scene);
 		primaryStage.getIcons().add(new Image("file:src/main/resources/FrogIcon.png"));
@@ -69,7 +51,7 @@ public class Main extends Application {
 	}
 
 	public static void setScene(String sceneName) {
-		screen.activate(sceneName);
+		scene.activate(sceneName);
 	}
 	
 	public static void setUser(User user) {

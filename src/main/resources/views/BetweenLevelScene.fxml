@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.Cursor?>
+
+<Pane fx:id="betweenLevelRoot" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p4_group_8_repo.BetweenLevelSceneController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="600.0">
+         <image>
+            <Image url="@../PausePage.png" />
+         </image>
+        </ImageView>
+        <ImageView fx:id="nextlevelbutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="325.0" onMouseClicked="#nextLevel" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../NextLevelButton.png" />
+         </image>
+         <cursor>
+         	<Cursor fx:constant="HAND"/>
+         </cursor>
+      	</ImageView>
+        <ImageView fx:id="highscorebutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="425.0" onMouseClicked="#highScore" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../HighScoreButton.png" />
+         </image>
+         <cursor>
+         	<Cursor fx:constant="HAND"/>
+         </cursor>
+      </ImageView>
+       <ImageView fx:id="homebutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="525.0" onMouseClicked="#backHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../HomeButton.png" />
+         </image>
+         <cursor>
+         	<Cursor fx:constant="HAND"/>
+         </cursor>
+      </ImageView>
+   </children>
+</Pane>

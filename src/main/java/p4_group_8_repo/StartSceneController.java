@@ -52,10 +52,9 @@ public class StartSceneController implements Initializable{
 			Main.setUser(user);
 		}else {
 			Main.user.setUsername(username.getText());
-			//Main.setUser(new User(username.getText()));
 		}
 		
 		Main.setScene("GameScene");
-		Main.screen.gameScene.displayUsername(Main.user.getUsername());
+		Main.scene.gameScene.displayUsername(Main.user.getUsername());
     }
 }

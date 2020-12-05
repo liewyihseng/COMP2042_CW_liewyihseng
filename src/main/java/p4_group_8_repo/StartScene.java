@@ -27,6 +27,7 @@ public class StartScene{
 	}
 
 	public StartScene() {
+		/*
 		AnchorPane pane = new AnchorPane();
 		pane.setMinSize(800.00, 600.00);
 		
@@ -66,7 +67,7 @@ public class StartScene{
 		startButton.setLayoutY(485);
 		startButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
 		startButton.setCursor(Cursor.HAND);
-		pane.getChildren().addAll(menuButton, text, startButton);
+		//pane.getChildren().addAll(menuButton, text, startButton);
 		
 		StartScene = new Scene(pane, 600, 800);
 		
@@ -84,10 +85,10 @@ public class StartScene{
 			//shud pass user into gamescene
 			
 			Main.setScene("GameScene");
-			Main.screen.gameScene.displayUsername(Main.getUser().getUsername());
+			Main.scene.gameScene.displayUsername(Main.getUser().getUsername());
 			System.out.println("Printing username in StartScene: "+ Main.getUser().getUsername());
 		});
-		
+		*/
 	}
 	
 	//Try make a controller to handle linking to gamescene

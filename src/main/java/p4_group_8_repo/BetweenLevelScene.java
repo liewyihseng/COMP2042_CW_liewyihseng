@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 public class BetweenLevelScene {
 	private Scene BetweenLevelScene;
 	private BackgroundImage backgroundImage;
-	public ScreenController screen;
+	public SceneController screen;
 	public User user = Main.getUser();
 	
 	public BetweenLevelScene() {
@@ -23,49 +23,54 @@ public class BetweenLevelScene {
 		
 		AnchorPane pane = new AnchorPane();
 		pane.setMinSize(800.00, 600.00);
-		pane.setStyle("-fx-background-image: url('file:src/main/resources/Menu.png');" + "-fx-background-size: 600 800");
+		pane.setStyle("-fx-background-image: url('file:src/main/resources/PausePage.png');" + "-fx-background-size: 600 800");
 		
 		Button nextLevelButton= new Button();
-		ImageView nextLevelButtonImage = new ImageView("file:src/main/resources/startButton.png");
-		nextLevelButtonImage.setFitHeight(66);
-		nextLevelButtonImage.setFitWidth(105);
+		ImageView nextLevelButtonImage = new ImageView("file:src/main/resources/NextLevelButton.png");
+		nextLevelButtonImage.setFitHeight(70);
+		nextLevelButtonImage.setFitWidth(140);
 		nextLevelButton.setGraphic(nextLevelButtonImage);
-		nextLevelButton.setLayoutX(240);
-		nextLevelButton.setLayoutY(305);
+		nextLevelButton.setLayoutX(222);
+		nextLevelButton.setLayoutY(325);
 		nextLevelButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
 		nextLevelButton.setCursor(Cursor.HAND);
 		
 		nextLevelButton.setOnAction(e ->{
-			//System.out.println("Print User Detail in Between Level Scene");
-    		//System.out.println("Username = " + user.getUsername());
-    		//System.out.println("Level = " + user.getLevel());
-    		//System.out.println("Score = "+ user.getScore());
-    		//System.out.println("");
-			
 			screen.resetGame();
 			screen.activate("GameScene");
-			
-			Main.screen.gameScene.displayUsername(Main.getUser().getUsername());
-			
-		
+			Main.scene.gameScene.displayUsername(Main.getUser().getUsername());
 		});
+		
+		Button highScoreButton = new Button();
+		ImageView highScoreButtonImage = new ImageView("file:src/main/resources/HighScoreButton.png");
+		highScoreButtonImage.setFitHeight(70);
+		highScoreButtonImage.setFitWidth(140);
+		highScoreButton.setGraphic(highScoreButtonImage);
+		highScoreButton.setLayoutX(222);
+		highScoreButton.setLayoutY(425);
+		highScoreButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
+		highScoreButton.setCursor(Cursor.HAND);
+		
+		highScoreButton.setOnAction(e ->{
+		
+			System.out.println("High Score Button Successful");
+		});
+		
 		
 		Button returnHomeButton= new Button();
 		ImageView returnHomeButtonImage = new ImageView("file:src/main/resources/HomeButton.png");
-		returnHomeButtonImage.setFitHeight(66);
-		returnHomeButtonImage.setFitWidth(105);
+		returnHomeButtonImage.setFitHeight(70);
+		returnHomeButtonImage.setFitWidth(140);
 		returnHomeButton.setGraphic(returnHomeButtonImage);
-		returnHomeButton.setLayoutX(240);
+		returnHomeButton.setLayoutX(222);
 		returnHomeButton.setLayoutY(525);
 		returnHomeButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
 		returnHomeButton.setCursor(Cursor.HAND);
-		
 		returnHomeButton.setOnAction(e ->{
-		
 			System.out.println("Return Home Button Successful");
 		});
 		
-		pane.getChildren().addAll(nextLevelButton, returnHomeButton);
+		pane.getChildren().addAll(nextLevelButton, highScoreButton, returnHomeButton);
 		BetweenLevelScene = new Scene(pane, 600, 800);
 		
 	}
@@ -82,7 +87,7 @@ public class BetweenLevelScene {
 		this.backgroundImage = backgroundImage;
 	}
 	
-	public void setSceneController(ScreenController screen) {
+	public void setSceneController(SceneController screen) {
 		this.screen = screen;
 	}
 }

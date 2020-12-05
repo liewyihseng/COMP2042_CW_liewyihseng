@@ -1,29 +1,29 @@
 package p4_group_8_repo;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import javafx.animation.AnimationTimer;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class GameScene{
-	private BackgroundImage backgroundImage;
-	Animal animal;
+
 	public User user = Main.getUser();
 	MyStage background;
 	AnimationTimer timer;
 	private Character[] score = new Character[4];
 	private Scene GameScene;
 	private int currentLevel;
+	public SceneController screen;
 	
 
 	public GameScene() {
@@ -33,7 +33,7 @@ public class GameScene{
 		background.add(gameBack);
 		currentLevel = user.getLevel();
 		System.out.println("User detail:");
-		System.out.println("User Name:"+ user.userName);
+		System.out.println("User Name:"+ user.getUsername());
 		System.out.println("User level:" + user.getLevel());
 		
 		displayMenuButton();
@@ -61,7 +61,7 @@ public class GameScene{
 			background.add(new Lilypad(141 + 141-13+141-13+1,45));
 			background.add(new Crocodile(141 + 141-13+141-13+141-13+3,45));
 		}
-		/*
+		
 		//Water
 		//Lane counting from top to bottom
 		//Lane 1
@@ -93,7 +93,7 @@ public class GameScene{
 		background.add(new NonSinkingTurtle(300, 327, -1 - user.getIncrementDifficulty()));
 		background.add(new SinkingTurtle(700, 330, -1 - user.getIncrementDifficulty()));
 		
-		if(user.level > 5) {
+		if(user.getLevel() > 3) {
 		//Grass Lane
 		//With Speed
 		background.add(new Snake(0, 392, 4 + user.getIncrementDifficulty()));
@@ -125,8 +125,8 @@ public class GameScene{
 		background.add(new YellowTruck(600, 647, 1+ user.getIncrementDifficulty()));
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
-		*/
-		background.add(user.animal);
+		
+		background.add(user.getAnimal());
 		GameScene = new Scene(background, 600, 800);
 		
 		
@@ -144,34 +144,33 @@ public class GameScene{
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-            	if (user.animal.changeScore()) {
-            		setNumber(user.animal.getPoints());
-            		//Update with user score in GameScene
-            		System.out.println(user.animal.getPoints());
-            		
+            	if (user.getAnimal().changeScore()) {
+            		setNumber(user.getAnimal().getPoints());
+            		System.out.println(user.getAnimal().getPoints());
             	}
-            	//System.out.println("Current Level: " + currentLevel);
-            	//System.out.println(user.animal.getStop(currentLevel));
-            	if (user.animal.getStop(currentLevel)) {
+            	if (user.getAnimal().getStop(currentLevel)) {
             		System.out.println("STOPP:");
-            		user.setScore(user.animal.getPoints());
+            		user.setScore(user.getAnimal().getPoints());
             		user.setLevel(currentLevel + 1);
             		System.out.println("Score: " + user.getScore());
             		Main.user.setScore(user.getScore());
             		Main.user.setLevel(user.getLevel());
-            		//System.out.println("Increment of level = " + user.getLevel());
             		background.stopMusic();
             		stop();
             		background.stop();
-            		Main.setScene("BetweenLevelScene");
-            		
             		/*
-            		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Hey "+ Main.user.getUsername() +", Your High Score: "+ user.animal.getPoints()+"!");
-            		alert.setContentText("Highest Possible Score: 850");
-            		alert.show();
+            		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/BetweenLevelScene.fxml"));
+            		try {
+						Pane pane = fxmlLoader.load();
+						Scene scene = new Scene(pane, 800, 600);
+						screen.addScene("BTL", scene);
+						screen.activate("BTL");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
             		*/
+            		Main.setScene("BetweenLevelScene");
             	}
             }
         };
@@ -255,8 +254,6 @@ public class GameScene{
 		});
     }
     
- 
-    
     //Altered from a while loop to a for loop
     //Solved problem displaying 0 in the hundreds if its a two digit number
     public void setNumber(int n) {
@@ -280,23 +277,6 @@ public class GameScene{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	public Animal getAnimal() {
-		return animal;
-	}
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
-	}
-
-	public BackgroundImage getBackgroundImage() {
-		return backgroundImage;
-	}
-
-	public void setBackgroundImage(BackgroundImage backgroundImage) {
-		this.backgroundImage = backgroundImage;
-	}
-	
 
 }
 

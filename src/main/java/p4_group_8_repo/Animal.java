@@ -175,25 +175,21 @@ public class Animal extends Actor {
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft()) {
 				move(-2 - Main.getUser().getIncrementDifficulty(), 0); //move left with speed of 2
-				//move(-2 - getIncrementDifficulty(), 0);
 			//Controlling logs moving left
 			}
 			else {
 				move (.75 + Main.getUser().getIncrementDifficulty(), 0); //move right with speed of 0.75
-				//move(.75 + getIncrementDifficulty(), 0);
 				//Controlling logs moving right
 			}
 		}
 		else if (getIntersectingObjects(NonSinkingTurtle.class).size() >= 1 && !noMove) {
 			move(-1 - Main.getUser().getIncrementDifficulty(), 0); // move left with the speed of 1
-			//move(-1 - getIncrementDifficulty(), 0);
 		}
 		else if (getIntersectingObjects(SinkingTurtle.class).size() >= 1) {
 			if (getIntersectingObjects(SinkingTurtle.class).get(0).isSunk()) {
 				setWaterDeath(true); //When water death is true, frog step on will cause death
 			} else {
 				move(-1 - Main.getUser().getIncrementDifficulty(), 0); // move left with the speed of 1
-				//move(-2 - getIncrementDifficulty(), 0);
 			}
 		}
 		else if (getIntersectingObjects(Lilypad.class).size() >= 1) {
@@ -201,8 +197,6 @@ public class Animal extends Actor {
 			if (getIntersectingObjects(Lilypad.class).get(0).isActivated()) {
 				end--;
 				points -= 60;
-				System.out.println("final w = "+ w);
-				//setPoints(points);
 			}
 				points += 50;
 				changeScore = true;
@@ -213,7 +207,7 @@ public class Animal extends Actor {
 			}
 
 		else if (getY() < 360 ){
-			//setWaterDeath(true);
+			setWaterDeath(true);
 			//setX(300);
 			//setY(679.8+movement);
 		}
@@ -226,8 +220,6 @@ public class Animal extends Actor {
 
 	public boolean getStop(int level) {
 		flag = false;
-		//System.out.println("Level Value inside getStop:" + level);
-		//System.out.println("End value inside getStop:" + end);
 		switch (level){
 			case 1:
 			case 4:
@@ -387,7 +379,7 @@ public class Animal extends Actor {
 			waterDeath = false;
 			break;
 		}
-		setImage(frogMovementImg("froggerUp.png"));
+		setImage(imgW1);
 		noMove = false;
 	}
 	
