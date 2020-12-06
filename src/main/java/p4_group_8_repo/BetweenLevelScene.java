@@ -11,9 +11,10 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class BetweenLevelScene {
-	private Scene BetweenLevelScene;
+	private Pane BetweenLevelScene;
 	private BackgroundImage backgroundImage;
 	public SceneController screen;
 	public User user = Main.getUser();
@@ -38,7 +39,7 @@ public class BetweenLevelScene {
 		nextLevelButton.setOnAction(e ->{
 			screen.resetGame();
 			screen.activate("GameScene");
-			Main.scene.gameScene.displayUsername(Main.getUser().getUsername());
+			Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
 		});
 		
 		Button highScoreButton = new Button();
@@ -67,15 +68,16 @@ public class BetweenLevelScene {
 		returnHomeButton.setStyle("-fx-focus-color: transparent;-fx-background-color: transparent");
 		returnHomeButton.setCursor(Cursor.HAND);
 		returnHomeButton.setOnAction(e ->{
+			
 			System.out.println("Return Home Button Successful");
 		});
 		
 		pane.getChildren().addAll(nextLevelButton, highScoreButton, returnHomeButton);
-		BetweenLevelScene = new Scene(pane, 600, 800);
+		BetweenLevelScene = pane;
 		
 	}
 	
-	public Scene getScene() {
+	public Pane getScene() {
 		return BetweenLevelScene;
 	}
 	

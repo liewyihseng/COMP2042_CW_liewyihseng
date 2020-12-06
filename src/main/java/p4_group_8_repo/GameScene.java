@@ -21,7 +21,7 @@ public class GameScene{
 	MyStage background;
 	AnimationTimer timer;
 	private Character[] score = new Character[4];
-	private Scene GameScene;
+	private Pane GameScene;
 	private int currentLevel;
 	public SceneController screen;
 	
@@ -127,7 +127,7 @@ public class GameScene{
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
 		
 		background.add(user.getAnimal());
-		GameScene = new Scene(background, 600, 800);
+		GameScene = background;
 		
 		
 		background.start();
@@ -265,7 +265,7 @@ public class GameScene{
     	}
     }
       
-    public Scene getScene() {
+    public Pane getScene() {
     	return GameScene;
     }
     

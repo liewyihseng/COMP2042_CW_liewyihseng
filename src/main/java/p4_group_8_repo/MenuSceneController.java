@@ -6,10 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class MenuSceneController {
 	@FXML
-	private AnchorPane menuRoot;
+	private Pane menuRoot;
 	
 	@FXML
 	private ImageView homebutton;
@@ -22,12 +23,15 @@ public class MenuSceneController {
 	
 	@FXML
 	private ImageView quitbutton;
+	public SceneController screen;
+	
+	public MenuSceneController(SceneController scene) {
+		this.screen = scene;
+	}
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
-		FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("/views/StartScene.fxml"));
-		AnchorPane pane = menuLoader.load();
-		menuRoot.getChildren().setAll(pane);
+		screen.activate("StartScene");
 	}
 	
 	@FXML
@@ -37,9 +41,7 @@ public class MenuSceneController {
 	
 	@FXML
 	void instruction(MouseEvent event) throws Exception{
-		FXMLLoader instructionLoader = new FXMLLoader(getClass().getResource("/views/InstructionScene.fxml"));
-		AnchorPane pane = instructionLoader.load();
-		menuRoot.getChildren().setAll(pane);
+		screen.activate("InstructionScene");
 	}
 	
 	@FXML

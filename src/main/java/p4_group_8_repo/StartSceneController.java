@@ -13,12 +13,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class StartSceneController implements Initializable{
 	public User user = Main.getUser();
 	
 	@FXML
-	private AnchorPane startRoot;
+	private Pane startRoot;
 	
 	@FXML
 	private ImageView startgame;
@@ -31,6 +32,12 @@ public class StartSceneController implements Initializable{
 	
 	@FXML
 	private TextField username;
+	
+	public SceneController screen;
+	
+	public StartSceneController(SceneController scene) {
+		this.screen = scene;
+	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -40,9 +47,7 @@ public class StartSceneController implements Initializable{
 	
 	@FXML
 	void menuClick(MouseEvent event) throws Exception{
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/MenuScene.fxml"));
-		AnchorPane pane = fxmlLoader.load();
-		startRoot.getChildren().setAll(pane);
+		screen.activate("MenuScene");
 	}
 	
 	@FXML
@@ -54,7 +59,7 @@ public class StartSceneController implements Initializable{
 			Main.user.setUsername(username.getText());
 		}
 		
-		Main.setScene("GameScene");
-		Main.scene.gameScene.displayUsername(Main.user.getUsername());
+		screen.activate("GameScene");
+		Main.sceneController.gameScene.displayUsername(Main.user.getUsername());
     }
 }

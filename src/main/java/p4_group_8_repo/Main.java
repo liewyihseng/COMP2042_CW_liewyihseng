@@ -30,7 +30,7 @@ import javafx.util.Duration;
 
 public class Main extends Application {
 	public Stage primaryStage;
-	public static SceneController scene;
+	public static SceneController sceneController;
 	public static User user = new User();
 	public static void main(String[] args) {
 		launch(args);
@@ -39,9 +39,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 
-		scene = new SceneController(primaryStage);
-		Parent startPage = FXMLLoader.load(getClass().getResource("/views/StartScene.fxml"));
-		Scene scene = new Scene(startPage, 600, 800);
+		
+		Pane pane = new Pane();
+		Scene scene = new Scene(pane, 600, 800);
+		sceneController = new SceneController(scene);
+		sceneController.activate("StartScene");
 		primaryStage.setTitle("Frogger Arcade");
 		primaryStage.setScene(scene);
 		primaryStage.getIcons().add(new Image("file:src/main/resources/images/FrogIcon.png"));
@@ -51,7 +53,7 @@ public class Main extends Application {
 	}
 
 	public static void setScene(String sceneName) {
-		scene.activate(sceneName);
+		sceneController.activate(sceneName);
 	}
 	
 	public static void setUser(User user) {

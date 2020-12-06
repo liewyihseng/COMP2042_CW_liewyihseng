@@ -24,11 +24,15 @@ public class BetweenLevelSceneController {
 	public SceneController screen;
 	public User user = Main.getUser();
 	
+	public BetweenLevelSceneController(SceneController scene) {
+		this.screen = scene;
+	}
+	
 	@FXML
 	void nextLevel(MouseEvent event) throws Exception{
 		screen.resetGame();
-		screen.activate("GameScene");
-		Main.scene.gameScene.displayUsername(Main.getUser().getUsername());
+		//screen.activate("GameScene");
+		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
 	}
 	
 	@FXML
@@ -38,9 +42,7 @@ public class BetweenLevelSceneController {
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("views/StartScene.fxml"));
-		Pane pane = fxmlLoader.load();
-		betweenLevelRoot.getChildren().setAll(pane);
+		screen.activate("StartScene");
 	}
 	
 }
