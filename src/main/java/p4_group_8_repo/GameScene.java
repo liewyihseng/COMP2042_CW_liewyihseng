@@ -1,18 +1,14 @@
 package p4_group_8_repo;
 
-import java.io.IOException;
 import java.util.Optional;
 
 import javafx.animation.AnimationTimer;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class GameScene{
@@ -237,6 +233,9 @@ public class GameScene{
 			stop();
 			background.stopMusic();
 			background.stop();
+			Main.setScene("PauseScene");
+			
+			/*
     		Dialog<ButtonType> dialog = new Dialog<ButtonType>();
     		dialog.setTitle("Game Paused");
     		dialog.setContentText("Select The Options Below:");
@@ -251,6 +250,7 @@ public class GameScene{
     			start();
     			System.out.println("Testing start successful");
     		}
+    		*/
 		});
     }
     

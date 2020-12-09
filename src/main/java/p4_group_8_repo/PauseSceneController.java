@@ -5,36 +5,33 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-public class BetweenLevelSceneController {
+public class PauseSceneController {
 	@FXML
-	private Pane betweenLevelRoot;
+	private Pane pauseRoot;
 	
 	@FXML
-	private ImageView nextlevelbutton;
+	private ImageView resumebutton;
 	
 	@FXML
 	private ImageView highscorebutton;
 	
 	@FXML
 	private ImageView homebutton;
-	
 	public SceneController screen;
-	public User user = Main.getUser();
+
 	
-	public BetweenLevelSceneController(SceneController scene) {
+	public PauseSceneController(SceneController scene) {
 		this.screen = scene;
 	}
 	
 	@FXML
-	void nextLevel(MouseEvent event) throws Exception{
-		screen.resetGame();
-		//screen.activate("GameScene");
-		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
+	void resume(MouseEvent event) throws Exception{
+		screen.resumeGame();
 	}
 	
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
-		System.out.println("High Score Button Successful");
+		
 	}
 	
 	@FXML
