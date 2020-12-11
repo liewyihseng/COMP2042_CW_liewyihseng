@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.Cursor?>
+
+<Pane fx:id="highscoreRoot" maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+  
+      <ImageView fitHeight="800.0" fitWidth="600.0">
+         <image>
+            <Image url="@../images/Menu.png" />
+         </image>
+        </ImageView>
+        <ImageView fx:id="backbutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="600.0" onMouseClicked="#backMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/BackButton.png" />
+         </image>
+         <cursor>
+         	<Cursor fx:constant="HAND"/>
+         </cursor>
+      	</ImageView>
+        
+   </children>
+</Pane>

@@ -1,9 +1,7 @@
 package p4_group_8_repo;
 
 import java.util.ArrayList;
-
 import javafx.event.EventHandler;
-
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -217,7 +215,11 @@ public class Animal extends Actor {
 			}
 		}
 	
-
+	/**
+	 * Gets the number of ends in a level
+	 * @param level An integer representing the current level of the user
+	 * @return A boolean that is used to trigger a stop between level switching
+	 */
 	public boolean getStop(int level) {
 		flag = false;
 		switch (level){
@@ -255,7 +257,7 @@ public class Animal extends Actor {
 	
 	/**
 	 * Gets the number of points in the current game
-	 * @return the points that represent the score
+	 * @return An integer representing the p[oints of user in the current game
 	 */
 	public int getPoints() {
 		return points;
@@ -263,53 +265,75 @@ public class Animal extends Actor {
 	
 	/**
 	 * Sets the number of points in the current game
-	 * @param points to update the current points
+	 * @param points An integer representing the current point of user in the game
 	 */
 	public void setPoints(int points) {
 		this.points = points;
 	}
 	
+	/**
+	 * Determine whether the frog is at its second animation
+	 * @return A boolean representing the state of the frog
+	 */
 	public boolean isSecond() {
 		return second;
 	}
 
+	/**
+	 * Sets the state of animation of the frog
+	 * @param second A boolean representing if the frog's animation is at the second state
+	 */
 	public void setSecond(boolean second) {
 		this.second = second;
 	}
 	
+	/**
+	 * Gets if the death type is by car
+	 * @return A boolean representing whether the death is by car
+	 */
 	public boolean isCarDeath() {
 		return carDeath;
 	}
-
+	
+	/**
+	 * Sets the death type to car death
+	 * @param carDeath A boolean stating if the death type is car death
+	 */
 	public void setCarDeath(boolean carDeath) {
 		this.carDeath = carDeath;
 	}
 
-	
+	/**
+	 * Gets if the death type is by water
+	 * @return A boolean representing whether the death is by water
+	 */
 	public boolean isWaterDeath() {
 		return waterDeath;
 	}
 
+	/**
+	 * Sets the death type to water death
+	 * @param waterDeath A boolean stating if the death type is water death
+	 */
 	public void setWaterDeath(boolean waterDeath) {
 		this.waterDeath = waterDeath;
 	}
 
-	public boolean getChangeScore() {
-		return changeScore;
-	}
-	
-	public void setChangeScore(boolean changeScore) {
-		this.changeScore = changeScore;
-	}
-	
+	/**
+	 * Sets the necessity to change score
+	 * @return a boolean stating the necessity to change score
+	 */
 	public boolean changeScore() {
-		if (getChangeScore()) {
-			setChangeScore(false);
+		if (changeScore) {
+			this.changeScore = false;
 			return true;
 		}
 		return false;
 	}
 	
+	/**
+	 * Displays the animation of the frog being crashed by a car as clock ticks
+	 */
 	public void carDeathAnimation(){
 		int deathType = 1;
 		if (death == 1) {
@@ -338,6 +362,9 @@ public class Animal extends Actor {
 		}
 	}
 	
+	/**
+	 * Displays the animation of the frog drowning in the river as clock ticks
+	 */
 	public void waterDeathAnimation() {
 		int deathType = 2;
 		if (death == 1) {
@@ -358,6 +385,11 @@ public class Animal extends Actor {
 		}
 	}
 	
+	/**
+	 * Decrement in the score if the frog is dead
+	 * @param points An integer representing the current point of the user
+	 * @param changeScore A boolean representing the necessity to change score
+	 */
 	public void deathScoreDecrement(int points, Boolean changeScore) {
 		if(getPoints() > 50) {
 			points -= 50;
@@ -366,6 +398,10 @@ public class Animal extends Actor {
 		}
 	}
 	
+	/**
+	 * Sets the respawn point of the frog when it dies
+	 * @param deathType An integer representing the death type of the frog
+	 */
 	public void respawn(int deathType) {
 		//Set Respawn
 		setCoordinate(275, (int)(679.8 + movement));
@@ -383,6 +419,10 @@ public class Animal extends Actor {
 		noMove = false;
 	}
 	
+	/**
+	 * Acts a clock tick in changing the death animation of the frog
+	 * @param now A long integer representing the clock tick
+	 */
 	public void deathLoopAnimation(long now) {
 		noMove = true;
 		if ((now)% 11 ==0) {
@@ -390,35 +430,76 @@ public class Animal extends Actor {
 		}
 	}
 	
+	/**
+	 * Gets the image of the current frog movement
+	 * @param imageName A string that represents the current frog movement
+	 * @return An image of the current frog movement
+	 */
 	public Image frogMovementImg(String imageName) {	
 		return new Image("file:src/main/resources/images/"+ imageName, imgSize, imgSize, true, true);
 	}
 	
+	/**
+	 * Sets the location of the frog after the jump and it corresponding image animation
+	 * @param xpos A double that represents the coordinate of X-axis of the frog
+	 * @param ypos A double that represents the coordinate of Y-axis of the frog
+	 * @param img The corresponding image of the frog after the jump
+	 */
 	public void moveLocationDisplay(double xpos, double ypos,Image img) {
 		move(xpos, ypos);
 		setImage(img);
 	}
 	
+	/**
+	 * Determines if the keyboard input is W
+	 * @param event A key event that represents the user input's key
+	 * @return A boolean stating whether the key input is W
+	 */
 	public boolean testKeyW(KeyEvent event) {
 		return event.getCode() == KeyCode.W;
 	}
 	
+	/**
+	 * Determines if the keyboard input is A
+	 * @param event A key event that represents the user input's key
+	 * @return A boolean stating whether the key input is A
+	 */
 	public boolean testKeyA(KeyEvent event) {
 		return event.getCode() == KeyCode.A;
 	}
 	
+	/**
+	 * Determines if the keyboard input is S
+	 * @param event A key event that represents the user input's key
+	 * @return A boolean stating whether the key input is S
+	 */
 	public boolean testKeyS(KeyEvent event) {
 		return event.getCode() == KeyCode.S;
 	}
 	
+	/**
+	 * Determines if the keyboard input is D
+	 * @param event A key event that represents the user input's key
+	 * @return A boolean stating whether the key input is D
+	 */
 	public boolean testKeyD(KeyEvent event) {
 		return event.getCode() == KeyCode.D;
 	}
 	
+	
+	/**
+	 * Sets the image for the death animation of the frog
+	 * @param imageName A String that represents the name of the image
+	 */
 	public void setDeathAniImg(String imageName) {
 		setImage(DeathAnimationImg(imageName));
 	}
 	
+	/**
+	 * Retrieves the image of death animation from the project directory
+	 * @param imageName A string that represents the name of the image
+	 * @return An image that corresponds to the imageName and the current phase of death animation of the frog
+	 */
 	public Image DeathAnimationImg(String imageName) {
 		return new Image("file:src/main/resources/images/"+ imageName +".png", imgSize, imgSize, true, true);
 	}

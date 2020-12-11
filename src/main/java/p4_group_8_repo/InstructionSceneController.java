@@ -44,19 +44,19 @@ public class InstructionSceneController {
 	private ImageView end;
 	
 	@FXML
-	private ImageView homebutton;
+	private ImageView backbutton;
 	
 	@FXML
 	private Button backMenu;
 	
-	public SceneController screen;
+	public SceneController scene;
 	
 	public InstructionSceneController(SceneController scene) {
-		this.screen = scene;
+		this.scene = scene;
 	}
 	
 	@FXML 
 	void backMenu(MouseEvent event) throws Exception{
-		screen.activate("MenuScene");
+		scene.activate("MenuScene");
 	}
 }

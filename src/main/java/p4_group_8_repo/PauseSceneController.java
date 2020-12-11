@@ -31,7 +31,7 @@ public class PauseSceneController {
 	
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
-		
+		System.out.println("High Score testing Successfully");
 	}
 	
 	@FXML

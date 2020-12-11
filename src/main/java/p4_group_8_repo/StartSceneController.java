@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -18,9 +17,7 @@ public class StartSceneController implements Initializable{
 	
 	@FXML
 	private ImageView startgame;
-	
-	@FXML
-	private Button startGame;
+
 	
 	@FXML
 	private ImageView menu;
@@ -28,10 +25,10 @@ public class StartSceneController implements Initializable{
 	@FXML
 	private TextField username;
 	
-	public SceneController screen;
+	public SceneController scene;
 	
 	public StartSceneController(SceneController scene) {
-		this.screen = scene;
+		this.scene = scene;
 	}
 
 	@Override
@@ -42,7 +39,7 @@ public class StartSceneController implements Initializable{
 	
 	@FXML
 	void menuClick(MouseEvent event) throws Exception{
-		screen.activate("MenuScene");
+		scene.activate("MenuScene");
 	}
 	
 	@FXML
@@ -51,10 +48,10 @@ public class StartSceneController implements Initializable{
 		if(username.getText() == null || username.getText().trim().isEmpty()) {
 			Main.setUser(user);
 		}else {
-			Main.user.setUsername(username.getText());
+			Main.getUser().setUsername(username.getText());
 		}
-		
-		screen.activate("GameScene");
-		Main.sceneController.gameScene.displayUsername(Main.user.getUsername());
+		System.out.println("Username in Start Scene: " + Main.getUser().getUsername());
+		scene.activate("GameScene");
+		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
     }
 }

@@ -21,25 +21,26 @@ public class MenuSceneController {
 	
 	@FXML
 	private ImageView quitbutton;
-	public SceneController screen;
+	public SceneController scene;
 	
 	public MenuSceneController(SceneController scene) {
-		this.screen = scene;
+		this.scene = scene;
 	}
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
-		screen.activate("StartScene");
+		scene.activate("StartScene");
 	}
 	
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
-		System.out.println("High Score Scenebuilder working");
+		scene.activate("HighScoreScene");
+		Main.getHighScore().printScores();
 	}
 	
 	@FXML
 	void instruction(MouseEvent event) throws Exception{
-		screen.activate("InstructionScene");
+		scene.activate("InstructionScene");
 	}
 	
 	@FXML

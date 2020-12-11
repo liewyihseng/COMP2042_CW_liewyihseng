@@ -18,29 +18,29 @@ public class BetweenLevelSceneController {
 	@FXML
 	private ImageView homebutton;
 	
-	public SceneController screen;
+	public SceneController scene;
 	public User user = Main.getUser();
 	
 	public BetweenLevelSceneController(SceneController scene) {
-		this.screen = scene;
+		this.scene = scene;
 	}
 	
 	@FXML
 	void nextLevel(MouseEvent event) throws Exception{
-		screen.resetGame();
-		//screen.activate("GameScene");
+		scene.resetGame();
 		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
 	}
 	
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
+		Main.getHighScore().newScore(Main.getUser().getScore());
 		System.out.println("High Score Button Successful");
 	}
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
-		screen.activate("StartScene");
-		screen.refreshGame();
+		scene.activate("StartScene");
+		scene.refreshGame();
 	}
 	
 }

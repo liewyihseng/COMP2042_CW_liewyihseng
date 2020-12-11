@@ -18,14 +18,15 @@ public class Character extends Actor{
 	}
 	
 	public Character(char c, int x, int y) {
-		img = new Image("file:src/main/resources/images/"+c+".png", SIZE, SIZE, true, true);
+		img = new Image("file:src/main/resources/images/character/"+c+".png", SIZE, SIZE, true, true);
 		setImage(img);
 		setCoordinate(x,y);
 	}
 	
 	public void setCharacter(int n) {
-		img = new Image("file:src/main/resources/images/"+n+".png", SIZE, SIZE, true, true);
+		img = new Image("file:src/main/resources/images/character/"+n+".png", SIZE, SIZE, true, true);
 		setImage(img);
 	}
+	
 }
 

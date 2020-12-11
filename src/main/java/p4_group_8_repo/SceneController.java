@@ -26,6 +26,9 @@ public class SceneController {
 	FXMLLoader pauseLoader = new FXMLLoader(getClass().getResource("/views/PauseScene.fxml"));
 	PauseSceneController pauseScenec = new PauseSceneController(this);
 	
+	FXMLLoader highscoreLoader = new FXMLLoader(getClass().getResource("/views/HighScoreScene.fxml"));
+	HighScoreSceneController highscoreScenec = new HighScoreSceneController(this);
+	
 	public SceneController(Scene scene) throws IOException {
 		this.scene = scene;
 		
@@ -44,15 +47,17 @@ public class SceneController {
 		pauseLoader.setController(pauseScenec);
 		Pane pausePane = pauseLoader.load();
 		
+		highscoreLoader.setController(highscoreScenec);
+		Pane highscorePane = highscoreLoader.load();
+		
 		addScene("StartScene", startPane);
 		addScene("BetweenLevelScene", betweenPane);
 		addScene("InstructionScene", instructionPane);
 		addScene("MenuScene", menuPane);
 		addScene("PauseScene", pausePane);
+		addScene("HighScoreScene", highscorePane);
 		addScene("GameScene", gameScene.getScene());
 		
-		//addScene("BetweenLevelScene", betweenLevelScene.getScene());
-		//betweenLevelScene.setSceneController(this);
 	}
 	
 	protected void addScene(String name, Pane pane) {
@@ -82,7 +87,7 @@ public class SceneController {
 	}
 	
 	protected void refreshGame() {
-		Main.user = new User();
+		Main.setUser(new User());
 		gameScene = new GameScene();
 		screenMap.replace("GameScene", gameScene.getScene());
 	}

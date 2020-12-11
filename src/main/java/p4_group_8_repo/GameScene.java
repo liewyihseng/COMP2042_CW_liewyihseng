@@ -1,13 +1,9 @@
 package p4_group_8_repo;
 
-import java.util.Optional;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -19,7 +15,7 @@ public class GameScene{
 	private Character[] score = new Character[4];
 	private Pane GameScene;
 	private int currentLevel;
-	public SceneController screen;
+	public SceneController scene;
 	
 
 	public GameScene() {
@@ -29,7 +25,7 @@ public class GameScene{
 		background.add(gameBack);
 		currentLevel = user.getLevel();
 		System.out.println("User detail:");
-		System.out.println("User Name:"+ user.getUsername());
+		System.out.println("User Name in Game Scene:"+ user.getUsername());
 		System.out.println("User level:" + user.getLevel());
 		
 		displayMenuButton();
@@ -149,23 +145,11 @@ public class GameScene{
             		user.setScore(user.getAnimal().getPoints());
             		user.setLevel(currentLevel + 1);
             		System.out.println("Score: " + user.getScore());
-            		Main.user.setScore(user.getScore());
-            		Main.user.setLevel(user.getLevel());
+            		Main.getUser().setScore(user.getScore());
+            		Main.getUser().setLevel(user.getLevel());
             		background.stopMusic();
             		stop();
             		background.stop();
-            		/*
-            		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/BetweenLevelScene.fxml"));
-            		try {
-						Pane pane = fxmlLoader.load();
-						Scene scene = new Scene(pane, 800, 600);
-						screen.addScene("BTL", scene);
-						screen.activate("BTL");
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-            		*/
             		Main.setScene("BetweenLevelScene");
             	}
             }
@@ -195,7 +179,7 @@ public class GameScene{
 		background.add(levelFrame);
 		int shift = 0;
 		char c;
-		String l = Integer.toString(Main.user.getLevel());
+		String l = Integer.toString(Main.getUser().getLevel());
 		for(int i=0; i< l.length();i++) {
 			c = l.charAt(i);
     		Character character = new Character(c, 565 + shift, 10);
@@ -234,23 +218,6 @@ public class GameScene{
 			background.stopMusic();
 			background.stop();
 			Main.setScene("PauseScene");
-			
-			/*
-    		Dialog<ButtonType> dialog = new Dialog<ButtonType>();
-    		dialog.setTitle("Game Paused");
-    		dialog.setContentText("Select The Options Below:");
-    		ButtonType buttonTypeResume = new ButtonType("Yes", ButtonData.YES);
-    		ButtonType buttonTypeNo = new ButtonType("No", ButtonData.NO);
-    		ButtonType buttonTypeYes = new ButtonType("Yes", ButtonData.YES);
-
-    		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeYes, buttonTypeNo);
-    		Optional<ButtonType> result = dialog.showAndWait();
-    		if(result.get() == buttonTypeYes) {
-    			background.start();
-    			start();
-    			System.out.println("Testing start successful");
-    		}
-    		*/
 		});
     }
     

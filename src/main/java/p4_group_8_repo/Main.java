@@ -31,15 +31,15 @@ import javafx.util.Duration;
 public class Main extends Application {
 	public Stage primaryStage;
 	public static SceneController sceneController;
-	public static User user = new User();
+	private static User user = new User();
+	private static HighScores highScore = new HighScores();
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
-
-		
 		Pane pane = new Pane();
 		Scene scene = new Scene(pane, 600, 800);
 		sceneController = new SceneController(scene);
@@ -64,5 +64,11 @@ public class Main extends Application {
 		return Main.user;
 	}
 	
-	
+	public static HighScores getHighScore() {
+		return highScore;
+	}
+
+	public static void setHighScore(HighScores highScore) {
+		Main.highScore = highScore;
+	}
 }
