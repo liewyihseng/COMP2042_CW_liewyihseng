@@ -29,6 +29,12 @@ public class SceneController {
 	FXMLLoader highscoreLoader = new FXMLLoader(getClass().getResource("/views/HighScoreScene.fxml"));
 	HighScoreSceneController highscoreScenec = new HighScoreSceneController(this);
 	
+	FXMLLoader ingamehighscoreLoader = new FXMLLoader(getClass().getResource("/views/InGameHighScoreScene.fxml"));
+	InGameHighScoreSceneController ingamehighscoreScenec = new InGameHighScoreSceneController(this);
+	
+	FXMLLoader endLoader = new FXMLLoader(getClass().getResource("/views/EndGameScene.fxml"));
+
+	
 	public SceneController(Scene scene) throws IOException {
 		this.scene = scene;
 		
@@ -50,12 +56,21 @@ public class SceneController {
 		highscoreLoader.setController(highscoreScenec);
 		Pane highscorePane = highscoreLoader.load();
 		
+		ingamehighscoreLoader.setController(ingamehighscoreScenec);
+		Pane ingamehighscorePane = ingamehighscoreLoader.load();
+		
+		endLoader.setController(betweenLevelScenec);
+		Pane endPane = endLoader.load();
+		
 		addScene("StartScene", startPane);
 		addScene("BetweenLevelScene", betweenPane);
 		addScene("InstructionScene", instructionPane);
 		addScene("MenuScene", menuPane);
 		addScene("PauseScene", pausePane);
 		addScene("HighScoreScene", highscorePane);
+		addScene("InGameHighScoreScene", ingamehighscorePane);
+		addScene("EndGameScene", endPane);
+		
 		addScene("GameScene", gameScene.getScene());
 		
 	}

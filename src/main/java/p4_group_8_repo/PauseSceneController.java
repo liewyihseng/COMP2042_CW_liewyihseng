@@ -17,27 +17,27 @@ public class PauseSceneController {
 	
 	@FXML
 	private ImageView homebutton;
-	public SceneController screen;
+	public SceneController scene;
 
 	
 	public PauseSceneController(SceneController scene) {
-		this.screen = scene;
+		this.scene = scene;
 	}
 	
 	@FXML
 	void resume(MouseEvent event) throws Exception{
-		screen.resumeGame();
+		scene.resumeGame();
 	}
 	
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
-		System.out.println("High Score testing Successfully");
+		scene.activate("InGameHighScoreScene");
 	}
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
-		screen.activate("StartScene");
-		screen.refreshGame();
+		scene.activate("StartScene");
+		scene.refreshGame();
 	}
 	
 }

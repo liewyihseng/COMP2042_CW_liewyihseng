@@ -1,10 +1,10 @@
+2720	10	impqcnskjtjyw
+2490	10	gtuwveapdnxgt
+2490	10	gtuwveapdnxgt
+2490	10	gtuwveapdnxgt
+2490	10	gtuwveapdnxgt
+2460	10	zeonifbnrqvam
+2460	10	zeonifbnrqvam
 2120	1	Frog
 1000	2	test10
 900	3	test9
-800	4	test8
-750	5	Frog
-700	6	test7
-700	1	testing1234
-650	2	test
-650	2	testing123
-600	7	test6

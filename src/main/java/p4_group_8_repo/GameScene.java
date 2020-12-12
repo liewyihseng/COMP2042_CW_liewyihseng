@@ -23,6 +23,7 @@ public class GameScene{
 		background = new MyStage();
 		BackgroundImage gameBack = new BackgroundImage("file:src/main/resources/images/Map.png");
 		background.add(gameBack);
+		Main.getUser().setInGame(true);
 		currentLevel = user.getLevel();
 		System.out.println("User detail:");
 		System.out.println("User Name in Game Scene:"+ user.getUsername());
@@ -42,18 +43,18 @@ public class GameScene{
 			background.add(new Lilypad(141 + 141-13+141-13+141-13+3,45));
 		}else if(user.getLevel() == 2 || user.getLevel() == 5 || user.getLevel() == 8) {
 			background.add(new Lilypad(13,45));
-			background.add(new Crocodile(141,45));
+			background.add(new Crocodile(130,45));
 			background.add(new Lilypad(141 + 141-13,45));
-			background.add(new Crocodile(141 + 141-13+141-13+1,45));
+			background.add(new Crocodile(130 + 141-13+141-13+1,45));
 			background.add(new Lilypad(141 + 141-13+141-13+141-13+3,45));
 		}else if(user.getLevel() == 3 || user.getLevel() == 6 || user.getLevel() == 9) {
 			background.add(new Crocodile(13,45));
 			background.add(new Lilypad(141,45));
 			background.add(new Crocodile(141 + 141-13,45));
 			background.add(new Lilypad(141 + 141-13+141-13+1,45));
-			background.add(new Crocodile(141 + 141-13+141-13+141-13+3,45));
+			background.add(new Crocodile(135 + 141-13+141-13+141-13+3,45));
 		}
-		
+		/*
 		//Water
 		//Lane counting from top to bottom
 		//Lane 1
@@ -117,7 +118,7 @@ public class GameScene{
 		background.add(new YellowTruck(600, 647, 1+ user.getIncrementDifficulty()));
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
-		
+		*/
 		background.add(user.getAnimal());
 		GameScene = background;
 		
@@ -151,6 +152,15 @@ public class GameScene{
             		stop();
             		background.stop();
             		Main.setScene("BetweenLevelScene");
+            		Main.getUser().setInGame(false);
+            	}
+            	if(user.getLevel() == 11) {
+            		System.out.println("I should stop here");
+            		background.stopMusic();
+            		stop();
+            		background.stop();
+            		Main.setScene("EndGameScene");
+            		Main.getUser().setInGame(false);
             	}
             }
         };
@@ -204,7 +214,7 @@ public class GameScene{
  
     public void displayMenuButton() {
     	Button menuButton = new Button();
-    	ImageView menuButtonImage = new ImageView("file:src/main/resources/images/MenuButton.png");
+    	ImageView menuButtonImage = new ImageView("file:src/main/resources/images/Button/MenuButton.png");
 		menuButtonImage.setFitHeight(32);
 		menuButtonImage.setFitWidth(38);
 		menuButton.setGraphic(menuButtonImage);
@@ -218,6 +228,7 @@ public class GameScene{
 			background.stopMusic();
 			background.stop();
 			Main.setScene("PauseScene");
+			
 		});
     }
     

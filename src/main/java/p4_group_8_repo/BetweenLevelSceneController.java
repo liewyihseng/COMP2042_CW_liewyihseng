@@ -10,6 +10,12 @@ public class BetweenLevelSceneController {
 	private Pane betweenLevelRoot;
 	
 	@FXML
+	private Pane endGameRoot;
+	
+	@FXML
+	private ImageView restartbutton;
+	
+	@FXML
 	private ImageView nextlevelbutton;
 	
 	@FXML
@@ -19,10 +25,17 @@ public class BetweenLevelSceneController {
 	private ImageView homebutton;
 	
 	public SceneController scene;
-	public User user = Main.getUser();
+	
 	
 	public BetweenLevelSceneController(SceneController scene) {
 		this.scene = scene;
+	}
+	
+	@FXML
+	void restart(MouseEvent event) throws Exception{
+		scene.refreshGame();
+		scene.activate("GameScene");
+		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
 	}
 	
 	@FXML
@@ -33,8 +46,7 @@ public class BetweenLevelSceneController {
 	
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
-		Main.getHighScore().newScore(Main.getUser().getScore());
-		System.out.println("High Score Button Successful");
+		scene.activate("InGameHighScoreScene");
 	}
 	
 	@FXML

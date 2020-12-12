@@ -205,7 +205,7 @@ public class Animal extends Actor {
 			}
 
 		else if (getY() < 360 ){
-			setWaterDeath(true);
+			//setWaterDeath(true);
 			//setX(300);
 			//setY(679.8+movement);
 		}
@@ -436,7 +436,7 @@ public class Animal extends Actor {
 	 * @return An image of the current frog movement
 	 */
 	public Image frogMovementImg(String imageName) {	
-		return new Image("file:src/main/resources/images/"+ imageName, imgSize, imgSize, true, true);
+		return new Image("file:src/main/resources/images/FrogAnimation/"+ imageName, imgSize, imgSize, true, true);
 	}
 	
 	/**
@@ -501,7 +501,7 @@ public class Animal extends Actor {
 	 * @return An image that corresponds to the imageName and the current phase of death animation of the frog
 	 */
 	public Image DeathAnimationImg(String imageName) {
-		return new Image("file:src/main/resources/images/"+ imageName +".png", imgSize, imgSize, true, true);
+		return new Image("file:src/main/resources/images/DeathAnimation/"+ imageName +".png", imgSize, imgSize, true, true);
 	}
 	
 }

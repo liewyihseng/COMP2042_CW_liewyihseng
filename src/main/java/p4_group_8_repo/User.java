@@ -2,11 +2,18 @@ package p4_group_8_repo;
 
 import java.util.Random;
 
+/**
+ * Represents the profile of each user when the application, Frogger Arcade has been launched
+ * @author Liew Yih Seng
+ *
+ */
+
 public class User {
 	private String username;
 	private int score;
 	private Animal animal;
 	private int level;
+	private boolean inGame = false;
 
 	public User() {
 		setUsername(randomUsername());
@@ -67,5 +74,21 @@ public class User {
     	speedIncrement = getLevel() * 0.15;
     	return speedIncrement;
     }
+    
+    /**
+     * Gets the state of user in game play
+     * @return A boolean representing the if the game has been paused or not
+     */
+    public boolean isInGame() {
+		return inGame;
+	}
+
+    /**
+     * Sets the state of the game play
+     * @param inGame A boolean representing the state of gameplay whether if the game has been paused or not
+     */
+	public void setInGame(boolean inGame) {
+		this.inGame = inGame;
+	}
 
 }

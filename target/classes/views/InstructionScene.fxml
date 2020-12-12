@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="845.0" fitWidth="641.0" layoutX="-20.0" layoutY="-22.0">
          <image>
-            <Image url="@../images/HowToPlayPage.png" />
+            <Image url="@../images/PageBackground/HowToPlayPage.png" />
          </image>
         </ImageView>
         <ImageView fx:id="control" fitHeight="53.0" fitWidth="192.0" layoutX="204.0" layoutY="97.0" preserveRatio="true">
@@ -72,7 +72,7 @@
         </ImageView>
         <ImageView fx:id="backbutton" fitHeight="70.0" fitWidth="140.0" layoutX="231.0" layoutY="683.0" onMouseClicked="#backMenu" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/BackButton.png" />
+            <Image url="@../images/Button/BackButton.png" />
          </image>
          <cursor>
          	<Cursor fx:constant="HAND" />
