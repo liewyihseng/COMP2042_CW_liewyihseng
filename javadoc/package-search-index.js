@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"p4_group_8_repo"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"p4_group_8_repo"},{"l":"p4_group_8_repo.actor"},{"l":"p4_group_8_repo.actor.obstacle"},{"l":"p4_group_8_repo.controller"},{"l":"p4_group_8_repo.user"}]

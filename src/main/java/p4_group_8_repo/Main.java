@@ -4,11 +4,15 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import p4_group_8_repo.controller.SceneController;
+import p4_group_8_repo.user.User;
 
 
 
 public class Main extends Application {
+	
 	public Stage primaryStage;
 	public static SceneController sceneController;
 	private static User user = new User();
@@ -36,12 +40,13 @@ public class Main extends Application {
 		sceneController.activate(sceneName);
 	}
 	
-	public static void setUser(User user) {
-		Main.user = user;
-	}
-	
 	public static User getUser() {
 		return Main.user;
+	}
+	
+	
+	public static void setUser(User user) {
+		Main.user = user;
 	}
 	
 	public static HighScores getHighScore() {

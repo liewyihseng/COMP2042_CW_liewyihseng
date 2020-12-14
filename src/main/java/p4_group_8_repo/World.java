@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import p4_group_8_repo.actor.Actor;
 
 
 public abstract class World extends Pane {

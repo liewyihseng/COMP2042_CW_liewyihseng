@@ -1,8 +1,10 @@
 package p4_group_8_repo;
 
 import java.io.File;
+
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import p4_group_8_repo.actor.BackgroundImage;
 
 public class MyStage extends World{
 
