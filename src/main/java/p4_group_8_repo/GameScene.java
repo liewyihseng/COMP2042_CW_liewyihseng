@@ -21,9 +21,8 @@ public class GameScene{
 	public GameScene() {
 		
 		background = new MyStage();
-		BackgroundImage gameBack = new BackgroundImage("file:src/main/resources/images/Map.png");
+		BackgroundImage gameBack = new BackgroundImage("file:src/main/resources/images/PageBackground/Map.png");
 		background.add(gameBack);
-		Main.getUser().setInGame(true);
 		currentLevel = user.getLevel();
 		System.out.println("User detail:");
 		System.out.println("User Name in Game Scene:"+ user.getUsername());
@@ -54,7 +53,7 @@ public class GameScene{
 			background.add(new Lilypad(141 + 141-13+141-13+1,45));
 			background.add(new Crocodile(135 + 141-13+141-13+141-13+3,45));
 		}
-		/*
+		
 		//Water
 		//Lane counting from top to bottom
 		//Lane 1
@@ -118,7 +117,7 @@ public class GameScene{
 		background.add(new YellowTruck(600, 647, 1+ user.getIncrementDifficulty()));
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
-		*/
+		
 		background.add(user.getAnimal());
 		GameScene = background;
 		
@@ -148,17 +147,12 @@ public class GameScene{
             		System.out.println("Score: " + user.getScore());
             		Main.getUser().setScore(user.getScore());
             		Main.getUser().setLevel(user.getLevel());
-            		background.stopMusic();
-            		stop();
-            		background.stop();
+            		stopGame(background);
             		Main.setScene("BetweenLevelScene");
             		Main.getUser().setInGame(false);
             	}
             	if(user.getLevel() == 11) {
-            		System.out.println("I should stop here");
-            		background.stopMusic();
-            		stop();
-            		background.stop();
+            		stopGame(background);
             		Main.setScene("EndGameScene");
             		Main.getUser().setInGame(false);
             	}
@@ -166,13 +160,23 @@ public class GameScene{
         };
     }
 	
+	/**
+	 * Handles the stopping for background media, Timer from World Class and Timer from GameScene
+	 * @param background A MyStage that represents the stage that holds the scene
+	 */
+	public void stopGame(MyStage background) {
+		background.stopMusic();
+		stop();
+		background.stop();
+	}
+	
     
     public void stop() {
         timer.stop();
     }
     
     public void displayScore() {
-    	Frame scoreFrame = new Frame("file:src/main/resources/images/ScoreFrame.png", 160, 100, 330, 0);
+    	Frame scoreFrame = new Frame("file:src/main/resources/images/Frame/ScoreFrame.png", 160, 100, 330, 0);
 		background.add(scoreFrame);
 		score[0] = new Character(0, 460, 10);
 		score[1] = new Character(0, 445, 10);
@@ -185,7 +189,7 @@ public class GameScene{
     }
     
     public void displayLevel() {
-    	Frame levelFrame = new Frame("file:src/main/resources/images/LevelFrame.png", 110, 100, 490, 0);
+    	Frame levelFrame = new Frame("file:src/main/resources/images/Frame/LevelFrame.png", 110, 100, 490, 0);
 		background.add(levelFrame);
 		int shift = 0;
 		char c;
@@ -201,7 +205,7 @@ public class GameScene{
     public void displayUsername(String name) {
     	int shift = 0;
     	char c;
-    	Frame idFrame = new Frame("file:src/main/resources/images/IdFrame.png", 270, 400, 60, 0);
+    	Frame idFrame = new Frame("file:src/main/resources/images/Frame/IdFrame.png", 270, 400, 60, 0);
     	background.add(idFrame);
     	for(int i=0;i<name.length();i++) {
     		c = name.toUpperCase().charAt(i);
@@ -227,6 +231,7 @@ public class GameScene{
 			stop();
 			background.stopMusic();
 			background.stop();
+			Main.getUser().setInGame(true);
 			Main.setScene("PauseScene");
 			
 		});
@@ -246,15 +251,6 @@ public class GameScene{
     public Pane getScene() {
     	return GameScene;
     }
-    
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 }
 

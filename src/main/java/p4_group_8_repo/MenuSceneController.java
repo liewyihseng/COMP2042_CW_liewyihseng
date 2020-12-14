@@ -35,7 +35,6 @@ public class MenuSceneController {
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
 		scene.activate("HighScoreScene");
-		Main.getHighScore().printScores();
 	}
 	
 	@FXML

@@ -1,14 +1,11 @@
 package p4_group_8_repo;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
 
 public class HighScores {
 	private String root = System.getProperty("user.dir");
@@ -28,12 +25,15 @@ public class HighScores {
 			"Test10"
 		};
 	
+
+	
 	/* Open HIGH_SCORE_FILE and read the scores, names into an array */
 	public HighScores(){
 		String line;
 		String[] parts;
 		int score;
 		int level;
+		String name;
 		score_list = new ArrayList<HighScore>(MAX_SCORES);
 		
 		try {
@@ -43,8 +43,8 @@ public class HighScores {
 				
 				score = Integer.parseInt(parts[0]);
 				level = Integer.parseInt(parts[1]);
-			
-				score_list.add(new HighScore(parts[2], score, level));
+				name = parts[2];
+				score_list.add(new HighScore(name, score, level));
 			}
 			
 			file.close();
@@ -61,6 +61,8 @@ public class HighScores {
 			}
 		}
 	}
+	
+
 	
 	public boolean isNewHighScore(int score) {
 		HighScore lowestHighScores = score_list.get(score_list.size() - 1);
@@ -95,6 +97,10 @@ public class HighScores {
 		for(int i=0; i<score_list.size(); i++) {
 			System.out.println(score_list.get(i));
 		}
+	}
+
+	public ArrayList<HighScore> getScoreList(){
+		return score_list;
 	}
 	
 	public void add(String name, int score, int level) {
@@ -137,11 +143,8 @@ public class HighScores {
 		}
 	}
 	
-	public ArrayList<HighScore> getScoreList(){
-		return score_list;
-	}
-	
-	private static class HighScore {
+
+	public static class HighScore {
 		public String name;
 		public int score;
 		public int level;
@@ -154,6 +157,18 @@ public class HighScores {
 
 		public String toString() {
 			return score + "\t" + level +"\t" + name;
+		}
+		
+		public String getName() {
+			return name;
+		}
+		
+		public String getLevel() {
+			return Integer.toString(level);
+		}
+		
+		public String getScore() {
+			return Integer.toString(score);
 		}
 	}
 }

@@ -7,10 +7,10 @@ public class Snake extends Obstacle{
 	final int WIDTH = 60;
 	final int HEIGHT = 60;
 	static final int TICK = 900000000;
-	Image Snake1 = new Image("file:src/main/resources/images/Snake1.png", WIDTH, HEIGHT, true, true);
-	Image Snake2 = new Image("file:src/main/resources/images/Snake2.png", WIDTH, HEIGHT, true, true);
-	Image Snake3 = new Image("file:src/main/resources/images/Snake3.png", WIDTH, HEIGHT, true, true);
-	Image Snake4 = new Image("file:src/main/resources/images/Snake4.png", WIDTH, HEIGHT, true, true);
+	Image Snake1 = new Image("file:src/main/resources/images/Actor/Snake1.png", WIDTH, HEIGHT, true, true);
+	Image Snake2 = new Image("file:src/main/resources/images/Actor/Snake2.png", WIDTH, HEIGHT, true, true);
+	Image Snake3 = new Image("file:src/main/resources/images/Actor/Snake3.png", WIDTH, HEIGHT, true, true);
+	Image Snake4 = new Image("file:src/main/resources/images/Actor/Snake4.png", WIDTH, HEIGHT, true, true);
 
 	public Snake(int xpos, int ypos, double s) {
 		super(xpos, ypos, s);

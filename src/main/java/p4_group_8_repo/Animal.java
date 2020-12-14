@@ -7,7 +7,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 /**
- * Represents the main character in the gameplay
+ * Represents the main character in the gameplay.
  * @author Liew Yih Seng
  *
  */
@@ -38,7 +38,7 @@ public class Animal extends Actor {
 	ArrayList<Crocodile> interCroc = new ArrayList<Crocodile>();
 	
 	/**
-	 * Construct an instance of animal that act as the main character in the gameplay
+	 * Construct an instance of animal that act as the main character in the gameplay.
 	 */
 	public Animal() {
 		imgW1 = frogMovementImg("froggerUp.png");
@@ -51,59 +51,61 @@ public class Animal extends Actor {
 		imgD2 = frogMovementImg("froggerRightJump.png");
 		setImage(imgW1);
 		setCoordinate(275, (int) (679.8+movement));
+		
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
 				if (noMove) {
 					
 				}
 				else {
-				if (isSecond()) {
-					if (testKeyW(event)) {	 
-						moveLocationDisplay(0, -movement, imgW1);
-		                move(0, -movement);
-		                changeScore = false;
-		                setImage(imgW1);
-		                setSecond(false);
+					if (isSecond()) {
+						if (testKeyW(event)) {	 
+							moveLocationDisplay(0, -movement, imgW1);
+			                move(0, -movement);
+			                changeScore = false;
+			                setImage(imgW1);
+			                setSecond(false);
+			            }
+			            else if (testKeyA(event)) {
+			            	moveLocationDisplay(-movementX, 0, imgA1);
+			            	setSecond(false);
+			            }
+			            else if (testKeyS(event)) {
+			            	moveLocationDisplay(0, movement, imgS1);
+			            	setSecond(false);
+			            }
+			            else if (testKeyD(event)) {
+			            	moveLocationDisplay(movementX, 0, imgD1);
+			            	setSecond(false);
+			            }
+					}
+					else if (testKeyW(event)) {
+						moveLocationDisplay(0, -movement, imgW2);
+						setSecond(false);
 		            }
-		            else if (testKeyA(event)) {
-		            	moveLocationDisplay(-movementX, 0, imgA1);
+		            else if (testKeyA(event)) {	
+		            	moveLocationDisplay(-movementX, 0, imgA2);
 		            	setSecond(false);
 		            }
-		            else if (testKeyA(event)) {
-		            	moveLocationDisplay(0, movement, imgS1);
+		            else if (testKeyS(event)) {	
+		            	moveLocationDisplay(0, movement, imgS2);
 		            	setSecond(false);
 		            }
 		            else if (testKeyD(event)) {
-		            	moveLocationDisplay(movementX, 0, imgD1);
+		            	moveLocationDisplay(movementX, 0, imgD2);
 		            	setSecond(false);
 		            }
-				}
-				else if (testKeyW(event)) {
-					moveLocationDisplay(0, -movement, imgW2);
-					setSecond(false);
-	            }
-	            else if (testKeyA(event)) {	
-	            	moveLocationDisplay(-movementX, 0, imgA2);
-	            	setSecond(false);
-	            }
-	            else if (testKeyS(event)) {	
-	            	moveLocationDisplay(0, movement, imgS2);
-	            	setSecond(false);
-	            }
-	            else if (testKeyD(event)) {
-	            	moveLocationDisplay(movementX, 0, imgD2);
-	            	setSecond(false);
-	            }
-	        }
+		        }
 			}
 		});	
+		
 		setOnKeyReleased(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
 				if (noMove) {
 
 				}
 				else {
-					if (event.getCode() == KeyCode.W) {	  
+					if (testKeyW(event)) {	  
 						if (getY() < w) {
 							changeScore = true;
 							w = getY(); // Keep track of which coordinate-y you die at
@@ -112,15 +114,15 @@ public class Animal extends Actor {
 						moveLocationDisplay(0, -movement, imgW1);
 		                setSecond(false);
 		            }
-		            else if (event.getCode() == KeyCode.A) {	
+		            else if (testKeyA(event)) {	
 		            	moveLocationDisplay(-movementX, 0, imgA1);
 		            	setSecond(false);
 		            }
-		            else if (event.getCode() == KeyCode.S) {
+		            else if (testKeyS(event)) {
 		            	moveLocationDisplay(0, movement, imgS1);
 		            	setSecond(false);
 		            }
-		            else if (event.getCode() == KeyCode.D) {	       
+		            else if (testKeyD(event)) {	       
 		            	moveLocationDisplay(movementX, 0, imgD1);
 		            	setSecond(false);
 		            }
@@ -205,7 +207,7 @@ public class Animal extends Actor {
 			}
 
 		else if (getY() < 360 ){
-			//setWaterDeath(true);
+			setWaterDeath(true);
 			//setX(300);
 			//setY(679.8+movement);
 		}

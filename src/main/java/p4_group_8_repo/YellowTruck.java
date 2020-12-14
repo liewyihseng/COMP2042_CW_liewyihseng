@@ -6,6 +6,6 @@ public class YellowTruck extends Obstacle implements TruckVehicle{
 	
 	public YellowTruck(int xpos, int ypos, double s) {
 		super(xpos, ypos, s);
-		setImage(new Image("file:src/main/resources/images/TruckYellow.png", WIDTH, HEIGHT, true, true));
+		setImage(new Image("file:src/main/resources/images/Actor/TruckYellow.png", WIDTH, HEIGHT, true, true));
 	}
 }

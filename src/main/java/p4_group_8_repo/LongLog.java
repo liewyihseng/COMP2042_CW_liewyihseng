@@ -7,6 +7,6 @@ public class LongLog extends Log{
 	
 	public LongLog(int xpos, int ypos, double s) {
 		super(xpos, ypos, s);
-		setImage(new Image("file:src/main/resources/images/LogLong.png", SIZE, SIZE, true, true));
+		setImage(new Image("file:src/main/resources/images/Actor/LogLong.png", SIZE, SIZE, true, true));
 	}
 }

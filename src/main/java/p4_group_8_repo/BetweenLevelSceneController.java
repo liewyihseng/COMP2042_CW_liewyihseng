@@ -26,6 +26,10 @@ public class BetweenLevelSceneController {
 	
 	public SceneController scene;
 	
+	public HighScores highScores = Main.getHighScore();
+
+	public InGameHighScoreSceneController ingameController = new InGameHighScoreSceneController(highScores);
+	
 	
 	public BetweenLevelSceneController(SceneController scene) {
 		this.scene = scene;
@@ -46,6 +50,7 @@ public class BetweenLevelSceneController {
 	
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
+		ingameController.setScoreText();
 		scene.activate("InGameHighScoreScene");
 	}
 	
@@ -54,5 +59,5 @@ public class BetweenLevelSceneController {
 		scene.activate("StartScene");
 		scene.refreshGame();
 	}
-	
+
 }

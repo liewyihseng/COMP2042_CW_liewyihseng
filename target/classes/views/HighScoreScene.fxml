@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -10,12 +13,25 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="600.0">
          <image>
-            <Image url="@../images/PageBackground/MenuPage.png" />
+            <Image url="@../images/PageBackground/MenuPage2.png" />
          </image>
         </ImageView>
-        <ImageView fitHeight="170.0" fitWidth="537.0" layoutX="32.0" layoutY="168.0">
+        <ImageView fitHeight="168.0" fitWidth="531.0" layoutX="35.0" layoutY="60.0">
          <image>
             <Image url="@../images/PageBackground/Highscore.png" />
+         </image>
+        </ImageView>
+         <ImageView fitHeight="104.0" fitWidth="330.0" layoutX="57.0" layoutY="151.0" preserveRatio="true">
+         <image>
+            <Image url="@../images/PageBackground/Username.png" />
+         </image>
+        </ImageView> <ImageView fitHeight="104.0" fitWidth="330.0" layoutX="236.0" layoutY="151.0" preserveRatio="true">
+         <image>
+            <Image url="@../images/PageBackground/Level.png" />
+         </image>
+        </ImageView> <ImageView fitHeight="104.0" fitWidth="330.0" layoutX="334.0" layoutY="151.0" preserveRatio="true">
+         <image>
+            <Image url="@../images/PageBackground/Score.png" />
          </image>
         </ImageView>
         <ImageView fx:id="backbutton" fitHeight="70.0" fitWidth="140.0" layoutX="222.0" layoutY="600.0" onMouseClicked="#backMenu" pickOnBounds="true" preserveRatio="true">
@@ -23,9 +39,227 @@
             <Image url="@../images/Button/BackButton.png" />
          </image>
          <cursor>
-         	<Cursor fx:constant="HAND"/>
+         	<Cursor fx:constant="HAND" />
          </cursor>
       	</ImageView>
-        
+      <Label layoutX="73.0" layoutY="182.0" text="1." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name0" alignment="CENTER" layoutX="84.0" layoutY="188.0" prefHeight="30.0" prefWidth="284.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level0" alignment="CENTER" layoutX="378.0" layoutY="188.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score0" alignment="CENTER" layoutX="470.0" layoutY="188.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="73.0" layoutY="222.0" text="2." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name1" alignment="CENTER" layoutX="80.0" layoutY="228.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level1" alignment="CENTER" layoutX="378.0" layoutY="228.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score1" alignment="CENTER" layoutX="470.0" layoutY="228.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="73.0" layoutY="262.0" text="3." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name2" alignment="CENTER" layoutX="80.0" layoutY="268.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level2" alignment="CENTER" layoutX="378.0" layoutY="268.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score2" alignment="CENTER" layoutX="470.0" layoutY="268.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="73.0" layoutY="302.0" text="4." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name3" alignment="CENTER" layoutX="80.0" layoutY="308.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level3" alignment="CENTER" layoutX="378.0" layoutY="308.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score3" alignment="CENTER" layoutX="470.0" layoutY="308.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="73.0" layoutY="342.0" text="5." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name4" alignment="CENTER" layoutX="80.0" layoutY="348.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level4" alignment="CENTER" layoutX="378.0" layoutY="348.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score4" alignment="CENTER" layoutX="470.0" layoutY="348.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="73.0" layoutY="382.0" text="6." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name5" alignment="CENTER" layoutX="80.0" layoutY="388.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level5" alignment="CENTER" layoutX="378.0" layoutY="388.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score5" alignment="CENTER" layoutX="470.0" layoutY="388.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="73.0" layoutY="422.0" text="7." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name6" alignment="CENTER" layoutX="80.0" layoutY="428.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level6" alignment="CENTER" layoutX="378.0" layoutY="428.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score6" alignment="CENTER" layoutX="470.0" layoutY="428.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="73.0" layoutY="462.0" text="8." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name7" alignment="CENTER" layoutX="80.0" layoutY="468.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level7" alignment="CENTER" layoutX="378.0" layoutY="468.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score7" alignment="CENTER" layoutX="470.0" layoutY="468.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="73.0" layoutY="502.0" text="9." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name8" alignment="CENTER" layoutX="80.0" layoutY="508.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level8" alignment="CENTER" layoutX="378.0" layoutY="508.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score8" alignment="CENTER" layoutX="470.0" layoutY="508.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      
+       <Label layoutX="59.0" layoutY="542.0" text="10." textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+       <Label fx:id="name9" alignment="CENTER" layoutX="80.0" layoutY="548.0" prefHeight="30.0" prefWidth="284.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+        <Label fx:id="level9" alignment="CENTER" layoutX="378.0" layoutY="548.0" prefHeight="30.0" prefWidth="45.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="score9" alignment="CENTER" layoutX="470.0" layoutY="548.0" prefHeight="30.0" prefWidth="59.0" text="" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+     
    </children>
 </Pane>

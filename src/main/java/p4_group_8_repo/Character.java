@@ -2,6 +2,11 @@ package p4_group_8_repo;
 
 import javafx.scene.image.Image;
 
+/**
+ * Represents the characters shown within the game.
+ * @author Liew Yih Seng
+ *
+ */
 public class Character extends Actor{
 	final int SIZE = 20;
 	private Image img;

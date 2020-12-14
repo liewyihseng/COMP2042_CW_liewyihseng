@@ -91,6 +91,7 @@ public class SceneController {
 		gameScene.background.start();
 		gameScene.start();
 		activate("GameScene");
+		Main.getUser().setInGame(true);
 	}
 
 	protected void resetGame() {

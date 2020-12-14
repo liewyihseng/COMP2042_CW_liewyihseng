@@ -7,6 +7,6 @@ public class ShortLog extends Log{
 	
 	public ShortLog(int xpos, int ypos, double s) {
 		super(xpos, ypos, s);
-		setImage(new Image("file:src/main/resources/images/LogShort.png", SIZE, SIZE, true, true));
+		setImage(new Image("file:src/main/resources/images/Actor/LogShort.png", SIZE, SIZE, true, true));
 	}
 }

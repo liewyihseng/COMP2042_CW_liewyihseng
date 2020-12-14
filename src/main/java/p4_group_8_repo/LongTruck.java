@@ -9,6 +9,6 @@ public class LongTruck extends Obstacle{
 	
 	public LongTruck(int xpos, int ypos, double s) {
 		super(xpos, ypos, s);
-		setImage(new Image("file:src/main/resources/images/TruckLong.png", WIDTH, HEIGHT, true, true));
+		setImage(new Image("file:src/main/resources/images/Actor/TruckLong.png", WIDTH, HEIGHT, true, true));
 	}
 }

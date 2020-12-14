@@ -31,7 +31,7 @@ public class PauseSceneController {
 	
 	@FXML
 	void highScore(MouseEvent event) throws Exception{
-		scene.activate("InGameHighScoreScene");
+		scene.activate("HighScoreScene");
 	}
 	
 	@FXML

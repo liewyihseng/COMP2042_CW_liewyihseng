@@ -3,9 +3,9 @@ package p4_group_8_repo;
 import javafx.scene.image.Image;
 
 public class NonSinkingTurtle extends Actor implements Turtle{
-	Image turtle1 = new Image("file:src/main/resources/images/TurtleAnimation1.png", WIDTH, HEIGHT, true, true);
-	Image turtle2 = new Image("file:src/main/resources/images/TurtleAnimation2.png", WIDTH, HEIGHT, true, true);
-	Image turtle3 = new Image("file:src/main/resources/images/TurtleAnimation3.png", WIDTH, HEIGHT, true, true);
+	Image turtle1 = new Image("file:src/main/resources/images/Actor/TurtleAnimation1.png", WIDTH, HEIGHT, true, true);
+	Image turtle2 = new Image("file:src/main/resources/images/Actor/TurtleAnimation2.png", WIDTH, HEIGHT, true, true);
+	Image turtle3 = new Image("file:src/main/resources/images/Actor/TurtleAnimation3.png", WIDTH, HEIGHT, true, true);
 	private double speed;
 	@Override
 	public void act(long now) {

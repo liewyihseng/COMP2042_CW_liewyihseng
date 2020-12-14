@@ -13,7 +13,7 @@ public class User {
 	private int score;
 	private Animal animal;
 	private int level;
-	private boolean inGame = false;
+	private boolean pauseGame;
 
 	public User() {
 		setUsername(randomUsername());
@@ -80,7 +80,7 @@ public class User {
      * @return A boolean representing the if the game has been paused or not
      */
     public boolean isInGame() {
-		return inGame;
+		return pauseGame;
 	}
 
     /**
@@ -88,7 +88,7 @@ public class User {
      * @param inGame A boolean representing the state of gameplay whether if the game has been paused or not
      */
 	public void setInGame(boolean inGame) {
-		this.inGame = inGame;
+		this.pauseGame = inGame;
 	}
 
 }
