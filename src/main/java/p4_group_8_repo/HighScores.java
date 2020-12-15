@@ -7,6 +7,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+/**
+ * This class handles the listing of all high scores being stored within the game.
+ * @author Liew Yih Seng
+ *
+ */
 public class HighScores {
 	private String root = System.getProperty("user.dir");
 	private String scoreFile = root+"\\src\\main\\resources\\score\\scoreFile.txt";
@@ -26,7 +31,12 @@ public class HighScores {
 		};
 	
 	
-	
+	/**
+	 * The constructor that handles initialization of this class. It opens the scoreFile,
+	 * reads the details of users existed within the scoreFile. These details are user's name, level
+	 * and score. Each line within the file will be read and split into parts where each part will
+	 * be assigned to its holding variable(name, level, score).
+	 */
 	/* Open HIGH_SCORE_FILE and read the scores, names into an array */
 	public HighScores(){
 		String line;
@@ -62,6 +72,11 @@ public class HighScores {
 		}
 	}
 	
+	/**
+	 * A method that tests if the score being input is higher than any of the scores inside {@link #score_list}
+	 * @param score An integer that represents the score achieved by the user.
+	 * @return A boolean that states if the input score is larger than any scores within the {@link #score_list}
+	 */
 	public boolean isNewHighScore(int score) {
 		HighScore lowestHighScores = score_list.get(score_list.size() - 1);
 		
@@ -71,8 +86,8 @@ public class HighScores {
 		return true;
 	}
 
-	/*
-	 * Open HIGH_SCORE_FILE for writing (not appending), and write the high scores to the file in order 
+	/**
+	 * A method that opens the scoreFile then writing the high scores into the file in order.
 	 */
 	public void writeScoreFile() {
 		try {
@@ -89,7 +104,9 @@ public class HighScores {
 	}
 	
 	/**
-	 * This prints out the current high scores, it's mostly for debugging
+	 * This method prints out the current high scores existed within the list. The usage
+	 * of this method is mostly for debugging as developers can check the current contents within
+	 * the scoreFile.
 	 */
 	public void printScores() {
 		System.out.println("High Scores:");
@@ -98,10 +115,22 @@ public class HighScores {
 		}
 	}
 
+	/**
+	 * A method that returns the {@link #score_list}.
+	 * @return An array list of {@link HighScore}
+	 */
 	public ArrayList<HighScore> getScoreList(){
 		return score_list;
 	}
 	
+	/**
+	 * A method that adds the {@link #HighScores()} then sorts the {@link #score_list},
+	 * arranging all elements within the list in a descending order based on the scores. A for loop
+	 * will be used to loop through all element within the list in order to perform the sorting of high scores. 
+	 * @param name A string that represents the name of the user.
+	 * @param score An integer that represents the score of the user.
+	 * @param level An integer that represents the level the user has achieved.
+	 */
 	public void add(String name, int score, int level) {
 		score_list.add(new HighScore(name, score, level));
 		int min_element;
@@ -130,6 +159,12 @@ public class HighScores {
 		
 	}
 	
+	/**
+	 * A method that adds the score in to the {@link #score_list}
+	 * if the score to be added is tested to be a new high score by using method
+	 * {@link #isNewHighScore(int)} that returns a boolean stating the result of the test.
+	 * @param score An integer representing the score achieved by the user.
+	 */
 	public void newScore(int score) {
 		if(this.isNewHighScore(score)) {
 			String name = Main.getUser().getUsername();
@@ -139,30 +174,57 @@ public class HighScores {
 		}
 	}
 	
-
+	/**
+	 * A class that holds the detail of users that were to be added into the {@link HighScores#score_list}.
+	 * This class has a name, a score and a level that hold the detail of high score achiever.
+	 * @author Liew Yih Seng
+	 *
+	 */
 	public static class HighScore {
 		public String name;
 		public int score;
 		public int level;
 
+		/**
+		 * A Constructor that initialize the name, the score and the level of the high score achiever.
+		 * @param name A String that represents the name of the user.
+		 * @param score An integer that represents the score of the user.
+		 * @param level An integer that represents the level of the user.
+		 */
 		public HighScore(String name, int score, int level) {
 			this.name = name;
 			this.score = score;
 			this.level = level;
 		}
 
+		/**
+		 * A method that returns the high score achiever's detail in a string form.
+		 * @return A string that represents the user's detail.
+		 */
 		public String toString() {
 			return score + "\t" + level +"\t" + name;
 		}
 		
+		/**
+		 * Gets the name of the high score achiever.
+		 * @return A string that represents the name of the high score achiever.
+		 */
 		public String getName() {
 			return name;
 		}
 		
+		/**
+		 * Gets the level of the high score achiever.
+		 * @return A string that represents the level of the high score achiever.
+		 */
 		public String getLevel() {
 			return Integer.toString(level);
 		}
 		
+		/**
+		 * Gets the score of the high score achiever.
+		 * @return A string that represents the score of the high score achiever.
+		 */
 		public String getScore() {
 			return Integer.toString(score);
 		}

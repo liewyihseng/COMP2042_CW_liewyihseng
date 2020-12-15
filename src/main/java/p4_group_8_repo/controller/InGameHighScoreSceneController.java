@@ -95,9 +95,10 @@ public class InGameHighScoreSceneController implements Initializable{
 	@FXML
 	void submit(MouseEvent event) {
 		Main.getUser().setLevel(1);
+		scene.refreshGame();
 		Main.getHighScore().newScore(Main.getUser().getScore());
 		scene.activate("StartScene");
-		scene.refreshGame();
+		
 	}
 	
 	@FXML

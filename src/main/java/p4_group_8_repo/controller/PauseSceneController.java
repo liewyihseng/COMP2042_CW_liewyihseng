@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import p4_group_8_repo.Main;
 
 public class PauseSceneController {
 	@FXML
@@ -36,6 +37,7 @@ public class PauseSceneController {
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
+		Main.getUser().setLevel(1);
 		scene.activate("StartScene");
 		scene.refreshGame();
 	}

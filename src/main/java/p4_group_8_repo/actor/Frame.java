@@ -16,7 +16,12 @@ public class Frame extends Actor{
 	}
 	
 	/**
-	 * A constructor that instantiates the frame class, then displaying the frame in the game scene
+	 * A constructor that instantiates the frame class, then displaying the frame in the game scene.
+	 * It initiates an {@link Image#Image(String, double, double, boolean, boolean)} constructor which 
+	 * is then being assigned to {@link #img} where {@link #img} will again be assigned into
+	 * {@link #setImage(Image)} where it will be displayed in the game play. For the coordinate settings,
+	 * this method invokes the {@link #setCoordinate(int, int)} method to set the position of the frame 
+	 * being displayed in the game play.
 	 * @param imageLink A string representing the path to the frame image
 	 * @param height An integer representing the height of the frame
 	 * @param width An integer representing the width of the frame

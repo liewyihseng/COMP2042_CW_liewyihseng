@@ -28,6 +28,7 @@ public class EndGameSceneController {
 	
 	@FXML
 	void restart(MouseEvent event) throws Exception{
+		Main.getUser().setLevel(1);
 		scene.refreshGame();
 		scene.activate("GameScene");
 		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
@@ -41,6 +42,7 @@ public class EndGameSceneController {
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
+		Main.getUser().setLevel(1);
 		scene.activate("StartScene");
 		scene.refreshGame();
 	}

@@ -4,13 +4,15 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import p4_group_8_repo.controller.SceneController;
 import p4_group_8_repo.user.User;
 
-
-
+/**
+ * 
+ * @author Liew Yih Seng
+ *
+ */
 public class Main extends Application {
 	
 	public Stage primaryStage;

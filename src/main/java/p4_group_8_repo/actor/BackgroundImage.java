@@ -1,12 +1,13 @@
 package p4_group_8_repo.actor;
 
 import javafx.scene.image.Image;
+
+
 /**
  * Sets the background image of scenes within the game.
  * @author Liew Yih Seng
  *
  */
-
 public class BackgroundImage extends Actor{
 
 	@Override
@@ -16,7 +17,7 @@ public class BackgroundImage extends Actor{
 	}
 	
 	/**
-	 * Sets the Image of the background
+	 * Sets the image of the background
 	 * @param imageLink A string representing the path to the background image
 	 */
 	public BackgroundImage(String imageLink) {

@@ -24,6 +24,12 @@ import p4_group_8_repo.actor.obstacle.YellowTruck;
 import p4_group_8_repo.controller.SceneController;
 import p4_group_8_repo.user.User;
 
+
+/**
+ * This class provides the Game with Animation, and handles user's game level throughout the game
+ * @author Liew Yih Seng
+ *
+ */
 public class GameScene{
 
 	public User user = Main.getUser();
@@ -34,7 +40,10 @@ public class GameScene{
 	private int currentLevel;
 	public SceneController scene;
 	
-
+	/**
+	 * A sole constructor for constructing the GameScene class that displays obstacles,
+	 * animations and user's information throughout gameplay.
+	 */
 	public GameScene() {
 		
 		setBackground(new MyStage());
@@ -141,12 +150,30 @@ public class GameScene{
 		start();
 	}
 	
+	/**
+	 * This method handles the start of background music and game timer.
+	 * The background music has been called into this class by the
+	 * {@link MyStage#playMusic()}. 
+	 */
 	public void start() {
 		getBackground().playMusic();
     	createTimer();
         timer.start();
     }
 	
+	/**
+	 * This method creates a local timer by calling method {@link javafx.animation.AnimationTimer#AnimationTimer()}
+	 * within the GameScene that handles the change of user's score, the 
+	 * time users has finished the level and when the entire game completes(level 10).
+	 * Within the handle function, there existed several if conditions that triggers
+	 * specific functions. The first if condition will test if the user's score has changed
+	 * by using method{@link p4_group_8_repo.actor.Animal#changeScore()} as it will return true representing an update
+	 * to the user's score is needed. The second if case tests the case when the current level will stop 
+	 * by using method{@link p4_group_8_repo.actor.Animal#getStop(int)} is it will return a boolean after making 
+	 * comparison with the user's level. The third if statement test if the user has exceeded the max level that
+	 * that is level 10 by using the method {@link p4_group_8_repo.user.User#getLevel()} that returns the
+	 * current level of users. If the comparison is true, End Game Scene will be triggered.
+	 */
 	public void createTimer() {
         timer = new AnimationTimer() {
             @Override
@@ -175,8 +202,10 @@ public class GameScene{
     }
 	
 	/**
-	 * Handles the stopping for background media, Timer from World Class and Timer from GameScene
-	 * @param background A MyStage that represents the stage that holds the scene
+	 * Handles the stopping for background media by calling method {@link MyStage#stopMusic()},
+	 * stopping timer from World Class by calling method {@link World#stop()} and stopping 
+	 * timer from GameScene by invoking {@link #stop()}.
+	 * @param background A MyStage that represents the stage that holds the scene.
 	 */
 	public void stopGame(MyStage background) {
 		background.stopMusic();
@@ -184,11 +213,20 @@ public class GameScene{
 		background.stop();
 	}
 	
-    
+    /**
+     * This method stops the local timer within the GameScene by invoking
+     * stop method from {@link javafx.animation.AnimationTimer#AnimationTimer()}.
+     */
     public void stop() {
         timer.stop();
     }
     
+    /**
+     * This method sets the initial score to zero then displays them on the GameScene within a frame
+     * by invoking the frame constructor from class {@link p4_group_8_repo.actor.Frame}.
+     * The score being displayed will be in the form of an array where each element in the score array
+     * has been displayed by constructing the Character constructor from class {@link p4_group_8_repo.actor.Character}.
+     */
     public void displayScore() {
     	Frame scoreFrame = new Frame("file:src/main/resources/images/Frame/ScoreFrame.png", 160, 100, 330, 0);
 		getBackground().add(scoreFrame);
@@ -202,6 +240,12 @@ public class GameScene{
 		getBackground().add(score[3]);
     }
     
+    /**
+     * This method displays the most current level of the user within the Game Scene within a frame
+     * by invoking the frame constructor from class {@link p4_group_8_repo.actor.Frame}. The level will
+     * be displayed in the frame by invoking the constructor from {@link p4_group_8_repo.actor.Character} which
+     * handles the display of character in the frame.
+     */
     public void displayLevel() {
     	Frame levelFrame = new Frame("file:src/main/resources/images/Frame/LevelFrame.png", 110, 100, 490, 0);
 		getBackground().add(levelFrame);
@@ -216,6 +260,13 @@ public class GameScene{
 		}
     }
    
+    /**
+     * This method displays the username of the user within the Game Scene within a frame
+     * by invoking the frame constructor from class {@link p4_group_8_repo.actor.Frame}. The username will
+     * be displayed in the frame by invoking the constructor from {@link p4_group_8_repo.actor.Character} which
+     * handles the display of character in the frame.
+     * @param name A string that represents the name of the user.
+     */
     public void displayUsername(String name) {
     	int shift = 0;
     	char c;
@@ -229,7 +280,11 @@ public class GameScene{
     	}
     }
   
- 
+    /**
+     * This method displays a button on the top left corner of the Game Scene,
+     * where users can press it to either pause the game, view the highscore list or to quit the
+     * current game back to the Start Scene.
+     */
     public void displayMenuButton() {
     	Button menuButton = new Button();
     	ImageView menuButtonImage = new ImageView("file:src/main/resources/images/Button/MenuButton.png");
@@ -251,6 +306,12 @@ public class GameScene{
 		});
     }
     
+    /**
+     * This method handles the display of score in {@link #createTimer()}, where
+     * it will iteratively loop through the current user score then assign each figures into
+     * the array of {@link #score} then display the most updated user's score on the Game Scene. 
+     * @param n An integer representing the current score of the user.
+     */
     //Altered from a while loop to a for loop
     //Solved problem displaying 0 in the hundreds if its a two digit number
     public void setNumber(int n) {
@@ -261,15 +322,27 @@ public class GameScene{
     		n = d;
     	}
     }
-      
+    
+    /**
+     * Gets the Game Scene
+     * @return The Game Scene
+     */
     public Pane getScene() {
     	return GameScene;
     }
 
+    /**
+     * Gets the background in the Game Scene
+     * @return The background of the Game Scene
+     */
 	public MyStage getBackground() {
 		return background;
 	}
 
+	/**
+	 * Sets the background of the Game Scene
+	 * @param background A {@link MyStage} that represents the background
+	 */
 	public void setBackground(MyStage background) {
 		this.background = background;
 	}

@@ -63,6 +63,7 @@ public class BetweenLevelSceneController {
 	
 	@FXML
 	void backHome(MouseEvent event) throws Exception{
+		Main.getUser().setLevel(1);
 		scene.activate("StartScene");
 		scene.refreshGame();
 	}

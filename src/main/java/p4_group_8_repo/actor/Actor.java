@@ -6,18 +6,34 @@ import p4_group_8_repo.World;
 
 import java.util.ArrayList;
 
-
+/**
+ * This abstract class provides the game with objects that has animations and movements.
+ * @author Liew Yih Seng
+ *
+ */
 public abstract class Actor extends ImageView{
 
+	/**
+	 * This method provides objects with movements. 
+	 * It invokes the method {@link #setX(double)} and 
+	 * {@link #setY(double)} to set the movement of the actor.
+	 * @param dx A double that represents the movement in the X-axis.
+	 * @param dy A double that represents the movement in Y-axis.
+	 */
     public void move(double dx, double dy) {
         setX(getX() + dx);
         setY(getY() + dy);
     }
 
+    /**
+     * Gets the world in the application
+     * @return The world in the application
+     */
     public World getWorld() {
         return (World) getParent();
     }
 
+    
     public double getWidth() {
         return this.getBoundsInLocal().getWidth();
     }

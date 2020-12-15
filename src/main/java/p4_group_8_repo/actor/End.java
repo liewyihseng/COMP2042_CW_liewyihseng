@@ -1,7 +1,8 @@
 package p4_group_8_repo.actor;
 
 /**
- * An abstract class that represents both the ends available in game scene. This class is being extended by Crocodile class and Lilypad class
+ * An abstract class that represents both the ends available in game scene.
+ * This class is being extended by {@link Crocodile} class and {@link Lilypad} class.
  * @author Liew Yih Seng
  *
  */
@@ -11,7 +12,8 @@ public abstract class End extends Actor{
 	static final int LILYPADSIZE = 70;
 	
 	/**
-	 * Sets the coordinate of the end in game scene
+	 * Sets the coordinate of the end in game scene by invoking the method
+	 * {@link #setCoordinate(int, int)}.
 	 * @param x An integer representing the X-coordinate of the end
 	 * @param y An integer representing the Y-coordinate of the end
 	 */
@@ -19,6 +21,9 @@ public abstract class End extends Actor{
 		setCoordinate(x, y);
 	}
 	
+	/**
+	 * Represents the inherited method from abstract class {@link Actor}.
+	 */
 	public abstract void act(long now);
 }
  

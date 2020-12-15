@@ -14,10 +14,18 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import p4_group_8_repo.actor.Actor;
 
-
+/**
+ * An abstract class that extends {@link javafx.scene.layout.Pane} and handles a separate {@link #timer}
+ * from the {@link GameScene#timer}.
+ * @author Liew Yih Seng
+ *
+ */
 public abstract class World extends Pane {
     private AnimationTimer timer;
     
+    /**
+     * A constructor that instantiates the World class.
+     */
     public World() {
     	
     	sceneProperty().addListener(new ChangeListener<Scene>() {
@@ -62,7 +70,10 @@ public abstract class World extends Pane {
 		});
     }
 	
-
+    /**
+     * A method that creates a local timer by calling method {@link javafx.animation.AnimationTimer#AnimationTimer()}
+     * within this class that handles the movements of actors that exist within the game.
+     */
     public void createTimer() {
         timer = new AnimationTimer() {
             @Override
@@ -78,19 +89,34 @@ public abstract class World extends Pane {
         };
     }
 
+    /**
+     * A method that handles the start of the local {@link #timer} created in method {@link #createTimer()}.
+     */
     public void start() {
     	createTimer();
         timer.start();
     }
-
+    
+    /**
+     * A method that stops the local timer within the World class by invoking
+     * the stop method from {@link javafx.animation.AnimationTimer#AnimationTimer()}.
+     */
     public void stop() {
         timer.stop();
     }
     
+    /**
+     * A method that adds new actors into the Pane.
+     * @param actor An actor that represents the objects that exist within the game.
+     */
     public void add(Actor actor) {
         getChildren().add(actor);
     }
 
+    /**
+     * A method that removes actors from the Pane.
+     * @param actor An actor that represents the actor that has to be deleted off the pane.
+     */
     public void remove(Actor actor) {
         getChildren().remove(actor);
     }
@@ -105,5 +131,9 @@ public abstract class World extends Pane {
         return someArray;
     }
 
+    /**
+     * An abstract method that has to be inherited by the child class.
+     * @param now A long integer that represents the current clock tick.
+     */
     public abstract void act(long now);
 }

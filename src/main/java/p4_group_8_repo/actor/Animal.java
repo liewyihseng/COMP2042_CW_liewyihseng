@@ -138,7 +138,6 @@ public class Animal extends Actor {
 	
 	@Override
 	public void act(long now) {
-		int bounds = 0;
 		
 		//Setting the bound for gameplay(height) (Frog will always be within the screen on land)
 		if (getY() < 0 || getY() > 734) {
@@ -262,7 +261,7 @@ public class Animal extends Actor {
 	
 	/**
 	 * Gets the number of points in the current game
-	 * @return An integer representing the p[oints of user in the current game
+	 * @return An integer representing the points of user in the current game
 	 */
 	public int getPoints() {
 		return points;
@@ -325,7 +324,7 @@ public class Animal extends Actor {
 	}
 
 	/**
-	 * Trigger score change in gameScene
+	 * Trigger score change in gameScene's score counter
 	 * @return a boolean stating the necessity to change score
 	 */
 	public boolean changeScore() {
