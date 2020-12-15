@@ -16,6 +16,7 @@ public class Lilypad extends End{
 	public void act(long now) {
 		// TODO Auto-generated method stud
 	}
+
 	
 	/**
 	 * A constructor that instantiates the Lilypad class within the gamescene
@@ -33,6 +34,18 @@ public class Lilypad extends End{
 	public void setEnd() {
 		setImage(FrogEnd);
 		setActivated(true);
+	}
+
+	/**
+	 * Gets if the Lilypad is being activated. True means a frog has landed on the lilypad
+	 * @return A boolean which determines the state of the end
+	 */
+	public boolean isActivated() {
+		return activated;
+	}
+
+	public void setActivated(boolean activated) {
+		this.activated = activated;
 	}
 	
 }

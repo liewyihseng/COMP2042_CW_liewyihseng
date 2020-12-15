@@ -363,7 +363,7 @@ public class Animal extends Actor {
 		// <a href="https://www.freepik.com/vectors/cartoon">Cartoon vector created by freepik - www.freepik.com</a>
 		if (death == 7) {
 			respawn(deathType);
-			deathScoreDecrement(points, changeScore);
+			deathScoreDecrement(points);
 		}
 	}
 	
@@ -386,17 +386,16 @@ public class Animal extends Actor {
 		}
 		if (death == 5) {
 			respawn(deathType);
-			deathScoreDecrement(points, changeScore);
+			deathScoreDecrement(points);
 		}
 	}
 	
 	/**
 	 * Decrement in the score if the frog is dead
 	 * @param points An integer representing the current point of the user
-	 * @param changeScore A boolean representing the necessity to change score
 	 */
-	public void deathScoreDecrement(int points, Boolean changeScore) {
-		if(getPoints() > 50) {
+	public void deathScoreDecrement(int points) {
+		if(points > 50) {
 			points -= 50;
 			setPoints(points);
 			changeScore = true;

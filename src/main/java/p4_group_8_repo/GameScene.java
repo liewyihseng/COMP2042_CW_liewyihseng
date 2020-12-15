@@ -153,7 +153,6 @@ public class GameScene{
             public void handle(long now) {
             	if (user.getAnimal().changeScore()) {
             		setNumber(user.getAnimal().getPoints());
-            		System.out.println(user.getAnimal().getPoints());
             	}
             	if (user.getAnimal().getStop(currentLevel)) {
             		System.out.println("STOPP:");

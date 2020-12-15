@@ -25,7 +25,7 @@ public class HighScores {
 			"Test10"
 		};
 	
-
+	
 	
 	/* Open HIGH_SCORE_FILE and read the scores, names into an array */
 	public HighScores(){
@@ -62,13 +62,12 @@ public class HighScores {
 		}
 	}
 	
-
-	
 	public boolean isNewHighScore(int score) {
 		HighScore lowestHighScores = score_list.get(score_list.size() - 1);
 		
-		if(score < lowestHighScores.score)
+		if(score < lowestHighScores.score) {
 			return false;
+		}
 		return true;
 	}
 
@@ -135,9 +134,6 @@ public class HighScores {
 		if(this.isNewHighScore(score)) {
 			String name = Main.getUser().getUsername();
 			int level = Main.getUser().getLevel() - 1;
-			if(name == null)
-				return;
-			
 			this.add(name, score, level);
 			writeScoreFile();
 		}

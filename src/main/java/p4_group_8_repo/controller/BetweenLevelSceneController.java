@@ -45,6 +45,7 @@ public class BetweenLevelSceneController {
 	void restart(MouseEvent event) throws Exception{
 		scene.refreshGame();
 		scene.activate("GameScene");
+		Main.getUser().setLevel(1);
 		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
 	}
 	

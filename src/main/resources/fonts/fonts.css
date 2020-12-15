@@ -1,9 +1,0 @@
-@font-face{
-	font-family: Grobold;
-	src: url('GROBOLD.ttf');
-}
-
-.label{
-	-fx-font-family: GROBOLD;
-}
-
