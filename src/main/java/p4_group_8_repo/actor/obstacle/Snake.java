@@ -3,7 +3,7 @@ package p4_group_8_repo.actor.obstacle;
 import javafx.scene.image.Image;
 
 /**
- * A clas that represents the snake object within the game play.
+ * A class that represents the snake object within the game play.
  * This class extends class {@link Obstacle}.
  * @author Liew Yih Seng
  *
@@ -19,12 +19,12 @@ public class Snake extends Obstacle{
 	Image Snake4 = new Image("file:src/main/resources/images/Actor/Snake4.png", WIDTH, HEIGHT, true, true);
 
 	/**
-	 * A constructor that initializes the snake object within game play.
-	 * It sets the image of the snake and its X-Coordinate and Y-Coordinate
+	 * A constructor that instantiates the snake object within game play.
+	 * It sets the image of this {@link Snake} and its X-Coordinate and Y-Coordinate
 	 * of its occurrence in game play.
-	 * @param xpos An integer representing the X-Coordinate of the Snake.
-	 * @param ypos An integer representing the Y-Coordinate of the Snake.
-	 * @param s A double that represents the speed of the Snake during game play.
+	 * @param xpos An integer representing the X-Coordinate of this {@link Snake}.
+	 * @param ypos An integer representing the Y-Coordinate of this {@link Snake}.
+	 * @param s A double that represents the speed of movement of this {@link Snake} during game play.
 	 */
 	public Snake(int xpos, int ypos, double s) {
 		super(xpos, ypos, s);
@@ -33,9 +33,10 @@ public class Snake extends Obstacle{
 	}
 	
 	/**
-	 * A method that handles the action of the snake object.
-	 * It serves as a method that sets the animation of the snake
-	 * when the clock ticks.
+	 * A method that handles the action of this {@link Snake} object.
+	 * It serves as a method that sets the animation of this {@link Snake}
+	 * when the clock ticks and reloops this {@link Snake} once it has exited the game scene
+	 * in the manner of left to right.
 	 */
 	@Override
 	public void act(long now) {
@@ -58,6 +59,6 @@ public class Snake extends Obstacle{
 				}
 			
 		move(speed , 0);
-		loopEnterScreen(-200, 600, 600, -50, speed);
+		loopEnterScreenLeft(-200, 600, speed);
 	}
 }

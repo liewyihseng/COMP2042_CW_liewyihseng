@@ -11,17 +11,15 @@ import javafx.scene.image.Image;
 public class Crocodile extends End{
 	Image crocodile = new Image("file:src/main/resources/images/Actor/Crocodile.png", CROCSIZE, CROCSIZE, true, true);
 	
-	/**
-	 * A class that has been inherited from the class {@link End}.
-	 */
+
 	@Override
 	public void act(long now) {
 		// TODO Auto-generated method stud
 	}
 	
 	/**
-	 * A constructor that instantiates a crocodile within game scene. It triggers
-	 * the super class {@link End} that handles the setting of its coordinate, then 
+	 * A constructor that initializes a crocodile that act as an end within game scene. It triggers
+	 * the super constructor in class {@link End} that handles the setting of its coordinate, then 
 	 * invokes the method {@link #setImage(Image)} to set the image of the crocodile.
 	 * @param x An integer representing the X-coordinate of the crocodile.
 	 * @param y An integer representing the Y-coordinate of the crocodile.

@@ -12,9 +12,6 @@ public class Character extends Actor{
 	private Image img;
 	
 	
-	/**
-	 * A method that is inherited from the class Actor.
-	 */
 	@Override
 	public void act(long now) {
 		// TODO Auto-generated method stub
@@ -22,7 +19,7 @@ public class Character extends Actor{
 	}
 	
 	/**
-	 * A constructor that initialize the Character that handles integer as the parameter.
+	 * A constructor that initializes the Character that handles type integer as the parameter.
 	 * It has the use of displaying integer in the game play by invoking method {@link #setCharacter(int)}
 	 * then using {@link #setCoordinate(int, int)} to set the position of the character to be displayed.
 	 * @param n An integer that represents the character to be displayed.
@@ -35,11 +32,11 @@ public class Character extends Actor{
 	}
 	
 	/**
-	 * A constructor that initialize the Character that handles char as the parameter.
+	 * A constructor that initializes the Character that handles type char as the parameter.
 	 * It has the use of displaying char in the game play. It invokes the constructor
 	 * {@link Image#Image(String, double, double, boolean, boolean)},
-	 * then assigns it to {@link #img} then passing {@link #img} into {@link #setImage(Image)}
-	 * as a parameter to display the image. Whereas, the coordinate of the image has been taken 
+	 * then assigns it to local variable {@link #img} then passing {@link #img} into {@link #setImage(Image)}
+	 * as a parameter to display the image. Whereas, the coordinate of this image has been taken 
 	 * care by {@link #setCoordinate(int, int)}.
 	 * @param c A char that represents the character to be displayed.
 	 * @param x An integer representing the X-Coordinate of the character.
@@ -54,7 +51,7 @@ public class Character extends Actor{
 	/**
 	 * A method that retrieves and sets the image of the integer to be displayed on the scenes.
 	 * This method invokes the constructor {@link Image#Image(String, double, double, boolean, boolean)},
-	 * then assigns it to {@link #img} then passing {@link #img} into {@link #setImage(Image)}
+	 * then assigns it to local variable {@link #img} then passing {@link #img} into {@link #setImage(Image)}
 	 * as a parameter to display the image.
 	 * @param n An integer that represents the character to be displayed.
 	 */

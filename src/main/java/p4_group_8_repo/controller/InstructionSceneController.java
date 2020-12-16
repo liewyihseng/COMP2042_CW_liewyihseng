@@ -6,6 +6,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
+/**
+ * A controller that handles all event within the Instruction Scene.
+ * @author Liew Yih Seng
+ *
+ */
 public class InstructionSceneController {
 	@FXML
 	private Pane instructionRoot;
@@ -49,12 +54,27 @@ public class InstructionSceneController {
 	@FXML
 	private Button backMenu;
 	
+	/**
+	 * Represents the {@link SceneController} in this class.
+	 */
 	public SceneController scene;
 	
+	/**
+	 * A constructor that sets this {@link #scene} to the {@link SceneController}
+	 * initialized in {@link SceneController} class.
+	 * @param scene A {@link SceneController} that represents {@link SceneController} to be passed into this class.
+	 */
 	public InstructionSceneController(SceneController scene) {
 		this.scene = scene;
 	}
 	
+	/**
+	 * A method that allows users to go back to the Menu Scene.
+	 * It invokes the method {@link SceneController#activate(String)} to activate
+	 * and display the Menu Scene.
+	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
+	 * @throws Exception If the source is null.
+	 */
 	@FXML 
 	void backMenu(MouseEvent event) throws Exception{
 		scene.activate("MenuScene");

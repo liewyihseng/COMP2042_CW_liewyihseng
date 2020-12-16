@@ -8,8 +8,8 @@ import p4_group_8_repo.actor.BackgroundImage;
 
 /**
  * A class that provides a pane for the background of the Game Scene.
- * It extends the class {@link World} and has the function to handles 
- * most background activities during the game play.
+ * It extends the class {@link World} and has the function to handle
+ * background activities during the game play.
  * @author Liew Yih Seng
  *
  */
@@ -33,7 +33,7 @@ public class MyStage extends World{
 	}
 	
 	/**
-	 * A method that handles the playing of background music when the game is launched.
+	 * A method that handles the playing of background music when the program is launched.
 	 */
 	public void playMusic() {
 		String musicFile = "src/main/resources/audio/Frogger Main Song Theme (loop).mp3";   

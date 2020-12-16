@@ -9,13 +9,14 @@ import javafx.scene.image.Image;
  */
 
 public class Lilypad extends End{
-
+	/**
+	 * A boolean that states whether if the lilypad has been activated.
+	 * Activated means a frog has landed on it.
+	 */
+	protected boolean activated = false;
 	Image lilypad = new Image("file:src/main/resources/images/Actor/Lilypad.png", LILYPADSIZE, LILYPADSIZE, true, true);
 	Image FrogEnd = new Image("file:src/main/resources/images/Actor/FrogEndFinal.png", LILYPADSIZE, LILYPADSIZE, true, true);
 	
-	/**
-	 * A class that has been inherited from the class {@link End}.
-	 */
 	@Override
 	public void act(long now) {
 		// TODO Auto-generated method stud
@@ -23,11 +24,11 @@ public class Lilypad extends End{
 
 	
 	/**
-	 * A constructor that instantiates the Lilypad class within the game scene.It triggers
+	 * A constructor that initializes the {@link Lilypad} class within the game scene.It triggers
 	 * the super class {@link End} that handles the setting of its coordinate, then 
 	 * invokes the method {@link #setImage(Image)} to set the image of the lilypad.
-	 * @param x An integer representing the X-coordinate of the lilypad
-	 * @param y An integer representing the Y-coordinate of the lilypad
+	 * @param x An integer representing the X-coordinate of the lilypad.
+	 * @param y An integer representing the Y-coordinate of the lilypad.
 	 */
 	public Lilypad(int x, int y) {
 		super(x,y);

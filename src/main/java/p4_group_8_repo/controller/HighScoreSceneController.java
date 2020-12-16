@@ -5,10 +5,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import p4_group_8_repo.HighScores;
 import p4_group_8_repo.Main;
+import p4_group_8_repo.user.HighScores;
 
-
+/**
+ * A controller that handles all event within the High Score Scene.
+ * @author Liew Yih Seng
+ *
+ */
 public class HighScoreSceneController {
 	
 	@FXML
@@ -26,14 +30,37 @@ public class HighScoreSceneController {
 	@FXML
 	private Label score0, score1, score2, score3, score4, score5, score6, score7, score8, score9;
 
-	
+	/**
+	 * An array of labels that hold the most current names of high score achiever.
+	 */
 	public Label[] name;
+	
+	/**
+	 * An array of labels that hold the most current levels of high score achiever.
+	 */
 	public Label[] level;
+	
+	/**
+	 * An array of labels that hold the most current scores of high score achiever.
+	 */
 	public Label[] score;
 
+	/**
+	 * Represents the {@link SceneController} in this class.
+	 */
 	public SceneController scene;
+	
+	/**
+	 * Always gets the {@link Main#getHighScore()} to ensure the list of high score
+	 * this class is working on is the updated version of the high score list.
+	 */
 	private HighScores highScores = Main.getHighScore();
 	
+	/**
+	 * A method where FXML will automatically call onto once this controller
+	 * has been initialized. It sets three distinct arrays holding the names, levels
+	 * and scores of high score achievers. Then displaying them out in the Scene. 
+	 */
 	@FXML
 	private void initialize() {
 		name = new Label[] {name0, name1, name2, name3, name4, name5, name6, name7, name8, name9};
@@ -72,17 +99,25 @@ public class HighScoreSceneController {
 		score[9].setText(highScores.getScoreList().get(9).getScore());
 	}
 	
-	public HighScoreSceneController(HighScores highScores) {
-		this.highScores = highScores;
-		
-	}
 	
-	
+	/**
+	 * A constructor that sets this {@link #scene} to the {@link SceneController#scene} initialized in {@link SceneController} class.
+	 * @param scene A {@link SceneController} that represents {@link SceneController} to be passed into this class.
+	 */
 	public HighScoreSceneController(SceneController scene) {
 		this.scene = scene;
 	}
 	
-	
+	/**
+	 * A method that allows user to go back to the Menu Scene or the Pause Scene
+	 * depending whether the user is in game or not by using the method 
+	 * {@link p4_group_8_repo.user.User#isInGame()}. If a true has been returned,
+	 * it will invoke the method {@link SceneController#activate(String)} to activate
+	 * and display the Pause Scene. If it returns false, it will activate and displays the
+	 * MenuScene.
+	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
+	 * @throws Exception If the source is null.
+	 */
 	@FXML
 	void backMenu(MouseEvent event) throws Exception{
 		if(Main.getUser().isInGame()) {
@@ -92,6 +127,10 @@ public class HighScoreSceneController {
 		}
 	}
 	
+	/**
+	 * A method the sets the high score list into the most updated version of the list.
+	 * It will update every element within the array {@link #name}, {@link #level} and {@link #score}.
+	 */
 	public void setScoreText() {
 		for(int i = 0; i < 10; i++) {
 			name[i].setText(highScores.getScoreList().get(i).getName());

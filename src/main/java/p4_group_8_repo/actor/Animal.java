@@ -9,19 +9,20 @@ import p4_group_8_repo.Main;
 import p4_group_8_repo.actor.obstacle.Obstacle;
 
 /**
- * Represents the main character in the gameplay.
+ * Represents the protagonist in the game play.
  * @author Liew Yih Seng
  *
  */
 public class Animal extends Actor {
-	Image imgW1;
-	Image imgA1;
-	Image imgS1;
-	Image imgD1;
-	Image imgW2;
-	Image imgA2;
-	Image imgS2;
-	Image imgD2;
+	static final int IMGSIZE = 40;
+	Image imgW1 = frogMovementImg("froggerUp.png");
+	Image imgA1 = frogMovementImg("froggerLeft.png");
+	Image imgS1 = frogMovementImg("froggerDown.png");
+	Image imgD1 = frogMovementImg("froggerRight.png");
+	Image imgW2 = frogMovementImg("froggerUpJump.png");
+	Image imgA2 = frogMovementImg("froggerLeftJump.png");
+	Image imgS2 = frogMovementImg("froggerDownJump.png");
+	Image imgD2 = frogMovementImg("froggerRightJump.png");
 	int points = 0;
 	int end = 0;
 	boolean flag;
@@ -29,10 +30,8 @@ public class Animal extends Actor {
 	boolean noMove = false;
 	double movement = 13.3333333*2;
 	double movementX = 10.666666*2;
-	int imgSize = 40;
 	boolean carDeath = false;
 	boolean waterDeath = false;
-	boolean stop = false;
 	boolean changeScore = false;
 	int death = 0;
 	double w = 800;
@@ -40,19 +39,14 @@ public class Animal extends Actor {
 	ArrayList<Lilypad> interLily = new ArrayList<Lilypad>();
 	ArrayList<Crocodile> interCroc = new ArrayList<Crocodile>();
 	
+	
 	/**
-	 * Construct an instance of animal that act as the main character in the gameplay.
+	 * Construct an instance of animal that acts as the protagonist in the game play.
 	 */
 	public Animal() {
-		imgW1 = frogMovementImg("froggerUp.png");
-		imgA1 = frogMovementImg("froggerLeft.png");
-		imgS1 = frogMovementImg("froggerDown.png");
-		imgD1 = frogMovementImg("froggerRight.png");
-		imgW2 = frogMovementImg("froggerUpJump.png");
-		imgA2 = frogMovementImg("froggerLeftJump.png");
-		imgS2 = frogMovementImg("froggerDownJump.png");
-		imgD2 = frogMovementImg("froggerRightJump.png");
+		
 		setImage(imgW1);
+		
 		setCoordinate(275, (int) (679.8+movement));
 		
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -111,7 +105,7 @@ public class Animal extends Actor {
 					if (keys.testKeyW(event)) {	  
 						if (getY() < w) {
 							changeScore = true;
-							w = getY(); // Keep track of which coordinate-y you die at
+							w = getY(); // Keep track of which y-coordinate you die at
 							points += 10; // Add 10points to every step forward you have made
 						}
 						moveLocationDisplay(0, -movement, imgW1);
@@ -136,93 +130,183 @@ public class Animal extends Actor {
 	}
 	
 	
+	/**
+	 * Determine how this animal should act during game play.
+	 * It will invoke various method such as {@link Animal#setHeightBound()}, {@link Animal#setLeftBound()},
+	 * {@link Animal#setRightBound()}, {@link Animal#setCarDeathAnimation(long)}, {@link Animal#setWaterDeath(boolean)} 
+	 * and {@link Animal#setCrashObstacle()} to set the reaction of this animal on certain limitation. Then it will perform
+	 * several if else test to check if this animal has intersected with any of the {@link Actor} class objects.
+	 * This method will be invoked during every clock tick checking for the suitable actions
+	 * to be set on the animal.
+	 */
 	@Override
 	public void act(long now) {
+	
+		setHeightBound();
 		
-		//Setting the bound for gameplay(height) (Frog will always be within the screen on land)
-		if (getY() < 0 || getY() > 734) {
+		setLeftBound();
+		
+		setRightBound();
+
+		setCarDeathAnimation(now);
+		
+		setWaterDeathAnimation(now);
+		
+		setCrashObstacle();
+		
+		/**
+		 * Sets this animal by attaching it onto the log once it landed on the log.
+		 * This method will allow this animal to move with the log at a same speed and the same
+		 * direction, preventing this animal from slipping off the log.
+		 */
+		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
+			if(getIntersectingObjects(Log.class).get(0).getLeft()) {
+				move(-2 - Main.getUser().getIncrementDifficulty(), 0); //move left with speed of 2
+				//Controlling logs moving left
+			}else {
+				move (.75 + Main.getUser().getIncrementDifficulty(), 0); //move right with speed of 0.75
+				//Controlling logs moving right
+			}
+		}
+		
+		/**
+		 * Sets this animal by attaching it onto the non sinking turtle once it landed on the non sinking turtle.
+		 * This method will allow this animal to move with the non sinking turtle at a same speed and the same
+		 * direction, preventing this animal from slipping off the non sinking turtle.
+		 */
+		else if (getIntersectingObjects(NonSinkingTurtle.class).size() >= 1 && !noMove) {
+			move(-1 - Main.getUser().getIncrementDifficulty(), 0); // move left with the speed of 1
+		}
+		
+		/**
+		 * Sets this animal by attaching it onto the sinking turtle once it landed on the sinking turtle.
+		 * This method will allow this animal to move with the sinking turtle at a same speed and the same
+		 * direction, preventing this animal from slipping off the sinking turtle.
+		 */
+		else if (getIntersectingObjects(SinkingTurtle.class).size() >= 1) {
+			if (getIntersectingObjects(SinkingTurtle.class).get(0).isSunk()) {
+				setWaterDeath(true); //When water death is true, frog step on will cause death
+			}else {
+				move(-1 - Main.getUser().getIncrementDifficulty(), 0); // move left with the speed of 1
+			}
+		}
+		
+		/**
+		 * When the lilypad is being activated, increment of score will not occur
+		 * when the user once again landed on it.
+		 */
+		else if (getIntersectingObjects(Lilypad.class).size() >= 1) {
+			interLily = (ArrayList<Lilypad>) getIntersectingObjects(Lilypad.class);
+			
+			if (getIntersectingObjects(Lilypad.class).get(0).isActivated()) {
+				end--;
+				points -= 60;
+			}
+			
+			points += 50;
+			changeScore = true;
+			w = 800;
+			getIntersectingObjects(Lilypad.class).get(0).setEnd();
+			end++;
 			setCoordinate(275, (int) (679.8+movement));
 		}
-		
-		//Bound for Screen(left)
-		if (getX() < 0) {
-			move(movement*2, 0);
-		}
-		
-		//Bound for Screen(right)
-		if (getX() > 600) {
-			move(-movement*2, 0);
-		}
 
+		/**
+		 * Sets the boundary of the water(hazard) when Y-coordinate < 360
+		 */
+		else if (getY() < 360){
+			setWaterDeath(true);
+		}
+		
+		/**
+		 * Sets the boundary of water (hazard) to greater than X-Coordinate greater
+		 * than 600 and lesser than 0.
+		 */
+		else if (getY() < 360) {
+			if(getX() >600 || getX() < 0 ) {
+				setWaterDeath(true);
+			}
+		}
+		
+	}
+	
+	/**
+	 * Setting the height bound of the game play where this animal will always be kept within the screen
+	 * of size 600 x 800 (W x H) by invoking the method {@link #setCoordinate(int, int)} that resets the
+	 * position of this animal back to the initial starting point if by any chance it crossed the border.
+	 */
+	public void setHeightBound() {
+		if(getY() < 0 || getY() > 734) {
+			setCoordinate(275, (int)(679.8+movement));
+		}
+	}
+	
+
+	/**
+	 * Sets the left bound of the game play at X-coordinate of 0.
+	 * Where this animal will be move back into the screen if it touches the left bound by
+	 * invoking the {@link #move(double, double)} method.
+	 */
+	public void setLeftBound(){
+		if(getX() < 0) {
+			move(movement * 2, 0);
+		}
+	}
+	
+	/**
+	 * Sets the right bound of the game play at X-coordinate of 600.
+	 * Where this animal will be move back into the screen if it touches the right bound by
+	 * invoking the {@link #move(double, double)} method.
+	 */
+	public void setRightBound() {
+		if(getX() > 600) {
+			move(-movement * 2, 0);
+		}
+	}
+	
+	/**
+	 * A method that checks if this animal's death is caused by crashing onto an obstacle.
+	 * If the test condition returns true, it invokes the {@link #deathLoopAnimation(long)}
+	 * which triggers the change of car death animation in the method {@link #carDeathAnimation()}.
+	 * @param now A long integer that represents the current clock tick.
+	 */
+	public void setCarDeathAnimation(long now) {
 		if (isCarDeath()) {
 			changeScore = true;
 			deathLoopAnimation(now);
 			carDeathAnimation();
 		}
-		
+	}
+	
+	/**
+	 * A method that checks if this animal's death is caused by drowning in water.
+	 * If the test condition returns true, it invokes the {@link #deathLoopAnimation(long)}
+	 * which triggers the change of water death animation in the method {@link #waterDeathAnimation()}.
+	 * @param now A long integer that represents the current clock tick.
+	 */
+	public void setWaterDeathAnimation(long now) {
 		if (isWaterDeath()) {
 			changeScore = true;
 			deathLoopAnimation(now);
 			waterDeathAnimation();
 		}
-		
+	}
+	
+	/**
+	 * A method that sets the death of this animal to car crash if the test condition
+	 * using method {@link #getIntersectingObjects(Class)} states that the animal has intersected
+	 * with an {@link Obstacle} class object returns true.
+	 */
+	public void setCrashObstacle() {
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			setCarDeath(true);
 		}
-		
-		if (getX() == 240 && getY() == 82) {
-			stop = true;
-		}
-		
-		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
-			if(getIntersectingObjects(Log.class).get(0).getLeft()) {
-				move(-2 - Main.getUser().getIncrementDifficulty(), 0); //move left with speed of 2
-			//Controlling logs moving left
-			}
-			else {
-				move (.75 + Main.getUser().getIncrementDifficulty(), 0); //move right with speed of 0.75
-				//Controlling logs moving right
-			}
-		}
-		else if (getIntersectingObjects(NonSinkingTurtle.class).size() >= 1 && !noMove) {
-			move(-1 - Main.getUser().getIncrementDifficulty(), 0); // move left with the speed of 1
-		}
-		else if (getIntersectingObjects(SinkingTurtle.class).size() >= 1) {
-			if (getIntersectingObjects(SinkingTurtle.class).get(0).isSunk()) {
-				setWaterDeath(true); //When water death is true, frog step on will cause death
-			} else {
-				move(-1 - Main.getUser().getIncrementDifficulty(), 0); // move left with the speed of 1
-			}
-		}
-		else if (getIntersectingObjects(Lilypad.class).size() >= 1) {
-			interLily = (ArrayList<Lilypad>) getIntersectingObjects(Lilypad.class);
-			if (getIntersectingObjects(Lilypad.class).get(0).isActivated()) {
-				end--;
-				points -= 60;
-			}
-				points += 50;
-				changeScore = true;
-				w = 800;
-				getIntersectingObjects(Lilypad.class).get(0).setEnd();
-				end++;
-				setCoordinate(275, (int) (679.8+movement));
-			}
-
-		else if (getY() < 360 ){
-			setWaterDeath(true);
-			//setX(300);
-			//setY(679.8+movement);
-		}
-		else if (getY() < 360)
-			if(getX() >600 || getX() < 0 ) {
-				setWaterDeath(true);
-			}
-		}
+	}
 	
 	/**
-	 * Gets the number of ends in a level
-	 * @param level An integer representing the current level of the user
-	 * @return A boolean that is used to trigger a stop between level switching
+	 * Gets the number of ends in a level.
+	 * @param level An integer representing the current level of the user.
+	 * @return A boolean that is used to trigger a stop between level switching.
 	 */
 	public boolean getStop(int level) {
 		flag = false;
@@ -260,72 +344,72 @@ public class Animal extends Actor {
 	}
 	
 	/**
-	 * Gets the number of points in the current game
-	 * @return An integer representing the points of user in the current game
+	 * Gets the number of points in the current game.
+	 * @return An integer representing the points of user in the current game.
 	 */
 	public int getPoints() {
 		return points;
 	}
 	
 	/**
-	 * Sets the number of points in the current game
-	 * @param points An integer representing the current point of user in the game
+	 * Sets the number of points in the current game.
+	 * @param points An integer representing the current point of user in the game.
 	 */
 	public void setPoints(int points) {
 		this.points = points;
 	}
 	
 	/**
-	 * Determine whether the frog is at its second animation
-	 * @return A boolean representing the state of the frog
+	 * Determine whether this animal is at its second jump animation.
+	 * @return A boolean representing the jump state of this animal.
 	 */
 	public boolean isSecond() {
 		return second;
 	}
 
 	/**
-	 * Sets the state of animation of the frog
-	 * @param second A boolean representing if the frog's animation is at the second state
+	 * Sets the jump state animation of this animal.
+	 * @param second A boolean representing if this animal's animation is at the second jump state.
 	 */
 	public void setSecond(boolean second) {
 		this.second = second;
 	}
 	
 	/**
-	 * Gets if the death type is by car
-	 * @return A boolean representing whether the death is by car
+	 * Gets if the death type is by hitting an obstacle.
+	 * @return A boolean representing whether the death is by hitting an obstacle.
 	 */
 	public boolean isCarDeath() {
 		return carDeath;
 	}
 	
 	/**
-	 * Sets the death type to car death
-	 * @param carDeath A boolean stating if the death type is car death
+	 * Sets the death type to car death (hitting an obstacle).
+	 * @param carDeath A boolean stating if the death type is car death (hitting an obstacle).
 	 */
 	public void setCarDeath(boolean carDeath) {
 		this.carDeath = carDeath;
 	}
 
 	/**
-	 * Gets if the death type is by water
-	 * @return A boolean representing whether the death is by water
+	 * Gets if the death type is by water.
+	 * @return A boolean representing whether the death is by water.
 	 */
 	public boolean isWaterDeath() {
 		return waterDeath;
 	}
 
 	/**
-	 * Sets the death type to water death
-	 * @param waterDeath A boolean stating if the death type is water death
+	 * Sets the death type to water death.
+	 * @param waterDeath A boolean stating if the death type is water death.
 	 */
 	public void setWaterDeath(boolean waterDeath) {
 		this.waterDeath = waterDeath;
 	}
 
 	/**
-	 * Trigger score change in gameScene's score counter
-	 * @return a boolean stating the necessity to change score
+	 * Trigger score change in gameScene's score counter.
+	 * @return A boolean stating the necessity to change score.
 	 */
 	public boolean changeScore() {
 		if (changeScore) {
@@ -336,7 +420,7 @@ public class Animal extends Actor {
 	}
 	
 	/**
-	 * Displays the animation of the frog being crashed by a car as clock ticks
+	 * Displays the animation of this animal being crashed by a car(obstacle) as clock ticks.
 	 */
 	public void carDeathAnimation(){
 		int deathType = 1;
@@ -367,7 +451,7 @@ public class Animal extends Actor {
 	}
 	
 	/**
-	 * Displays the animation of the frog drowning in the river as clock ticks
+	 * Displays the animation of this animal drowning in the water as clock ticks.
 	 */
 	public void waterDeathAnimation() {
 		int deathType = 2;
@@ -390,8 +474,8 @@ public class Animal extends Actor {
 	}
 	
 	/**
-	 * Decrement in the score if the frog is dead
-	 * @param points An integer representing the current point of the user
+	 * Decrement in the score if this animal is dead.
+	 * @param points An integer representing the current point of the user.
 	 */
 	public void deathScoreDecrement(int points) {
 		if(points > 50) {
@@ -402,8 +486,8 @@ public class Animal extends Actor {
 	}
 	
 	/**
-	 * Sets the respawn point of the frog when it dies
-	 * @param deathType An integer representing the death type of the frog
+	 * Sets the respawn point of this animal when it dies.
+	 * @param deathType An integer representing the death type of this animal.
 	 */
 	public void respawn(int deathType) {
 		//Set Respawn
@@ -423,8 +507,8 @@ public class Animal extends Actor {
 	}
 	
 	/**
-	 * Acts a clock tick in changing the death animation of the frog
-	 * @param now A long integer representing the clock tick
+	 * Process the clock tick to change the death animation of this animal.
+	 * @param now A long integer representing the clock tick.
 	 */
 	public void deathLoopAnimation(long now) {
 		noMove = true;
@@ -434,19 +518,19 @@ public class Animal extends Actor {
 	}
 	
 	/**
-	 * Gets the image of the current frog movement
-	 * @param imageName A string that represents the current frog movement
-	 * @return An image of the current frog movement
+	 * Sets the image of the current animal movement.
+	 * @param imageName A string that represents the current animal movement.
+	 * @return An image of the current animal movement.
 	 */
 	public Image frogMovementImg(String imageName) {	
-		return new Image("file:src/main/resources/images/FrogAnimation/"+ imageName, imgSize, imgSize, true, true);
+		return new Image("file:src/main/resources/images/FrogAnimation/"+ imageName, IMGSIZE, IMGSIZE, true, true);
 	}
 	
 	/**
-	 * Sets the location of the frog after the jump and it corresponding image animation
-	 * @param xpos A double that represents the coordinate of X-axis of the frog
-	 * @param ypos A double that represents the coordinate of Y-axis of the frog
-	 * @param img The corresponding image of the frog after the jump
+	 * Sets the location of this animal after the jump and it corresponding image animation.
+	 * @param xpos A double that represents the coordinate of X-axis of this animal.
+	 * @param ypos A double that represents the coordinate of Y-axis of this animal.
+	 * @param img The corresponding image of this animal after the jump.
 	 */
 	public void moveLocationDisplay(double xpos, double ypos,Image img) {
 		move(xpos, ypos);
@@ -454,20 +538,20 @@ public class Animal extends Actor {
 	}
 	
 	/**
-	 * Sets the image for the death animation of the frog
-	 * @param imageName A String that represents the name of the image
+	 * Sets the image for the death animation of this animal.
+	 * @param imageName A String that represents the name of the image.
 	 */
 	public void setDeathAniImg(String imageName) {
 		setImage(DeathAnimationImg(imageName));
 	}
 	
 	/**
-	 * Retrieves the image of death animation from the project directory
-	 * @param imageName A string that represents the name of the image
-	 * @return An image that corresponds to the imageName and the current phase of death animation of the frog
+	 * Retrieves the image of death animation from the project directory.
+	 * @param imageName A string that represents the name of the image.
+	 * @return An image that corresponds to the imageName and the current phase of death animation of this animal.
 	 */
 	public Image DeathAnimationImg(String imageName) {
-		return new Image("file:src/main/resources/images/DeathAnimation/"+ imageName +".png", imgSize, imgSize, true, true);
+		return new Image("file:src/main/resources/images/DeathAnimation/"+ imageName +".png", IMGSIZE, IMGSIZE, true, true);
 	}
 	
 }

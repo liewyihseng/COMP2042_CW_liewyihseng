@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import p4_group_8_repo.user.HighScores;
+
 public class HighScoresTest extends MyTest{
 	
 	/**

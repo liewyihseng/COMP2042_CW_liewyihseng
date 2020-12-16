@@ -1,13 +1,12 @@
 package p4_group_8_repo.actor;
 
 /**
- * An abstract class that represents both the ends available in game scene.
+ * An abstract class that acts as the super class to both the ends available in game.
  * This class is being extended by {@link Crocodile} class and {@link Lilypad} class.
  * @author Liew Yih Seng
  *
  */
 public abstract class End extends Actor{
-	protected boolean activated = false;
 	static final int CROCSIZE = 90;
 	static final int LILYPADSIZE = 70;
 	
@@ -20,10 +19,7 @@ public abstract class End extends Actor{
 	public End(int x, int y) {
 		setCoordinate(x, y);
 	}
-	
-	/**
-	 * Represents the inherited method from abstract class {@link Actor}.
-	 */
+
 	public abstract void act(long now);
 }
  

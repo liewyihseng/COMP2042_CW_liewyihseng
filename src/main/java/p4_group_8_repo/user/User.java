@@ -5,7 +5,7 @@ import java.util.Random;
 import p4_group_8_repo.actor.Animal;
 
 /**
- * Represents the profile of each user when the application, Frogger Arcade has been launched.
+ * Represents the profile of each user when the program, Frogger Arcade has been launched.
  * @author Liew Yih Seng
  *
  */
@@ -31,23 +31,23 @@ public class User {
 	}
 
 	/**
-	 * Gets the current level of the user.
-	 * @return An integer representing the current level of the user.
+	 * Gets the current {@link #level} of the user.
+	 * @return An integer representing the current {@link #level} of the user.
 	 */
 	public int getLevel() {
 		return level;
 	}
 
 	/**
-	 * Sets the current level of the user during game play.
-	 * @param level An integer that represents the current level of the user in the game play.
+	 * Sets the current {@link #level} of the user during game play.
+	 * @param level An integer that represents the current {@link #level} of the user in the game play.
 	 */
 	public void setLevel(int level) {
 		this.level = level;
 	}
 
 	/**
-	 * Gets the animal of the user.
+	 * Gets the {@link p4_group_8_repo.actor.Animal} of the user.
 	 * @return An {@link p4_group_8_repo.actor.Animal} of the user.
 	 */
 	public Animal getAnimal() {
@@ -55,7 +55,7 @@ public class User {
 	}
 
 	/**
-	 * Sets the animal of the user.
+	 * Sets the {@link p4_group_8_repo.actor.Animal} of the user.
 	 * @param animal An {@link p4_group_8_repo.actor.Animal} that represents the animal of the user.
 	 */
 	public void setAnimal(Animal animal) {
@@ -63,8 +63,8 @@ public class User {
 	}
 	
 	/**
-	 * A method that assigns a random username to the users upon initialisation.
-	 * @return A string representing the randomized user name.
+	 * A method that assigns a random username to the user upon initialisation.
+	 * @return A string representing the randomized username.
 	 */
 	public String randomUsername() {
 	    int leftLimit = 97; // letter 'a'
@@ -81,32 +81,32 @@ public class User {
 	}
 	
 	/**
-	 * Gets the username of the user.
-	 * @return A string representing the username of the user.
+	 * Gets the {@link #username} of the user.
+	 * @return A string representing the {@link #username} of the user.
 	 */
 	public String getUsername() {
 		return username;
 	}
 	
 	/**
-	 * Sets the username of the user.
-	 * @param userName A string representing the username of the user.
+	 * Sets the {@link #username} of the user.
+	 * @param userName A string representing the {@link #username} of the user.
 	 */
 	public void setUsername(String userName) {
 		this.username = userName;
 	}
 	
 	/**
-	 * Sets the score of the user.
-	 * @param score An integer that represents the current score of the user.
+	 * Sets the {@link #score} of the user.
+	 * @param score An integer that represents the current {@link #score} of the user.
 	 */
 	public void setScore(int score) {
 		this.score = score;
 	}
 	
 	/**
-	 * Gets the current score of the user.
-	 * @return An integer that represents the current score of the user.
+	 * Gets the current {@link #score} of the user.
+	 * @return An integer that represents the current {@link #score} of the user.
 	 */
 	public int getScore() {
 		return score;

@@ -13,13 +13,19 @@ public class RedTruck extends Obstacle implements TruckVehicle{
 	
 	/**
 	 * Initializes the red truck object that exist within the game play and
-	 * sets the image of the red truck and its desired X-Coordinate and Y-Coordinate.
-	 * @param xpos An integer representing the X-Coordinate of the Red Truck.
-	 * @param ypos An integer representing the Y-Coordinate of the Red Truck.
-	 * @param s A double that represents the speed of the Red Truck during game play.
+	 * sets the image of this {@link RedTruck} and its desired X-Coordinate and Y-Coordinate.
+	 * @param xpos An integer representing the X-Coordinate of this {@link RedTruck}.
+	 * @param ypos An integer representing the Y-Coordinate of this {@link RedTruck}.
+	 * @param s A double that represents the speed of movement of this {@link RedTruck} during game play.
 	 */
 	public RedTruck(int xpos, int ypos, double s) {
 		super(xpos, ypos, s);
 		setImage(new Image("file:src/main/resources/images/Actor/TruckRed.png", WIDTH, HEIGHT, true, true));
+	}
+	
+	@Override
+	public void act(long now) {
+		move(speed , 0);
+		loopEnterScreenLeft(-200, 600, speed);
 	}
 }

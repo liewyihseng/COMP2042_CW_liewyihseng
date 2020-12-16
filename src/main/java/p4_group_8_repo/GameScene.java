@@ -21,24 +21,25 @@ import p4_group_8_repo.actor.obstacle.RedTruck;
 import p4_group_8_repo.actor.obstacle.Snake;
 import p4_group_8_repo.actor.obstacle.TaxiCar;
 import p4_group_8_repo.actor.obstacle.YellowTruck;
-import p4_group_8_repo.controller.SceneController;
 import p4_group_8_repo.user.User;
 
 
 /**
- * This class provides the Game with Animation, and handles user's game level throughout the game
+ * This class provides the Game with animation, and handles user's game level throughout the game
  * @author Liew Yih Seng
  *
  */
 public class GameScene{
 
+	/**
+	 * Represents the user in the Game Scene
+	 */
 	public User user = Main.getUser();
 	private MyStage background;
 	AnimationTimer timer;
 	private Character[] score = new Character[4];
 	private Pane GameScene;
 	private int currentLevel;
-	public SceneController scene;
 	
 	/**
 	 * A sole constructor for constructing the GameScene class that displays obstacles,
@@ -163,15 +164,15 @@ public class GameScene{
 	
 	/**
 	 * This method creates a local timer by calling method {@link javafx.animation.AnimationTimer#AnimationTimer()}
-	 * within the GameScene that handles the change of user's score, the 
-	 * time users has finished the level and when the entire game completes(level 10).
+	 * within the {@link GameScene} that handles the change of user's score, the 
+	 * time when users has finished the level and when the entire game completes(level 10).
 	 * Within the handle function, there existed several if conditions that triggers
 	 * specific functions. The first if condition will test if the user's score has changed
-	 * by using method{@link p4_group_8_repo.actor.Animal#changeScore()} as it will return true representing an update
-	 * to the user's score is needed. The second if case tests the case when the current level will stop 
-	 * by using method{@link p4_group_8_repo.actor.Animal#getStop(int)} is it will return a boolean after making 
+	 * by using method {@link p4_group_8_repo.actor.Animal#changeScore()} as it will return true representing an update
+	 * to the user's score is needed. The second if statement tests the case when the current level will stop 
+	 * by using method {@link p4_group_8_repo.actor.Animal#getStop(int)} as it will return a boolean after making 
 	 * comparison with the user's level. The third if statement test if the user has exceeded the max level that
-	 * that is level 10 by using the method {@link p4_group_8_repo.user.User#getLevel()} that returns the
+	 * is level 10 by using the method {@link p4_group_8_repo.user.User#getLevel()} that returns the
 	 * current level of users. If the comparison is true, End Game Scene will be triggered.
 	 */
 	public void createTimer() {
@@ -214,7 +215,7 @@ public class GameScene{
 	}
 	
     /**
-     * This method stops the local timer within the GameScene by invoking
+     * This method stops the local timer within the {@link GameScene} by invoking
      * stop method from {@link javafx.animation.AnimationTimer#AnimationTimer()}.
      */
     public void stop() {
@@ -222,7 +223,7 @@ public class GameScene{
     }
     
     /**
-     * This method sets the initial score to zero then displays them on the GameScene within a frame
+     * This method sets the initial score to zero then displays them on the Game Scene within a frame
      * by invoking the frame constructor from class {@link p4_group_8_repo.actor.Frame}.
      * The score being displayed will be in the form of an array where each element in the score array
      * has been displayed by constructing the Character constructor from class {@link p4_group_8_repo.actor.Character}.
@@ -243,7 +244,7 @@ public class GameScene{
     /**
      * This method displays the most current level of the user within the Game Scene within a frame
      * by invoking the frame constructor from class {@link p4_group_8_repo.actor.Frame}. The level will
-     * be displayed in the frame by invoking the constructor from {@link p4_group_8_repo.actor.Character} which
+     * be displayed in the frame by invoking the constructor from {@link p4_group_8_repo.actor.Character} class which
      * handles the display of character in the frame.
      */
     public void displayLevel() {
@@ -263,7 +264,7 @@ public class GameScene{
     /**
      * This method displays the username of the user within the Game Scene within a frame
      * by invoking the frame constructor from class {@link p4_group_8_repo.actor.Frame}. The username will
-     * be displayed in the frame by invoking the constructor from {@link p4_group_8_repo.actor.Character} which
+     * be displayed in the frame by invoking the constructor from {@link p4_group_8_repo.actor.Character} class which
      * handles the display of character in the frame.
      * @param name A string that represents the name of the user.
      */

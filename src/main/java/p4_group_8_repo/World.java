@@ -98,7 +98,7 @@ public abstract class World extends Pane {
     }
     
     /**
-     * A method that stops the local timer within the World class by invoking
+     * A method that stops the local timer within the {@link World} class by invoking
      * the stop method from {@link javafx.animation.AnimationTimer#AnimationTimer()}.
      */
     public void stop() {
@@ -107,7 +107,7 @@ public abstract class World extends Pane {
     
     /**
      * A method that adds new actors into the Pane.
-     * @param actor An actor that represents the objects that exist within the game.
+     * @param actor An actor that represents the objects that exist within the pane.
      */
     public void add(Actor actor) {
         getChildren().add(actor);
@@ -121,6 +121,12 @@ public abstract class World extends Pane {
         getChildren().remove(actor);
     }
 
+    /**
+     * A method that looks for other objects
+     * @param <A> List of objects that extends {@link p4_group_8_repo.actor.Actor} class.
+     * @param cls A class that extends {@link p4_group_8_repo.actor.Actor}
+     * @return The array of objects
+     */
     public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         for (Node n: getChildren()) {

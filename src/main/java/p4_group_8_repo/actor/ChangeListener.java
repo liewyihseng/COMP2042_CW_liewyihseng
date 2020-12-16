@@ -4,7 +4,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
 
 /**
- * Represents the textfield that has a limit in the number of character it allows to be entered.
+ * Represents the textfield that has a limit in the number of character it listens to.
  * @author Liew Yih Seng
  *
  */
@@ -14,9 +14,9 @@ public class ChangeListener implements javafx.beans.value.ChangeListener<String>
 	private TextField textField;
 	
 	/**
-	 * Construct an instance of ChangeListener, where it listens to a limited number of characters.
+	 * Construct an instance of {@link ChangeListener}, where it listens to a limited number of characters.
 	 * @param textField A TextField that allows user to input.
-	 * @param maxLength An integer that represents the maximum number of character allowed to be input.
+	 * @param maxLength An integer that represents the maximum number of characters allowed to be input.
 	 */
 	public ChangeListener(TextField textField, int maxLength) {
 		this.textField = textField;
