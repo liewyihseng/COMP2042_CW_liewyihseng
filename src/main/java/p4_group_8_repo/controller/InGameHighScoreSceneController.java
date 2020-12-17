@@ -2,7 +2,6 @@ package p4_group_8_repo.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -11,13 +10,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import p4_group_8_repo.Main;
 import p4_group_8_repo.user.HighScores;
+import p4_group_8_repo.user.User;
 
 /**
  * A controller that handles all events within the In Game High Score Scene.
  * @author Liew Yih Seng
  *
  */
-public class InGameHighScoreSceneController implements Initializable{
+public class InGameHighScoreSceneController implements Initializable, HighScoreControllerAbstractFactory{
 
 	@FXML
 	private Pane ingamehighscoreRoot;
@@ -64,7 +64,7 @@ public class InGameHighScoreSceneController implements Initializable{
 	 * Always gets the {@link Main#getHighScore()} to ensure the list of high score
 	 * this class is working on is the updated version of the high score list.
 	 */
-	private HighScores highScores = Main.getHighScore();
+	public HighScores highScores = Main.getHighScore();
 	
 	/**
 	 * A method where FXML will automatically call onto once this controller
@@ -129,9 +129,9 @@ public class InGameHighScoreSceneController implements Initializable{
 	 * @param event  A {@link MouseEvent} that represents if the user has clicked on this button.
 	 */
 	@FXML
-	void submit(MouseEvent event) {
+	public void submit(MouseEvent event) {
 		Main.getHighScore().newScore(Main.getUser().getScore());
-		Main.getUser().setLevel(1);
+		Main.setUser(new User(Main.getUser().getUsername()));
 		scene.refreshGame();
 		scene.activate("StartScene");
 		
@@ -145,19 +145,14 @@ public class InGameHighScoreSceneController implements Initializable{
 	 * to activate and display the Between Level Scene. If it returns false, it will activate and displays the
 	 * End Game Scene.
 	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
-	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void backMenu(MouseEvent event) {
-//		if(Main.getUser().isInGame()) {
-//			scene.activate("PauseScene");
-//		}else {
-			if(Main.getUser().getLevel() <= 10) {
-				scene.activate("BetweenLevelScene");
-			}else {
-				scene.activate("EndGameScene");
-			}
-	//	}
+	public void backMenu(MouseEvent event) {
+		if(Main.getUser().getLevel() <= 10) {
+			scene.activate("BetweenLevelScene");
+		}else {
+			scene.activate("EndGameScene");
+		}
 	}
 	
 	/**

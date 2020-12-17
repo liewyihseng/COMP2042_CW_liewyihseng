@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
  * @author Liew Yih Seng
  *
  */
-public class MenuSceneController {
+public class MenuSceneController implements PagesNav{
 	@FXML
 	private Pane menuRoot;
 	
@@ -36,7 +36,7 @@ public class MenuSceneController {
 	/**
 	 * Represents the {@link HighScoreSceneController} in this class.
 	 */
-	public HighScoreSceneController highScoreController;
+	public HighScoreControllerAbstractFactory highScoreController;
 	
 	/**
 	 * A constructor that sets this {@link #scene} to the {@link SceneController#scene} initialized in {@link SceneController} class.
@@ -50,7 +50,7 @@ public class MenuSceneController {
 	 * A method that sets this highScoreController to the highScoreController in class {@link HighScoreSceneController}.
 	 * @param highScoreController A {@link HighScoreSceneController} that represents the {@link HighScoreSceneController} in this project.
 	 */
-	public void setHighScoreController(HighScoreSceneController highScoreController) {
+	public void setHighScoreController(HighScoreControllerAbstractFactory highScoreController) {
 		this.highScoreController = highScoreController;
 	}
 	
@@ -62,7 +62,7 @@ public class MenuSceneController {
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void backHome(MouseEvent event) throws Exception{
+	public void backHome(MouseEvent event) throws Exception{
 		scene.activate("StartScene");
 	}
 	
@@ -74,7 +74,7 @@ public class MenuSceneController {
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void highScore(MouseEvent event) throws Exception{
+	public void highScore(MouseEvent event) throws Exception{
 		highScoreController.setScoreText();
 		scene.activate("HighScoreScene");
 	}
@@ -87,7 +87,7 @@ public class MenuSceneController {
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void instruction(MouseEvent event) throws Exception{
+	public void instruction(MouseEvent event) throws Exception{
 		scene.activate("InstructionScene");
 	}
 	
@@ -99,7 +99,7 @@ public class MenuSceneController {
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void quit(MouseEvent event) throws Exception{
+	public void quit(MouseEvent event) throws Exception{
 		Platform.exit();
 	}
 }

@@ -2,7 +2,6 @@ package p4_group_8_repo.actor;
 
 import javafx.scene.image.ImageView;
 import p4_group_8_repo.World;
-
 import java.util.ArrayList;
 
 /**

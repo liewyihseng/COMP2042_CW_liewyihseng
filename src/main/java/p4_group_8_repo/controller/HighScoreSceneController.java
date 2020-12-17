@@ -13,7 +13,7 @@ import p4_group_8_repo.user.HighScores;
  * @author Liew Yih Seng
  *
  */
-public class HighScoreSceneController {
+public class HighScoreSceneController implements HighScoreControllerAbstractFactory {
 	
 	@FXML
 	private Pane highscoreRoot;
@@ -54,7 +54,7 @@ public class HighScoreSceneController {
 	 * Always gets the {@link Main#getHighScore()} to ensure the list of high score
 	 * this class is working on is the updated version of the high score list.
 	 */
-	private HighScores highScores = Main.getHighScore();
+	public HighScores highScores = Main.getHighScore();
 	
 	/**
 	 * A method where FXML will automatically call onto once this controller
@@ -118,8 +118,9 @@ public class HighScoreSceneController {
 	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
 	 * @throws Exception If the source is null.
 	 */
+	@Override
 	@FXML
-	void backMenu(MouseEvent event) throws Exception{
+	public void backMenu(MouseEvent event) throws Exception{
 		if(Main.getUser().isInGame()) {
 			scene.activate("PauseScene");
 		}else {
@@ -131,6 +132,7 @@ public class HighScoreSceneController {
 	 * A method the sets the high score list into the most updated version of the list.
 	 * It will update every element within the array {@link #name}, {@link #level} and {@link #score}.
 	 */
+	@Override
 	public void setScoreText() {
 		for(int i = 0; i < 10; i++) {
 			name[i].setText(highScores.getScoreList().get(i).getName());

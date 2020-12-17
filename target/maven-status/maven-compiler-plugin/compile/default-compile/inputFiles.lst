@@ -13,7 +13,6 @@ C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihse
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\Lilypad.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\Actor.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\Character.java
-C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\controller\EndGameSceneController.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\controller\InstructionSceneController.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\controller\BetweenLevelSceneController.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\controller\StartSceneController.java
@@ -22,6 +21,7 @@ C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihse
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\obstacle\YellowTruck.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\user\User.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\End.java
+C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\controller\PagesNav.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\controller\SceneController.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\obstacle\RedCar.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\Animal.java
@@ -31,8 +31,8 @@ C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihse
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\package-info.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\NonSinkingTurtle.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\Turtle.java
-C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\HighScores.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\obstacle\LongTruck.java
+C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\user\HighScores.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\Frame.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\MovementKeys.java
 C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\src\main\java\p4_group_8_repo\actor\Log.java

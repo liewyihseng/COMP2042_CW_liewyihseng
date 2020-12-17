@@ -36,7 +36,7 @@ public class SceneController {
 	PauseSceneController pauseScenec = new PauseSceneController(this);
 	
 	FXMLLoader highscoreLoader = new FXMLLoader(getClass().getResource("/views/HighScoreScene.fxml"));
-	HighScoreSceneController highscoreScenec = new HighScoreSceneController(this);
+	HighScoreControllerAbstractFactory highscoreScenec = new HighScoreSceneController(this);
 	
 	FXMLLoader ingamehighscoreLoader = new FXMLLoader(getClass().getResource("/views/InGameHighScoreScene.fxml"));
 	InGameHighScoreSceneController ingamehighscoreScenec = new InGameHighScoreSceneController(this);
@@ -144,6 +144,7 @@ public class SceneController {
 	 */
 	protected void resetGame() {
 		gameScene = new GameScene();
+		Main.getUser().getAnimal().setPoints(Main.getUser().getScore());
 		screenMap.replace("GameScene", gameScene.getScene());
 		activate("GameScene");
 		

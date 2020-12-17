@@ -1,7 +1,6 @@
 package p4_group_8_repo.actor;
 
 import java.util.ArrayList;
-
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;

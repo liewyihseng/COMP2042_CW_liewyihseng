@@ -3,7 +3,6 @@ package p4_group_8_repo;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -127,7 +126,7 @@ public abstract class World extends Pane {
      * @param cls A class that extends {@link p4_group_8_repo.actor.Actor}
      * @return The array of objects
      */
-    public <A extends Actor> List<A> getObjects(Class<A> cls) {
+	public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         for (Node n: getChildren()) {
             if (cls.isInstance(n)) {

@@ -5,13 +5,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import p4_group_8_repo.Main;
+import p4_group_8_repo.user.User;
 
 /**
  * A controller that handles all events within the Between Level Scene.
  * @author Liew Yih Seng
  *
  */
-public class BetweenLevelSceneController {
+public class BetweenLevelSceneController implements PagesNav {
 	
 	@FXML
 	private Pane betweenLevelRoot;
@@ -60,28 +61,29 @@ public class BetweenLevelSceneController {
 	/**
 	 * A method that handles the restart of game play when the user felt like restarting.
 	 * It invokes method {@link SceneController#refreshGame()} that resets the user data,
-	 * then replacing the current {@link GameScene} with a new {@link GameScene} for user to have
+	 * then replacing the current {@link p4_group_8_repo.GameScene} with a new {@link p4_group_8_repo.GameScene} for user to have
 	 * a fresh start.
 	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void restart(MouseEvent event) throws Exception{
-		Main.getUser().setLevel(1);
-		scene.refreshGame();
+	public void restart(MouseEvent event) throws Exception{
+		Main.setUser(new User(Main.getUser().getUsername()));
+		System.out.println(Main.getUser().getScore());
+		scene.resetGame();
 		scene.activate("GameScene");
 		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
 	}
 	
 	/**
 	 * A method that handles the linking the user form the ended level to the next level.
-	 * It invokes method {@link SceneController#resetGame()} that refreshes the {@link GameScene},
+	 * It invokes method {@link SceneController#resetGame()} that refreshes the {@link p4_group_8_repo.GameScene},
 	 * then allowing the user to progress into the next level with the same set of score the user has.
 	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void nextLevel(MouseEvent event) throws Exception{
+	public void nextLevel(MouseEvent event) throws Exception{
 		scene.resetGame();
 		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
 	}
@@ -93,8 +95,9 @@ public class BetweenLevelSceneController {
 	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
 	 * @throws Exception If the source is null.
 	 */
+	@Override
 	@FXML
-	void highScore(MouseEvent event) throws Exception{
+	public void highScore(MouseEvent event) throws Exception{
 		ingameController.setScoreText();
 		scene.activate("InGameHighScoreScene");
 	}
@@ -104,14 +107,17 @@ public class BetweenLevelSceneController {
 	 * resets the user level to level 1 once the user has opted to go back home. This method has allowed
 	 * user to maintain the same identity(username) throughout their interaction in the game. It will then
 	 * invoke the method {@link SceneController#activate(String)} to activate and display the Start Scene.
-	 * In the mean time, the {@link p4_group_8_repo#GameScene} has been refreshed by invoking the
+	 * In the mean time, the {@link p4_group_8_repo.GameScene} has been refreshed by invoking the
 	 * method {@link SceneController#refreshGame()} in class {@link SceneController}.
 	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
 	 * @throws Exception If the source is null.
 	 */
+	@Override
 	@FXML
-	void backHome(MouseEvent event) throws Exception{
+	public void backHome(MouseEvent event) throws Exception{
+		Main.getUser().setScore(0);
 		Main.getUser().setLevel(1);
+		Main.getUser().getAnimal().setPoints(0);
 		scene.activate("StartScene");
 		scene.refreshGame();
 	}

@@ -88,9 +88,9 @@ public class StartSceneController implements Initializable{
 		if(username.getText() == null || username.getText().trim().isEmpty()) {
 			Main.setUser(user);
 		}else {
-			Main.getUser().setUsername(username.getText());
+			User user = new User(username.getText());
+			Main.setUser(user);
 		}
-		System.out.println("Username in Start Scene: " + Main.getUser().getUsername());
 		scene.activate("GameScene");
 		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
     }

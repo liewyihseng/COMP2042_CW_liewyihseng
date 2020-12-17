@@ -34,7 +34,7 @@ public class GameScene{
 	/**
 	 * Represents the user in the Game Scene
 	 */
-	public User user = Main.getUser();
+	public User user;
 	private MyStage background;
 	AnimationTimer timer;
 	private Character[] score = new Character[4];
@@ -46,14 +46,12 @@ public class GameScene{
 	 * animations and user's information throughout gameplay.
 	 */
 	public GameScene() {
-		
+		user = Main.getUser();
 		setBackground(new MyStage());
 		BackgroundImage gameBack = new BackgroundImage("file:src/main/resources/images/PageBackground/Map.png");
 		getBackground().add(gameBack);
 		currentLevel = user.getLevel();
-		System.out.println("User detail:");
-		System.out.println("User Name in Game Scene:"+ user.getUsername());
-		System.out.println("User level:" + user.getLevel());
+
 		
 		displayMenuButton();
 		displayScore();
@@ -183,10 +181,8 @@ public class GameScene{
             		setNumber(user.getAnimal().getPoints());
             	}
             	if (user.getAnimal().getStop(currentLevel)) {
-            		System.out.println("STOPP:");
             		user.setScore(user.getAnimal().getPoints());
             		user.setLevel(currentLevel + 1);
-            		System.out.println("Score: " + user.getScore());
             		Main.getUser().setScore(user.getScore());
             		Main.getUser().setLevel(user.getLevel());
             		stopGame(getBackground());

@@ -30,6 +30,12 @@ public class User {
 		animal = new Animal();
 	}
 
+	public User(String name) {
+		setUsername(name);
+		setScore(0);
+		setLevel(1); //Every User starts with level 1
+		animal = new Animal();
+	}
 	/**
 	 * Gets the current {@link #level} of the user.
 	 * @return An integer representing the current {@link #level} of the user.

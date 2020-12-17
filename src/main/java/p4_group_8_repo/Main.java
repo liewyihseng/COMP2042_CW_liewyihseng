@@ -25,7 +25,7 @@ public class Main extends Application {
 	 */
 	public static SceneController sceneController;
 	private static User user = new User();
-	private static HighScores highScore = new HighScores();
+	private static HighScores highScore = HighScores.getInstance();
 	
 	/**
 	 * The entry point of this Java program.

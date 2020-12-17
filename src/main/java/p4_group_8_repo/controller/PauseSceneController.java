@@ -5,13 +5,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import p4_group_8_repo.Main;
+import p4_group_8_repo.user.User;
 
 /**
  * A controller that handles all events within the Pause Scene.
  * @author Liew Yih Seng
  *
  */
-public class PauseSceneController {
+public class PauseSceneController implements PagesNav{
 	@FXML
 	private Pane pauseRoot;
 	
@@ -32,7 +33,7 @@ public class PauseSceneController {
 	/**
 	 * Represents the {@link HighScoreSceneController} in this class.
 	 */
-	public HighScoreSceneController highScoreController;
+	public HighScoreControllerAbstractFactory highScoreController;
 
 	/**
 	 * A constructor that sets this {@link #scene} to the {@link SceneController#scene} initialized in {@link SceneController} class.
@@ -46,7 +47,7 @@ public class PauseSceneController {
 	 * A method that sets this {@link #highScoreController} to the highScoreController in class {@link HighScoreSceneController}.
 	 * @param highScoreController A {@link HighScoreSceneController} that represents the {@link HighScoreSceneController} in this project.
 	 */
-	public void setHighScoreController(HighScoreSceneController highScoreController) {
+	public void setHighScoreController(HighScoreControllerAbstractFactory highScoreController) {
 		this.highScoreController = highScoreController;
 	}
 	
@@ -61,7 +62,7 @@ public class PauseSceneController {
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void resume(MouseEvent event) throws Exception{
+	public void resume(MouseEvent event) throws Exception{
 		scene.resumeGame();
 	}
 	
@@ -73,7 +74,7 @@ public class PauseSceneController {
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void highScore(MouseEvent event) throws Exception{
+	public void highScore(MouseEvent event) throws Exception{
 		highScoreController.setScoreText();
 		scene.activate("HighScoreScene");
 	}
@@ -83,14 +84,14 @@ public class PauseSceneController {
 	 * resets the user level to level 1 once the user has opted to go back home. This method has allowed
 	 * user to maintain the same identity(username) throughout their interaction in the game. It will then
 	 * invoke the method {@link SceneController#activate(String)} to activate and display the Start Scene.
-	 * In the mean time, the {@link p4_group_8_repo#GameScene} has been refreshed by invoking the
+	 * In the mean time, the {@link p4_group_8_repo.GameScene} has been refreshed by invoking the
 	 * method {@link SceneController#refreshGame()} in class {@link SceneController}.
 	 * @param event A {@link MouseEvent} that represents if the user has clicked on this button.
 	 * @throws Exception If the source is null.
 	 */
 	@FXML
-	void backHome(MouseEvent event) throws Exception{
-		Main.getUser().setLevel(1);
+	public void backHome(MouseEvent event) throws Exception{
+		Main.setUser(new User(Main.getUser().getUsername()));
 		scene.activate("StartScene");
 		scene.refreshGame();
 	}

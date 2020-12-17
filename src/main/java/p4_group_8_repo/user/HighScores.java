@@ -18,6 +18,7 @@ public class HighScores {
 	private String root = System.getProperty("user.dir");
 	private String scoreFile = root+"\\src\\main\\resources\\score\\scoreFile.txt";
 	private static final int MAX_SCORES = 10;
+	private static HighScores instance = null;
 	private ArrayList<HighScore> score_list;
 	private static final String[] DUMMY_NAMES = {
 			"Test1",
@@ -40,7 +41,7 @@ public class HighScores {
 	 * be assigned to its holding variable(name, level, score).
 	 */
 	/* Open HIGH_SCORE_FILE and read the scores, names into an array */
-	public HighScores(){
+	private HighScores(){
 		String line;
 		String[] parts;
 		int score;
@@ -72,6 +73,16 @@ public class HighScores {
 				dummy_level -= 1;
 			}
 		}
+	}
+	
+	/**
+	 * Adhering the Singleton Design Pattern.
+	 * @return An instance of HighScores created.
+	 */
+	public static HighScores getInstance() {
+		if(instance == null)
+			instance = new HighScores();
+		return instance;
 	}
 	
 	/**

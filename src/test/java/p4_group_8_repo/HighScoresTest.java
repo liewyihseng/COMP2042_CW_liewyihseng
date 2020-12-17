@@ -16,7 +16,7 @@ public class HighScoresTest extends MyTest{
 	 */
 	@Test
 	public void testIsNewHighScore1() {
-		HighScores highScores = new HighScores();
+		HighScores highScores = HighScores.getInstance();
 		boolean isNew = highScores.isNewHighScore(10000);
 		assertTrue(isNew);
 	}
@@ -30,7 +30,7 @@ public class HighScoresTest extends MyTest{
 	 */
 	@Test
 	public void testIsNewHighScore2() {
-		HighScores highScores = new HighScores();
+		HighScores highScores = HighScores.getInstance();
 		boolean isNew = highScores.isNewHighScore(0);
 		assertFalse(isNew);
 	}
