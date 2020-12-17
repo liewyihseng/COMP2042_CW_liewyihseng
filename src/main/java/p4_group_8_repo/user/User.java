@@ -27,14 +27,14 @@ public class User {
 		setUsername(randomUsername());
 		setScore(0);
 		setLevel(1); //Every User starts with level 1
-		animal = new Animal();
+		//animal = new Animal();
 	}
 
 	public User(String name) {
 		setUsername(name);
 		setScore(0);
 		setLevel(1); //Every User starts with level 1
-		animal = new Animal();
+		//animal = new Animal();
 	}
 	/**
 	 * Gets the current {@link #level} of the user.
@@ -146,6 +146,14 @@ public class User {
      */
 	public void setInGame(boolean inGame) {
 		this.pauseGame = inGame;
+	}
+	
+	public Animal createAnimal() {
+		if(animal == null) {
+			animal = new Animal();
+		}
+		return animal;
+
 	}
 
 }

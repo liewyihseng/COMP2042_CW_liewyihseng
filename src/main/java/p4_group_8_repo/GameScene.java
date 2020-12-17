@@ -143,7 +143,7 @@ public class GameScene{
 		//attribute
 		//<a href='https://www.freepik.com/vectors/background'>Background vector created by vectorpocket - www.freepik.com</a>
 		
-		getBackground().add(user.getAnimal());
+		getBackground().add(user.createAnimal());
 		GameScene = getBackground();
 		getBackground().start();
 		start();

@@ -5,7 +5,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import p4_group_8_repo.Main;
-import p4_group_8_repo.user.User;
 
 /**
  * A controller that handles all events within the Pause Scene.
@@ -91,7 +90,9 @@ public class PauseSceneController implements PagesNav{
 	 */
 	@FXML
 	public void backHome(MouseEvent event) throws Exception{
-		Main.setUser(new User(Main.getUser().getUsername()));
+		Main.getHighScore().newScore(Main.getUser().getScore());
+		Main.getUser().setScore(0);
+		Main.getUser().setLevel(1);
 		scene.activate("StartScene");
 		scene.refreshGame();
 	}

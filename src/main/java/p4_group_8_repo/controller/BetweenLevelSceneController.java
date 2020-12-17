@@ -69,7 +69,9 @@ public class BetweenLevelSceneController implements PagesNav {
 	@FXML
 	public void restart(MouseEvent event) throws Exception{
 		Main.setUser(new User(Main.getUser().getUsername()));
-		System.out.println(Main.getUser().getScore());
+		Main.getUser().setScore(0);
+		Main.getUser().setLevel(1);
+		Main.getUser().getAnimal().setPoints(0);
 		scene.resetGame();
 		scene.activate("GameScene");
 		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());

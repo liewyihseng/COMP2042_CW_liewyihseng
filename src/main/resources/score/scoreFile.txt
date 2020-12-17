@@ -1,5 +1,6 @@
 3650	10	ryzbsgpnnqumn
 3450	2	Liew Yih Seng
+3450	7	ck
 3250	10	Liew Yih Seng
 2650	10	emlxelxlcfurw
 1820	2	Yih seng
@@ -7,4 +8,3 @@
 1330	4	Yih seng
 1310	0	vyaamzgnwlcdf
 1310	2	hblsmzxfklzvy
-1260	2	uevhjgpkweqvq

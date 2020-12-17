@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -20,7 +21,7 @@
             <Image url="@../images/Button/StartButton.png" />
          </image>
          <cursor>
-         	<Cursor fx:constant="HAND"/>
+         	<Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
              <ImageView fx:id="menu" fitHeight="32.0" fitWidth="38.0" layoutX="5.0" layoutY="5.0" onMouseClicked="#menuClick" pickOnBounds="true" preserveRatio="true">
@@ -28,10 +29,10 @@
             <Image url="@../images/Button/MenuButton.png" />
          </image>
          <cursor>
-         	<Cursor fx:constant="HAND"/>
+         	<Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <TextField fx:id="username" alignment="CENTER" focusTraversable="false" layoutX="188.0" onAction="#startGame" layoutY="430.0" promptText="Username (Max Size 13)">
+      <TextField fx:id="username" alignment="CENTER" focusTraversable="false" layoutX="188.0" layoutY="430.0" onAction="#startGame" promptText="Username (Max Size 13)">
          <font>
             <Font size="18.0" />
          </font></TextField>

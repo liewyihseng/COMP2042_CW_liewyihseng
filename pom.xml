@@ -7,6 +7,7 @@
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+  
     	<dependency>
         	<groupId>org.openjfx</groupId>
         	<artifactId>javafx-controls</artifactId>
@@ -53,6 +54,14 @@
     </resources>
     
     <plugins>
+    <plugin>
+		    <groupId>org.codehaus.mojo</groupId>
+		    <artifactId>exec-maven-plugin</artifactId>
+		    <version>1.6.0</version>
+		    <configuration>
+			     <mainClass>p4_group_8_repo.Main</mainClass>
+			</configuration>
+		</plugin>
      <plugin>
 	    	<groupId>org.apache.maven.plugins</groupId>
 	  		<artifactId>maven-surefire-plugin</artifactId>
