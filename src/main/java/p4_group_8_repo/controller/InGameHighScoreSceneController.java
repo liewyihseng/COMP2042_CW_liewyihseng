@@ -132,7 +132,6 @@ public class InGameHighScoreSceneController implements Initializable, HighScoreC
 		Main.getHighScore().newScore(Main.getUser().getScore());
 		Main.getUser().setScore(0);
 		Main.getUser().setLevel(1);
-		Main.getUser().getAnimal().setPoints(0);
 		scene.refreshGame();
 		scene.activate("StartScene");
 		

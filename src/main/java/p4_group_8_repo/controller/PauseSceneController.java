@@ -90,7 +90,6 @@ public class PauseSceneController implements PagesNavAbstractFactory{
 	 */
 	@FXML
 	public void backHome(MouseEvent event) throws Exception{
-		Main.getHighScore().newScore(Main.getUser().getScore());
 		Main.getUser().setScore(0);
 		Main.getUser().setLevel(1);
 		scene.activate("StartScene");

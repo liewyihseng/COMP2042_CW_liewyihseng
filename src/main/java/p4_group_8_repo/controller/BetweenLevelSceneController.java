@@ -71,7 +71,6 @@ public class BetweenLevelSceneController implements PagesNavAbstractFactory {
 		Main.setUser(new User(Main.getUser().getUsername()));
 		Main.getUser().setScore(0);
 		Main.getUser().setLevel(1);
-		Main.getUser().getAnimal().setPoints(0);
 		scene.resetGame();
 		scene.activate("GameScene");
 		Main.sceneController.gameScene.displayUsername(Main.getUser().getUsername());
@@ -119,7 +118,6 @@ public class BetweenLevelSceneController implements PagesNavAbstractFactory {
 	public void backHome(MouseEvent event) throws Exception{
 		Main.getUser().setScore(0);
 		Main.getUser().setLevel(1);
-		Main.getUser().getAnimal().setPoints(0);
 		scene.activate("StartScene");
 		scene.refreshGame();
 	}
