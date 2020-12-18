@@ -334,7 +334,7 @@
   <class id="34" language="java" name="p4_group_8_repo.actor.ChangeListener" project="COMP2042_CW_liewyihseng" 
     file="/COMP2042_CW_liewyihseng/src/main/java/p4_group_8_repo/actor/ChangeListener.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="409" y="1036"/>    
+    <position height="-1" width="-1" x="441" y="1021"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -420,436 +420,540 @@
     </display>  
   </class>  
   <association id="43">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="44" name="keys"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="47" name="score"/>      
-      <multiplicity id="48" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="49">    
-    <bendpoint x="950" y="735"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="50" name="scene"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="52">    
-    <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="53">    
-    <end type="SOURCE" refId="41"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <realization id="54">    
-    <bendpoint x="1561" y="1432"/>    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="25"/>  
-  </realization>  
-  <association id="55">    
-    <bendpoint x="1917" y="921"/>    
+    <bendpoint x="1771" y="1118"/>    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="56" name="betweenLevelScenec"/>      
-      <multiplicity id="57" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="58">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="59" name="ingameController"/>      
-      <multiplicity id="60" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="42" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="61">    
-    <bendpoint x="1001" y="868"/>    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="62" name="scene"/>      
-      <multiplicity id="63" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="64">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="29"/>  
-  </generalization>  
-  <association id="65">    
-    <bendpoint x="2305" y="826"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="66" name="pauseScenec"/>      
-      <multiplicity id="67" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="68">    
-    <end type="SOURCE" refId="38"/>    
-    <end type="TARGET" refId="37"/>  
-  </generalization>  
-  <realization id="69">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="26"/>  
-  </realization>  
-  <association id="70">    
-    <bendpoint x="1022" y="913"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="71" name="instructionScenec"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="73">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <association id="74">    
-    <bendpoint x="1344" y="1059"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="75" name="scene">        
-        <position height="20" width="47" x="1540" y="716"/>      
+      <attribute id="44" name="highscoreScenec">        
+        <position height="20" width="112" x="1737" y="1363"/>      
       </attribute>      
-      <multiplicity id="76" minimum="0" maximum="1">        
-        <position height="18" width="27" x="1580" y="747"/>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1983" y="1436"/>      
       </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="77">    
-    <bendpoint x="1939" y="923"/>    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="78" name="scene">        
-        <position height="20" width="47" x="1647" y="729"/>      
-      </attribute>      
-      <multiplicity id="79" minimum="0" maximum="1">        
-        <position height="18" width="27" x="1700" y="729"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="80">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="81" name="user"/>      
-      <multiplicity id="82" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="83">    
-    <bendpoint x="579" y="1792"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="84" name="user"/>      
-      <multiplicity id="85" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="86">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="24"/>  
-  </realization>  
-  <nesting id="87">    
-    <bendpoint x="1246" y="1533"/>    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="23"/>  
-  </nesting>  
-  <generalization id="88">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <realization id="89">    
-    <end type="SOURCE" refId="32"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <realization id="90">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="24"/>  
-  </realization>  
-  <generalization id="91">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <association id="92">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="93" name="score_list"/>      
-      <multiplicity id="94" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="95">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <association id="96">    
-    <bendpoint x="2131" y="876"/>    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="97" name="scene">        
-        <position height="20" width="47" x="1711" y="713"/>      
-      </attribute>      
-      <multiplicity id="98" minimum="0" maximum="1">        
-        <position height="18" width="27" x="1764" y="713"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="99">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="100" name="instance"/>      
-      <multiplicity id="101" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="102">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="103" name="interLily"/>      
-      <multiplicity id="104" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="105">    
-    <end type="SOURCE" refId="35"/>    
-    <end type="TARGET" refId="29"/>  
-  </generalization>  
-  <association id="106">    
-    <bendpoint x="2139" y="867"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="107" name="menuScenec"/>      
-      <multiplicity id="108" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="109">    
-    <bendpoint x="964" y="780"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="110" name="startScenec"/>      
-      <multiplicity id="111" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="112">    
-    <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="113" name="highScore"/>      
-      <multiplicity id="114" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="115">    
-    <bendpoint x="375" y="1605"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="116" name="user"/>      
-      <multiplicity id="117" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="118">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="29"/>  
-  </generalization>  
-  <generalization id="119">    
-    <end type="SOURCE" refId="36"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="120">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="121" name="highScoreController"/>      
-      <multiplicity id="122" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="123">    
+  <realization id="46">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <association id="47">    
+    <bendpoint x="950" y="735"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="48" name="scene"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="50">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="51">    
+    <bendpoint x="1001" y="868"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="52" name="scene">        
+        <position height="20" width="47" x="1441" y="704"/>      
+      </attribute>      
+      <multiplicity id="53" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1489" y="706"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="54">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <realization id="55">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <association id="56">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="57" name="highScore">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="58" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="59">    
+    <bendpoint x="1168" y="1067"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="60" name="gameScene">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="61" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="63" name="highScoreController">        
+        <position height="20" width="125" x="1935" y="1469"/>      
+      </attribute>      
+      <multiplicity id="64" minimum="0" maximum="1">        
+        <position height="18" width="27" x="2059" y="1469"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="65">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <association id="66">    
+    <bendpoint x="2131" y="876"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="67" name="scene">        
+        <position height="20" width="47" x="1778" y="733"/>      
+      </attribute>      
+      <multiplicity id="68" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1823" y="733"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="69">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <association id="70">    
+    <bendpoint x="375" y="1605"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="71" name="user">        
+        <position height="20" width="37" x="369" y="1792"/>      
+      </attribute>      
+      <multiplicity id="72" minimum="0" maximum="1">        
+        <position height="18" width="27" x="407" y="1793"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <bendpoint x="2139" y="867"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="74" name="menuScenec">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="77">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="78">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="80">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="81">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="82" name="background">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="85" name="highScores"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="87">    
     <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="29"/>  
   </generalization>  
-  <generalization id="124">    
-    <end type="SOURCE" refId="1"/>    
+  <association id="88">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="89" name="score_list">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="90" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="91">    
+    <bendpoint x="579" y="1792"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="92" name="user">        
+        <position height="20" width="37" x="502" y="1822"/>      
+      </attribute>      
+      <multiplicity id="93" minimum="0" maximum="1">        
+        <position height="18" width="27" x="538" y="1823"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="94">    
+    <bendpoint x="1939" y="923"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="95" name="scene">        
+        <position height="20" width="47" x="1693" y="739"/>      
+      </attribute>      
+      <multiplicity id="96" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1735" y="739"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="97">    
+    <bendpoint x="1617" y="962"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="98" name="ingamehighscoreScenec">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="99" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="100">    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="101" name="highScores">        
+        <position height="20" width="77" x="1312" y="1382"/>      
+      </attribute>      
+      <multiplicity id="102" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1390" y="1381"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <bendpoint x="1022" y="913"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="104" name="instructionScenec">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="105" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="107" name="keys">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="108" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="109">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="110">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="111" name="animal">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="112" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="113">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="114" name="score">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="115" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="116">    
+    <bendpoint x="964" y="780"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="117" name="startScenec">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="118" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="119">    
+    <end type="SOURCE" refId="35"/>    
     <end type="TARGET" refId="29"/>  
   </generalization>  
-  <generalization id="125">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="29"/>  
-  </generalization>  
-  <association id="126">    
-    <bendpoint x="1095" y="972"/>    
+  <association id="120">    
     <end type="SOURCE" refId="40" navigable="false">      
-      <attribute id="127" name="sceneController">        
-        <position height="20" width="102" x="1399" y="744"/>      
+      <attribute id="121" name="user">        
+        <position height="20" width="33" x="459" y="1797"/>      
+      </attribute>      
+      <multiplicity id="122" minimum="0" maximum="1">        
+        <position height="18" width="27" x="491" y="1800"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="123">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="124">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <realization id="125">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="126">    
+    <bendpoint x="1344" y="1059"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="127" name="scene">        
+        <position height="20" width="47" x="1501" y="790"/>      
       </attribute>      
       <multiplicity id="128" minimum="0" maximum="1">        
-        <position height="18" width="27" x="1498" y="744"/>      
+        <position height="18" width="27" x="1454" y="776"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="129">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="29"/>  
-  </generalization>  
-  <association id="130">    
-    <end type="SOURCE" refId="42" navigable="false">      
-      <attribute id="131" name="highScores"/>      
-      <multiplicity id="132" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="133">    
-    <bendpoint x="1617" y="962"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="134" name="ingamehighscoreScenec"/>      
-      <multiplicity id="135" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="42" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="136">    
-    <bendpoint x="2290" y="832"/>    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="137" name="scene"/>      
-      <multiplicity id="138" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="139">    
-    <bendpoint x="1603" y="966"/>    
-    <end type="SOURCE" refId="42" navigable="false">      
-      <attribute id="140" name="scene">        
-        <position height="20" width="47" x="1535" y="746"/>      
-      </attribute>      
-      <multiplicity id="141" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="142">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="143" name="highScoreController"/>      
-      <multiplicity id="144" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="145">    
-    <bendpoint x="1168" y="1067"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="146" name="gameScene"/>      
-      <multiplicity id="147" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="148">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <realization id="149">    
-    <end type="SOURCE" refId="39"/>    
-    <end type="TARGET" refId="31"/>  
-  </realization>  
-  <generalization id="150">    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="29"/>  
-  </generalization>  
-  <realization id="151">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="31"/>  
-  </realization>  
-  <generalization id="152">    
-    <end type="SOURCE" refId="2"/>    
+    <end type="SOURCE" refId="38"/>    
     <end type="TARGET" refId="37"/>  
   </generalization>  
-  <generalization id="153">    
-    <end type="SOURCE" refId="39"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <generalization id="154">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <association id="155">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="156" name="animal"/>      
-      <multiplicity id="157" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="33" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="158">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="25"/>  
-  </realization>  
-  <association id="159">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="160" name="highScores"/>      
-      <multiplicity id="161" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="162">    
-    <end type="SOURCE" refId="37"/>    
-    <end type="TARGET" refId="29"/>  
-  </generalization>  
-  <realization id="163">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <association id="164">    
-    <bendpoint x="1771" y="1118"/>    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="165" name="highscoreScenec">        
-        <position height="20" width="112" x="1680" y="1494"/>      
-      </attribute>      
-      <multiplicity id="166" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="167">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="168" name="background"/>      
-      <multiplicity id="169" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="36" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="170">    
+  <nesting id="130">    
+    <bendpoint x="1246" y="1533"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="23"/>  
+  </nesting>  
+  <association id="131">    
     <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="171" name="interCroc"/>      
-      <multiplicity id="172" minimum="0" maximum="2147483647"/>    
+      <attribute id="132" name="interCroc">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="133" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="173">    
+  <generalization id="134">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="135">    
+    <bendpoint x="1603" y="966"/>    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="136" name="scene">        
+        <position height="20" width="47" x="1583" y="782"/>      
+      </attribute>      
+      <multiplicity id="137" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1629" y="781"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="138">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="26"/>  
+  </realization>  
+  <generalization id="139">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="140">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <association id="141">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="142" name="interLily">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="143" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="144">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="145">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="146">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="147">    
+    <bendpoint x="1095" y="972"/>    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="148" name="sceneController">        
+        <position height="20" width="102" x="1352" y="775"/>      
+      </attribute>      
+      <multiplicity id="149" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1546" y="790"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="150">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="151">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="37"/>  
+  </generalization>  
+  <association id="152">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="153" name="instance">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="154" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="155">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <association id="156">    
+    <bendpoint x="1917" y="921"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="157" name="betweenLevelScenec">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="158" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="159">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="160" name="highScoreController">        
+        <position height="20" width="125" x="1860" y="1434"/>      
+      </attribute>      
+      <multiplicity id="161" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1847" y="1362"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="162">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <association id="163">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="164" name="ingameController">        
+        <position height="20" width="109" x="1666" y="1153"/>      
+      </attribute>      
+      <multiplicity id="165" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="166">    
+    <bendpoint x="2305" y="826"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="167" name="pauseScenec">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="168" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="169">    
+    <bendpoint x="2290" y="832"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="170" name="scene">        
+        <position height="20" width="47" x="1714" y="672"/>      
+      </attribute>      
+      <multiplicity id="171" minimum="0" maximum="1">        
+        <position height="18" width="27" x="1762" y="673"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="172">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <realization id="173">    
+    <bendpoint x="1561" y="1432"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="25"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
