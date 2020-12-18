@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="p4_group_8_repo.HighScoresTest" time="0.396" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="p4_group_8_repo.HighScoresTest" time="0.502" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="13"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="MY"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-13.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\user\AppData\Local\Temp\surefire1767465706356531162\surefirebooter3163430642661690872.jar C:\Users\user\AppData\Local\Temp\surefire1767465706356531162 2020-12-18T22-35-18_576-jvmRun1 surefire17677559185845617604tmp surefire_011015587920728560460tmp"/>
+    <property name="sun.java.command" value="C:\Users\user\AppData\Local\Temp\surefire822064837264479285\surefirebooter500961365245470688.jar C:\Users\user\AppData\Local\Temp\surefire822064837264479285 2020-12-18T23-50-17_771-jvmRun1 surefire6457853460044325559tmp surefire_09468355925165713833tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\target\test-classes;C:\Users\user\Desktop\Practical\Programming Paradigms\Java\COMP2042_CW_liewyihseng\target\classes;C:\Users\user\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13-win.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13-win.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13-win.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-media\13\javafx-media-13.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-media\13\javafx-media-13-win.jar;C:\Users\user\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\user\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar;C:\Users\user\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13-win.jar;C:\Users\user\.m2\repository\org\testfx\testfx-junit\4.0.15-alpha\testfx-junit-4.0.15-alpha.jar;C:\Users\user\.m2\repository\org\testfx\testfx-core\4.0.15-alpha\testfx-core-4.0.15-alpha.jar;C:\Users\user\.m2\repository\org\assertj\assertj-core\3.11.1\assertj-core-3.11.1.jar;C:\Users\user\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.0\junit-jupiter-api-5.5.0.jar;C:\Users\user\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\user\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\user\.m2\repository\org\junit\platform\junit-platform-commons\1.5.0\junit-platform-commons-1.5.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\user\AppData\Local\Temp\surefire1767465706356531162\surefirebooter3163430642661690872.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\user\AppData\Local\Temp\surefire822064837264479285\surefirebooter500961365245470688.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="13.0.2+8"/>
@@ -55,6 +55,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="testIsNewHighScore1" classname="p4_group_8_repo.HighScoresTest" time="0.157"/>
-  <testcase name="testIsNewHighScore2" classname="p4_group_8_repo.HighScoresTest" time="0.239"/>
+  <testcase name="testIsNewHighScore1" classname="p4_group_8_repo.HighScoresTest" time="0.251"/>
+  <testcase name="testIsNewHighScore2" classname="p4_group_8_repo.HighScoresTest" time="0.251"/>
 </testsuite>
