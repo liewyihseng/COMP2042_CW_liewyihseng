@@ -1,4 +1,5 @@
 
+
 # Frogger Arcade
 ##### Name		: Liew Yih Seng 
 ##### Student Id: 20090325
@@ -55,7 +56,7 @@
 		in the src/main/java/group_8_repo.controller package while their views are
 		being stored in the src/main/resources/views folder.
 
-2.	Added levels to the GameScene.
+2.	Added levels to GameScene.
 	-	Initially the program comes with only one level, now the game has 10 levels 
 		with 10 different difficulties.
 	-	As the user's level increases, the speed of the moving obstacles increases.
@@ -65,8 +66,7 @@
 	- 	Snake obstacle will be introduced after level 4.
 
 
-###Installation
-
-
-
- 
+### Installation
+1. Launch Terminal and navigate it to the root of the project.
+2. If user has maven installed, they can execute 'mvn clean install'.
+3. After execution of the goal, simply run 'mvn exec:java'.
