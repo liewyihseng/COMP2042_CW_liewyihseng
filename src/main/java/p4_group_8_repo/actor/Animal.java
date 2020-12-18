@@ -15,18 +15,6 @@ import p4_group_8_repo.actor.obstacle.Obstacle;
 public class Animal extends Actor {
 	static final int IMGSIZE = 40;
 	
-	
-	
-//	Image imgW1 = new Image("file:src/main/resources/images/FrogAnimation/froggerUp.png", IMGSIZE, IMGSIZE, true, true);
-//	Image imgA1 = new Image("file:src/main/resources/images/FrogAnimation/froggerLeft.png", IMGSIZE, IMGSIZE, true, true);
-//	Image imgS1 = new Image("file:src/main/resources/images/FrogAnimation/froggerDown.png", IMGSIZE, IMGSIZE, true, true);
-//	Image imgD1 = new Image("file:src/main/resources/images/FrogAnimation/froggerRight.png", IMGSIZE, IMGSIZE, true, true);
-//	Image imgW2 = new Image("file:src/main/resources/images/FrogAnimation/froggerUpJump.png", IMGSIZE, IMGSIZE, true, true);
-//	Image imgA2 = new Image("file:src/main/resources/images/FrogAnimation/froggerLeftJump.png", IMGSIZE, IMGSIZE, true, true);
-//	Image imgS2 = new Image("file:src/main/resources/images/FrogAnimation/froggerDownJump.png", IMGSIZE, IMGSIZE, true, true);
-//	Image imgD2 = new Image("file:src/main/resources/images/FrogAnimation/froggerRightJump.png", IMGSIZE, IMGSIZE, true, true);
-	
-	
 	Image imgW1 = frogMovementImg("froggerUp.png");
 	Image imgA1 = frogMovementImg("froggerLeft.png");
 	Image imgS1 = frogMovementImg("froggerDown.png");
