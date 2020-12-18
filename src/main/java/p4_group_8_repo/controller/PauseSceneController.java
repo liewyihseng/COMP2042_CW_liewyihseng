@@ -11,7 +11,7 @@ import p4_group_8_repo.Main;
  * @author Liew Yih Seng
  *
  */
-public class PauseSceneController implements PagesNav{
+public class PauseSceneController implements PagesNavAbstractFactory{
 	@FXML
 	private Pane pauseRoot;
 	

@@ -2,6 +2,12 @@ package p4_group_8_repo.controller;
 
 import javafx.scene.input.MouseEvent;
 
+/**
+ * An interface that acts an abstract factory for creating high score pages families of related or dependent objects
+ * without specifying the concrete class.
+ * @author Liew Yih Seng
+ *
+ */
 public interface HighScoreControllerAbstractFactory {
 
 	/**

@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
  * @author Liew Yih Seng
  *
  */
-public class MenuSceneController implements PagesNav{
+public class MenuSceneController implements PagesNavAbstractFactory{
 	@FXML
 	private Pane menuRoot;
 	

@@ -3,7 +3,10 @@ package p4_group_8_repo.actor.obstacle;
 import p4_group_8_repo.actor.Actor;
 
 /**
- * An abstract class that extends the {@link p4_group_8_repo.actor.Actor} that represents
+ * An abstract class that extends the {@link p4_group_8_repo.actor.Actor} and 
+ * adheres the prototype design pattern. A prototype design pattern in this class
+ * help us developers to hide the complexity of making new
+ * instances out of this class. This class will represent
  * objects that will cause death to the frog when it hits the frog during game play.
  * @author Liew Yih Seng
  *

@@ -10,7 +10,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import p4_group_8_repo.Main;
 import p4_group_8_repo.user.HighScores;
-import p4_group_8_repo.user.User;
 
 /**
  * A controller that handles all events within the In Game High Score Scene.

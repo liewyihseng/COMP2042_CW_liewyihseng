@@ -12,7 +12,7 @@ import p4_group_8_repo.user.User;
  * @author Liew Yih Seng
  *
  */
-public class BetweenLevelSceneController implements PagesNav {
+public class BetweenLevelSceneController implements PagesNavAbstractFactory {
 	
 	@FXML
 	private Pane betweenLevelRoot;
